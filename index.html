@@ -1341,7 +1341,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div style="position: relative;">
 
 <!-- Carrossel Simples de Banners (Full Width) -->
-<section id="banners-ajudda">
+<section id="banners-ajudda" style="margin-bottom: 0px;">
   <div id="carouselBanners" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <!-- Indicadores -->
     <div class="carousel-indicators">
@@ -1396,189 +1396,374 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-  <!-- Second Section -->
-  <section class="card-section" style="margin-bottom:0; margin-top: -120px;">
-      <div class="card-container">
-          <div class="card-column">
-              <h1 class="card-title">Cartão Ajudda Card</h1>
-              <p class="card-description">Os descontos em exames, consultas e medicamentos que você e sua família merecem a um clique de distância. <br>Planos a partir de <strong>R$ 30,00.</strong></p>
+  <!-- Second Section - Estilo DASA -->
+<section class="card-section" style="background-color: #45ba98; padding: 20px 0; margin-top: -120px; margin-bottom: 0;">
+  <div class="container">
+      <div class="row align-items-center">
+          <!-- Coluna de texto (esquerda) -->
+          <div class="col-lg-6 text-white">
+              <h1 class="card-title" style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: white;">IBVCard</h1>
+              <p class="card-description" style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem; color: white;">
+                  Descontos em medicamentos, exames, odontologia e telemedicina para cuidar da sua saúde sem pesar no bolso.
+                  <strong>Planos a partir de R$ 30,00.</strong>
+              </p>
               
-              <div class="card-buttons">
-                  <a href="https://wa.me/5585984415490" target="_blank" class="card-btn btn-outline">Já é assinante?</a>
-                  <a href="https://wa.me/5585984415490" class="card-btn btn-solid">Assine agora</a>
+              <div class="card-buttons d-flex gap-3">
+                  <a href="https://wa.me/5585984415490" target="_blank" class="btn btn-outline-light btn-lg px-4" style="border: 2px solid white;">
+                      Já é assinante?
+                  </a>
+                  <a href="https://wa.me/5585984415490" class="btn btn-light btn-lg px-4" style="color: #45ba98; font-weight: 600;">
+                      Assine agora
+                  </a>
               </div>
           </div>
           
-          <div class="card-column">
-            <ul class="benefits-list">
-                <li style="border-bottom: 1px solid rgba(98, 16, 122, 0.3); padding-bottom: 12px; margin-bottom: 12px;">
-                    <i class="fas fa-check" style="margin-top: 5px; margin-right: 4px;"></i>
-                    <span>Acesso a diversas especialidades;</span>
-                </li>
-                <li style="border-bottom: 1px solid rgba(98, 16, 122, 0.3); padding-bottom: 12px; margin-bottom: 12px;">
-                    <i class="fas fa-check" style="margin-top: 5px; margin-right: 4px;"></i>
-                    <span>Utilize imediatamente após a adesão;</span>
-                </li>
-                <li style="border-bottom: 1px solid rgba(98, 16, 122, 0.3); padding-bottom: 12px; margin-bottom: 12px;">
-                    <i class="fas fa-check" style="margin-top: 5px; margin-right: 4px;"></i>
-                    <span>Consultas clínicas aparti de R$34,99;</span>
-                </li>
-                <li style="border-bottom: 1px solid rgba(98, 16, 122, 0.3); padding-bottom: 12px; margin-bottom: 12px;">
-                    <i class="fas fa-check" style="margin-top: 5px; margin-right: 4px;"></i>
-                    <span>Exames de sangue com até 60% de desconto;</span>
-                </li>
-                <li style="border-bottom: 1px solid rgba(98, 16, 122, 0.3); padding-bottom: 12px; margin-bottom: 12px;">
-                    <i class="fas fa-check" style="margin-top: 5px; margin-right: 4px;"></i>
-                    <span>Pacotes cirúrgicos com até 10% de desconto;</span>
-                </li>
-                <li style="padding-bottom: 12px;">
-                    <i class="fas fa-check" style="margin-top: 5px; margin-right: 4px;"></i>
-                    <span>Descontos a partir 30% em medicamentos.</span>
-                </li>
-            </ul>
-        </div>
+          <!-- Coluna da imagem do cartão (direita) -->
+          <div class="col-lg-6 text-center mt-4 mt-lg-0">
+              <img src="assets/img/illustration/cartaodasa.png" alt="Cartão IBVCard" class="img-fluid" style="max-height: 250px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+          </div>
       </div>
-  </section>
-  <style>
-    .ajudda-plans-section {
-      background: #ffffff;
+  </div>
+</section>
+<style>
+  .ibv-plans-section {
+    background: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ibv-plans-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(135deg, #109b80 0%, #674089 100%);
+    z-index: 0;
+  }
+  
+  .ibv-plan-card {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 16px;
+    height: 100%;
+  }
+  
+  .ibv-plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  }
+  
+  .ibv-plan-card.premium {
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .ibv-plan-card.business {
+    background: linear-gradient(135deg, #109b80 0%, #1a5276 100%);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .plan-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 50px;
+  }
+  
+  .plan-icon-container {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .premium .plan-icon-container,
+  .business .plan-icon-container {
+    background: rgba(255,255,255,0.9);
+  }
+  
+  .plan-icon {
+    font-size: 2.8rem;
+    background: linear-gradient(135deg, #109b80 0%, #674089 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .premium .plan-icon,
+  .business .plan-icon {
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  
+  .plan-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+  }
+  
+  .plan-subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 25px;
+  }
+  
+  .plan-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+  }
+  
+  .plan-period {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 25px;
+  }
+  
+  .plan-divider {
+    height: 3px;
+    width: 60px;
+    background: linear-gradient(90deg, #109b80 0%, #674089 100%);
+    margin: 20px auto;
+    border-radius: 3px;
+  }
+  
+  .premium .plan-divider,
+  .business .plan-divider {
+    background: rgba(255,255,255,0.3);
+  }
+  
+  .plan-benefits li {
+    padding-left: 1.8rem;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  
+  .plan-benefits i {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: 1.1rem;
+  }
+  
+  .py-7 {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+  
+  .section-header {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 3rem;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+  }
+  
+  .section-subtitle {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.2rem;
+  }
+  
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .plans-grid {
+      grid-template-columns: 1fr;
     }
-    
-    .ajudda-plan-card {
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      border: 1px solid rgba(0,0,0,0.05);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .ajudda-plan-card:hover {
-      transform: translateY(-5px);
-    }
-    
-    .ajudda-plan-card.bg-primary {
-      background: linear-gradient(135deg, #502b77 0%, #502b77 100%) !important;
-      border-color: rgba(255,255,255,0.1);
-    }
-    
-    .plan-icon {
-      width: 80px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(106,17,203,0.1);
-      border-radius: 50%;
-    }
-    
-    .ajudda-plan-card.bg-primary .plan-icon {
-      background: rgba(255,255,255,0.1);
-    }
-    
-    .plan-title {
-      font-size: 1.8rem;
-      color: #343a40;
-    }
-    
-    .ajudda-plan-card.bg-primary .plan-title {
-      color: white;
-    }
-    
-    .plan-benefits li {
-      padding-left: 1.5rem;
-      position: relative;
-    }
-    
-    .plan-benefits i {
-      position: absolute;
-      left: 0;
-      top: 3px;
-    }
-    
-    .py-6 {
-      padding-top: 5rem !important;
-      padding-bottom: 5rem !important;
-    }
-  </style>
-  <!-- Seção de Planos Ajudda -->
-<section class="ajudda-plans-section py-6" id="planos">
+  }
+</style>
+
+<!-- Seção de Planos IBV Card -->
+<section class="ibv-plans-section py-7" id="planos">
   <div class="container">
-    <div class="row g-4">
-      <!-- Card Básico (Fundo Claro) -->
-      <div class="col-md-6">
-        <div class="ajudda-plan-card bg-white rounded-4 h-100 p-4 p-lg-5">
-          <!-- Cabeçalho com Ícone -->
-          <div class="plan-header text-center mb-4">
-            <div class="plan-icon mx-auto mb-3">
-              <i class="bi bi-heart-pulse" style="font-size: 2.5rem; color: #674089;"></i>
-            </div>
-            <h3 class="plan-title fw-bold">Essencial</h3>
+    <!-- Cabeçalho -->
+    <div class="section-header text-center">
+      <h2 class="section-title">Escolha seu Plano IBV</h2>
+      <p class="section-subtitle">Saúde de qualidade que cabe no seu bolso</p>
+    </div>
+    
+    <!-- Grade de Planos 2x2 -->
+    <div class="plans-grid">
+      <!-- Linha 1 -->
+      <!-- Plano Individual Básico -->
+      <div class="ibv-plan-card bg-white rounded-4 p-4 p-lg-4">
+        <div class="plan-badge bg-light text-dark">Popular</div>
+        
+        <div class="plan-header text-center">
+          <div class="plan-icon-container">
+            <i class="bi bi-person-fill plan-icon"></i>
           </div>
-          
-          <!-- Preço -->
-          <div class="plan-price text-center mb-4">
-            <span class="text-primary">12x R$</span>
-            <span class="fw-bold text-primary" style="font-size: 2rem;">30,00/mês</span>
-          </div>
-          
-          <!-- Benefícios -->
-          <ul class="plan-benefits list-unstyled mb-4">
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Até 3 dependentes sem custo adicional</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Cirurgias com até 30% de desconto</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Exames com até 80% de desconto</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Medicamentos a partir de 30% de desconto</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Telemedicina (c/ taxa adicional)</li>
-            <li class="mb-2"><i class="bi bi-x-circle-fill text-primary me-2"></i> Sem pronto socorro 24h</li>
-          </ul>
-          
-          <!-- Botões -->
-          <div class="plan-actions text-center">
-            <a href="https://wa.me/5585984415490" class="btn btn-primary btn-lg rounded-pill px-4 mb-2 w-100">
-              Assine agora
-            </a>
-            <p class="small text-muted mb-0">
-              ou tire dúvidas via <a href="https://wa.me/5585984415490" class="text-decoration-underline">WhatsApp</a>
-            </p>
-          </div>
+          <h3 class="plan-title">Individual</h3>
+          <p class="plan-subtitle">Básico</p>
+        </div>
+        
+        <div class="plan-price text-center text-primary">R$19,90</div>
+        <div class="plan-period text-center text-muted">por mês</div>
+        
+        <div class="plan-divider"></div>
+        
+        <ul class="plan-benefits list-unstyled mb-4">
+          <li><i class="bi bi-check-circle-fill text-success"></i> 1 titular</li>
+          <li><i class="bi bi-check-circle-fill text-success"></i> Consultas a partir de R$49,90</li>
+          <li><i class="bi bi-check-circle-fill text-success"></i> Exames com até 60% OFF</li>
+          <li><i class="bi bi-check-circle-fill text-success"></i> Medicamentos com 30% OFF</li>
+          <li><i class="bi bi-x-circle-fill text-secondary"></i> Sem telemedicina inclusa</li>
+          <li><i class="bi bi-x-circle-fill text-secondary"></i> Sem pronto socorro 24h</li>
+        </ul>
+        
+        <div class="plan-actions text-center mt-auto">
+          <a href="https://wa.me/5585984415490" class="btn btn-primary btn-lg rounded-pill px-4 w-100">
+            Contratar
+          </a>
         </div>
       </div>
       
-      <!-- Card Premium (Fundo Escuro) -->
-      <div class="col-md-6">
-        <div class="ajudda-plan-card bg-primary text-white rounded-4 h-100 p-4 p-lg-5">
-          <!-- Cabeçalho com Ícone -->
-          <div class="plan-header text-center mb-4">
-            <div class="plan-icon mx-auto mb-3">
-              <i class="bi bi-shield-plus" style="font-size: 2.5rem; color: white;"></i>
-            </div>
-            <h3 class="plan-title fw-bold">Premium</h3>
+      <!-- Plano Individual Plus -->
+      <div class="ibv-plan-card bg-white rounded-4 p-4 p-lg-4">
+        <div class="plan-badge bg-warning text-dark">Recomendado</div>
+        
+        <div class="plan-header text-center">
+          <div class="plan-icon-container">
+            <i class="bi bi-person-plus-fill plan-icon"></i>
           </div>
-          
-          <!-- Preço -->
-          <div class="plan-price text-center mb-4">
-            <span class="text-white-50">12x R$</span>
-            <span class="fw-bold text-white" style="font-size: 2rem;">45,00/mês</span>
+          <h3 class="plan-title">Individual</h3>
+          <p class="plan-subtitle">Plus</p>
+        </div>
+        
+        <div class="plan-price text-center text-primary">R$27,90</div>
+        <div class="plan-period text-center text-muted">por mês</div>
+        
+        <div class="plan-divider"></div>
+        
+        <ul class="plan-benefits list-unstyled mb-4">
+          <li><i class="bi bi-check-circle-fill text-success"></i> 1 titular</li>
+          <li><i class="bi bi-check-circle-fill text-success"></i> Consultas a partir de R$39,90</li>
+          <li><i class="bi bi-check-circle-fill text-success"></i> Exames com até 70% OFF</li>
+          <li><i class="bi bi-check-circle-fill text-success"></i> Medicamentos com 35% OFF</li>
+          <li><i class="bi bi-check-circle-fill text-success"></i> Telemedicina ilimitada</li>
+          <li><i class="bi bi-check-circle-fill text-success"></i> Pronto socorro online 24h</li>
+        </ul>
+        
+        <div class="plan-actions text-center mt-auto">
+          <a href="https://wa.me/5585984415490" class="btn btn-primary btn-lg rounded-pill px-4 w-100">
+            Contratar
+          </a>
+        </div>
+      </div>
+      
+      <!-- Linha 2 -->
+      <!-- Plano Familiar Básico -->
+      <div class="ibv-plan-card premium rounded-4 p-4 p-lg-4">
+        <div class="plan-header text-center">
+          <div class="plan-icon-container">
+            <i class="bi bi-people-fill plan-icon"></i>
           </div>
-          
-          <!-- Benefícios -->
-          <ul class="plan-benefits list-unstyled mb-4">
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-white me-2"></i> Até 3 dependentes sem custo adicional</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-white me-2"></i> Exames com até 80% de desconto</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-white me-2"></i> Cirurgias com até 30% de desconto</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-white me-2"></i> Medicamentos aparti de 30% de desconto</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-white me-2"></i> Telemedicina ilimitada</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-white me-2"></i> Pronto socorro 24h online</li>
-          </ul>
-          
-          <!-- Botões -->
-          <div class="plan-actions text-center">
-            <a href="https://wa.me/5585984415490" class="btn btn-light btn-lg rounded-pill px-4 mb-2 w-100">
-              Assine agora
-            </a>
-            <p class="small text-white-50 mb-0">
-              ou tire dúvidas via <a href="https://wa.me/5585984415490" class="text-white text-decoration-underline">WhatsApp</a>
-            </p>
+          <h3 class="plan-title text-white">Familiar</h3>
+          <p class="plan-subtitle text-white-50">Básico</p>
+        </div>
+        
+        <div class="plan-price text-center text-white">R$29,90</div>
+        <div class="plan-period text-center text-white-50">por mês</div>
+        
+        <div class="plan-divider"></div>
+        
+        <ul class="plan-benefits list-unstyled mb-4">
+          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> 1 titular + 3 dependentes</li>
+          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Consultas a partir de R$44,90</li>
+          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Exames com até 65% OFF</li>
+          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Medicamentos com 40% OFF</li>
+          <li class="text-white-50"><i class="bi bi-x-circle-fill text-white-50"></i> Sem telemedicina inclusa</li>
+          <li class="text-white-50"><i class="bi bi-x-circle-fill text-white-50"></i> Sem pronto socorro 24h</li>
+        </ul>
+        
+        <div class="plan-actions text-center mt-auto">
+          <a href="https://wa.me/5585984415490" class="btn btn-light btn-lg rounded-pill px-4 w-100">
+            Contratar
+          </a>
+        </div>
+      </div>
+      
+      <!-- Plano Familiar Plus -->
+      <div class="ibv-plan-card premium rounded-4 p-4 p-lg-4">
+        <div class="plan-badge bg-white text-dark">Melhor Custo-Benefício</div>
+        
+        <div class="plan-header text-center">
+          <div class="plan-icon-container">
+            <i class="bi bi-people-fill plan-icon"></i>
           </div>
+          <h3 class="plan-title text-white">Familiar</h3>
+          <p class="plan-subtitle text-white-50">Plus</p>
+        </div>
+        
+        <div class="plan-price text-center text-white">R$39,90</div>
+        <div class="plan-period text-center text-white-50">por mês</div>
+        
+        <div class="plan-divider"></div>
+        
+        <ul class="plan-benefits list-unstyled mb-4">
+          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> 1 titular + 3 dependentes</li>
+          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Consultas a partir de R$34,90</li>
+          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Exames com até 75% OFF</li>
+          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Medicamentos com 45% OFF</li>
+          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Telemedicina ilimitada</li>
+          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Pronto socorro online 24h</li>
+        </ul>
+        
+        <div class="plan-actions text-center mt-auto">
+          <a href="https://wa.me/5585984415490" class="btn btn-light btn-lg rounded-pill px-4 w-100">
+            Contratar
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Plano Empresarial -->
+    <div class="ibv-plan-card business rounded-4 p-5 mt-4">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <div class="plan-header">
+            <h3 class="plan-title text-white mb-2">Empresarial</h3>
+            <p class="plan-subtitle text-white-50 mb-4">Soluções personalizadas para sua empresa</p>
+            
+            <ul class="plan-benefits list-unstyled">
+              <li class="text-white mb-3"><i class="bi bi-check-circle-fill text-white me-2"></i> Planos sob medida para sua equipe</li>
+              <li class="text-white mb-3"><i class="bi bi-check-circle-fill text-white me-2"></i> Descontos progressivos por volume</li>
+              <li class="text-white mb-3"><i class="bi bi-check-circle-fill text-white me-2"></i> Portal de gestão de benefícios</li>
+              <li class="text-white"><i class="bi bi-check-circle-fill text-white me-2"></i> Relatórios de utilização</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-4 text-center text-md-end">
+          <a href="https://wa.me/5585984415490" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3">
+            Fale com um consultor
+          </a>
         </div>
       </div>
     </div>
@@ -1671,92 +1856,91 @@ document.addEventListener('DOMContentLoaded', function() {
 </style>
 
 
-<!-- Seção de Benefícios Ajudda -->
-<section class="ajudda-benefits py-6" style="background: linear-gradient(135deg, #109b80 0%, #674089 100%);">
+<!-- Seção de Benefícios IBV Card -->
+<section class="ibv-benefits py-6" style="background: linear-gradient(135deg, #109b80 0%, #674089 100%);">
   <div class="container position-relative">
     <div class="text-center mb-6">
-      <h2 class="display-4 fw-bold text-white mb-3">Benefícios Exclusivos</h2>
+      <h2 class="display-4 fw-bold text-white mb-3">Vantagens do IBV Card</h2>
       <p class="lead text-white-50">Tudo que você precisa para cuidar da sua saúde com qualidade e economia</p>
     </div>
    
-    
     <div class="owl-carousel owl-theme benefits-carousel">
-      <!-- Benefício 1 - Consultas -->
+      <!-- Card 1 - Saúde Fácil -->
       <div class="item">
         <div class="benefit-card p-4 p-lg-4 rounded-4 position-relative h-100">
           <div class="benefit-image mb-4">
-            <img src="assets/img/illustration/coracao-lilas.jpeg" alt="Consultas médicas" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
+            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Saúde Fácil" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
+          </div>
+          <h4 class="text-white mb-3">Saúde Fácil</h4>
+          <p class="text-white-50 mb-0">Com o IBV Card, você tem acesso imediato a cuidados de saúde com valores justos, zero carência e uso totalmente descomplicado.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 - Consultas Acessíveis -->
+      <div class="item">
+        <div class="benefit-card p-4 p-lg-4 rounded-4 position-relative h-100">
+          <div class="benefit-image mb-4">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Consultas Acessíveis" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
           </div>
           <h4 class="text-white mb-3">Consultas Acessíveis</h4>
-          <p class="text-white-50 mb-0">Fale com médicos de verdade, pagando um valor justo e acessível. Chega de esperar meses ou pagar caro pra cuidar de você.</p>
+          <p class="text-white-50 mb-0">Agende consultas médicas com preços reduzidos, em clínicas parceiras de qualidade, sem burocracia.</p>
         </div>
       </div>
 
-      <!-- Benefício 2 - Exames -->
+      <!-- Card 3 - Exames com Desconto -->
       <div class="item">
         <div class="benefit-card p-4 p-lg-4 rounded-4 position-relative h-100">
           <div class="benefit-image mb-4">
-            <img src="assets/img/illustration/cartao-verde.jpeg" alt="Exames médicos" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Exames com Desconto" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
           </div>
-          <h4 class="text-white mb-3">Desconto em medicamentos</h4>
-          <p class="text-white-50 mb-0">Nas farmácias Pague menos e Extrafarma, seu Ajudda vale dinheiro. Basta mostrar o CPF para garantir desconto real em medicamentos essenciais. </p>
+          <h4 class="text-white mb-3">Exames com Desconto</h4>
+          <p class="text-white-50 mb-0">Faça seus exames com até 60% OFF em laboratórios e clínicas credenciadas. Economia que faz a diferença no seu bolso!</p>
         </div>
       </div>
 
-      <!-- Benefício 3 - Medicamentos -->
+      <!-- Card 4 - Medicamentos Acessíveis -->
       <div class="item">
         <div class="benefit-card p-4 p-lg-4 rounded-4 position-relative h-100">
           <div class="benefit-image mb-4">
-            <img src="assets/img/illustration/calendário.jpeg" alt="Medicamentos" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
+            <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Medicamentos Acessíveis" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
           </div>
-          <h4 class="text-white mb-3">Agende no App</h4>
-          <p class="text-white-50 mb-0">Nada de fila ou ligação. Marque consulta, exame ou até desconto em segundos — direto pelo celular, onde estiver.</p>
+          <h4 class="text-white mb-3">Medicamentos Acessíveis</h4>
+          <p class="text-white-50 mb-0">Com o IBV, você garante descontos em medicamentos direto nas farmácias conveniadas. É só apresentar seu cartão.</p>
         </div>
       </div>
 
-      <!-- Benefício 4 - Telemedicina -->
+      <!-- Card 5 - Telemedicina Inclusa -->
       <div class="item">
         <div class="benefit-card p-4 p-lg-4 rounded-4 position-relative h-100">
           <div class="benefit-image mb-4">
-            <img src="assets/img/illustration/cadeado-amarelo.jpeg" alt="Telemedicina" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Telemedicina Inclusa" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
           </div>
-          <h4 class="text-white mb-3">Use na Hora</h4>
-          <p class="text-white-50 mb-0">Ativou hoje, usou hoje. A saúde não pode esperar e aqui você também não precisa. Sem carência, sem enrolação.</p>
+          <h4 class="text-white mb-3">Telemedicina Inclusa</h4>
+          <p class="text-white-50 mb-0">No plano Plus, você tem acesso a consultas online com profissionais qualificados — atendimento rápido, prático e seguro.</p>
         </div>
       </div>
 
-      <!-- Benefício 5 - Família -->
+      <!-- Card 6 - Sorriso em Dia -->
       <div class="item">
         <div class="benefit-card p-4 p-lg-4 rounded-4 position-relative h-100">
           <div class="benefit-image mb-4">
-            <img src="assets/img/illustration/medico-azul.jpeg" alt="Proteção familiar" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
+            <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sorriso em Dia" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
           </div>
-          <h4 class="text-white mb-3">Inclua a Família</h4>
-          <p class="text-white-50 mb-0">Com um só cartão, você pode cuidar de até 5 pessoas. Saúde acessível para quem você ama, sem pagar a mais por isso.</p>
+          <h4 class="text-white mb-3">Sorriso em Dia</h4>
+          <p class="text-white-50 mb-0">Tenha acesso a tratamentos odontológicos com valores mais acessíveis e sem comprometer a qualidade do seu atendimento.</p>
         </div>
       </div>
 
-      <!-- Benefício 6 - Rede Credenciada -->
-     
+      <!-- Card 7 - Vantagens Extras -->
       <div class="item">
         <div class="benefit-card p-4 p-lg-4 rounded-4 position-relative h-100">
           <div class="benefit-image mb-4">
-            <img src="assets/img/illustration/familia-ajudda.jpeg" alt="Rede credenciada" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Vantagens Extras" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
           </div>
-          <h4 class="text-white mb-3">Rede de Qualidade</h4>
-          <p class="text-white-50 mb-0">Mais de 90 parceiros entre clínicas e farmácias, com atendimento humanizado e profissionais de confiança perto de você.</p>
+          <h4 class="text-white mb-3">Vantagens Extras</h4>
+          <p class="text-white-50 mb-0">Descontos em óculos, parcerias especiais e uma rede que vai além do básico. Com IBV, o cuidado é completo.</p>
         </div>
       </div>
-      <div class="item">
-        <div class="benefit-card p-4 p-lg-4 rounded-4 position-relative h-100">
-          <div class="benefit-image mb-4">
-            <img src="assets/img/icons/7.png" alt="Rede credenciada" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid rgba(255,255,255,0.2);">
-          </div>
-          <h4 class="text-white mb-3">Controle Total</h4>
-          <p class="text-white-50 mb-0">Você no comando da sua saúde. Histórico, agendamentos, benefícios e economia: tudo organizado no app, sem complicação.</p>
-        </div>
-      </div>
-    
     </div>
   </div>
 </section>
@@ -2117,32 +2301,33 @@ document.addEventListener('DOMContentLoaded', function() {
                     <img class="w-100 rounded-3 card-animation" src="assets/img/illustration/cartao-movimento2.PNG" alt="Consulta médica Ajudda" style="padding-bottom: 2px;">
                 </div>
           
-                <!-- Texto à direita -->
-                <div class="col-md-6 text-md-start text-center">
-                    <!-- Título impactante -->
-                    <h1 class="fw-bold text-c-dark mb-0" data-zanim-xs='{"delay":0.2}' data-zanim-trigger="scroll">
-                        Com Ajudda fica</h1><h1 style="color:#9e6fff; margin-top: 0;" >mais fácil!</h1>
-                    </h1>
-          
-                    <!-- Subtítulo -->
-                    <p class="fs-1 text-c-body mb-4">
-                        Por uma mensalidade que cabe no seu bolso, você tem acesso a consultas, exames, descontos em farmácias e muito mais.<br>
-                        <strong>Sem burocracia > Sem sustos > Sem enrolação.</strong>
-                    </p>
-          
-                    <!-- Lista de benefícios -->
-                    <ul class="list-unstyled text-c-body fs-1 mb-4">
-                        <li class="mb-2">💜 Consultas médicas presenciais e online</li>
-                        <li class="mb-2">💜 Exames com preços que você nunca viu</li>
-                        <li class="mb-2">💜 Descontos reais em farmácias</li>
-                        <li class="mb-2">💜 Sem carência, sem pegadinhas, sem limite de uso</li>
-                        <li>💜 Tudo na palma da mão, no nosso app</li>
-                    </ul>
-          
-                    <!-- Chamada final -->
-                    <p class="fw-semibold text-c-brand fs-1 mb-4">
-                        🚀 Vem pra Ajudda. Sua saúde mais simples, mais rápida e mais acessível.
-                    </p>
+              <!-- Texto à direita -->
+<div class="col-md-6 text-md-start text-center">
+  <!-- Título impactante -->
+  <h1 class="fw-bold text-c-dark mb-0" data-zanim-xs='{"delay":0.2}' data-zanim-trigger="scroll">
+      Com o IBV Card, você não tá sozinho.</h1>
+  </h1>
+
+  <!-- Subtítulo -->
+  <p class="fs-1 text-c-body mb-4">
+      Por um valor que cabe no seu bolso, você e sua família têm acesso a saúde de verdade: consultas, exames, medicamentos e cuidados que fazem diferença no dia a dia.<br>
+      <strong>Sem complicação › Sem promessas vazias › Sem estresse.</strong>
+  </p>
+
+  <!-- Lista de benefícios -->
+  <ul class="list-unstyled text-c-body fs-1 mb-4">
+      <li class="mb-2">💜 Consultas presenciais ou por telemedicina</li>
+      <li class="mb-2">💜 Exames com até 60% de desconto</li>
+      <li class="mb-2">💜 Descontos reais em farmácias</li>
+      <li class="mb-2">💜 Sem carência, sem limite de uso, sem susto</li>
+      <li>💜 Tudo fácil, direto no app</li>
+  </ul>
+
+  <!-- Chamada final -->
+  <p class="fw-semibold text-c-brand fs-1 mb-4">
+      🚀 Vem pro IBV. Cuidar da saúde pode — e deve — ser simples, leve e possível pra todo mundo.
+  </p>
+</div>
           
                     <!-- Botões -->
                     <div class="d-flex flex-column flex-md-row align-items-center gap-2">
