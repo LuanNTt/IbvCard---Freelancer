@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínicas Credenciadas - Ajudda Card</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS (Mapa) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    
+    <style>
+        :root {
+            /* Paleta de cores */
+            --roxo-primario: #4e20b0;
+            --roxo-secundario: #7146ce;
+            --roxo-claro: #ece8f5;
+            --branco: #ffffff;
+            --cinza-claro: #f8f9fa;
+            --cinza-texto: #6c757d;
+            --preto: #212529;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--preto);
+            background-color: var(--branco);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar {
+            background-color: var(--roxo-primario) !important;
+            transition: all 0.3s ease;
+            padding: 4px 0;
+        }
+        
+        .navbar-brand img {
+            height: 35px;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-size: 20px !important;
+            transition: all 0.3s;
+            font-weight: 700;
+            padding: 8px 15px !important;
+        }
+        
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+        
+        .btn-primary {
+            background-color: var(--roxo-primario);
+            border-color: var(--roxo-primario);
+            font-weight: 600;
+            padding: 8px 20px;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--roxo-secundario);
+            border-color: var(--roxo-secundario);
+        }
+        
+        .btn-outline-primary {
+            color: var(--roxo-primario);
+            border-color: var(--roxo-primario);
+            font-weight: 600;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--roxo-primario);
+            border-color: var(--roxo-primario);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero-clinicas {
+            background: linear-gradient(135deg, var(--roxo-primario) 0%, var(--roxo-secundario) 100%);
+            color: var(--branco);
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-clinicas::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero-clinicas .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-clinicas h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-clinicas p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Seção de Busca */
+        .section-busca {
+            padding: 40px 0;
+            background-color: var(--roxo-claro);
+            margin-top: -30px;
+            position: relative;
+            z-index: 2;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .search-card {
+            background: var(--branco);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* Seção de Resultados */
+        .section-resultados {
+            padding: 60px 0;
+            background-color: var(--branco);
+        }
+        
+        .filtro-sidebar {
+            background: var(--branco);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .filtro-title {
+            font-size: 1.2rem;
+            color: var(--roxo-primario);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--roxo-claro);
+            font-weight: 600;
+        }
+        
+        .form-check-label {
+            cursor: pointer;
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--roxo-primario);
+            border-color: var(--roxo-primario);
+        }
+        
+        .clinica-card {
+            background: var(--branco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .clinica-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .clinica-img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+        }
+        
+        .clinica-body {
+            padding: 20px;
+        }
+        
+        .clinica-title {
+            font-size: 1.3rem;
+            color: var(--roxo-primario);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .clinica-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--cinza-texto);
+        }
+        
+        .clinica-meta i {
+            color: var(--roxo-primario);
+        }
+        
+        .clinica-link {
+            color: var(--roxo-primario);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+        
+        .clinica-link:hover {
+            color: var(--roxo-secundario);
+        }
+        
+        .badge-especialidade {
+            background-color: var(--roxo-claro);
+            color: var(--roxo-primario);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        
+        /* Mapa */
+        #mapa-clinicas {
+            height: 400px;
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        /* Paginação */
+        .pagination .page-link {
+            color: var(--roxo-primario);
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: var(--roxo-primario);
+            border-color: var(--roxo-primario);
+            color: white;
+        }
+        
+        /* Seção de Credenciamento */
+        .section-credenciamento {
+            background-color: var(--roxo-claro);
+            padding: 60px 0;
+        }
+        
+        .credenciamento-card {
+            background: var(--branco);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .credenciamento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .credenciamento-icon {
+            font-size: 3rem;
+            color: var(--roxo-primario);
+            margin-bottom: 1.5rem;
+        }
+        
+        .credenciamento-title {
+            font-size: 1.5rem;
+            color: var(--roxo-primario);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--roxo-primario) 0%, var(--roxo-secundario) 100%);
+            color: var(--branco);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            color: white !important;
+        }
+        
+        .footer-about {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .footer-links h3 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--branco);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: var(--branco);
+            font-size: 1.2rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-links a:hover {
+            opacity: 1;
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+        }
+        
+        /* Botão flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .whatsapp-button {
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-button img {
+            width: 35px;
+            height: 35px;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .hero-clinicas h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-clinicas p {
+                font-size: 1rem;
+            }
+            
+            .section-busca {
+                margin-top: -20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-clinicas {
+                padding: 80px 0 40px;
+            }
+            
+            .hero-clinicas h1 {
+                font-size: 1.8rem;
+            }
+            
+            .search-card {
+                padding: 20px;
+            }
+            
+            .filtro-sidebar {
+                position: relative;
+                top: 0;
+                margin-bottom: 30px;
+            }
+            
+            #mapa-clinicas {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-clinicas {
+                padding: 70px 0 30px;
+            }
+            
+            .hero-clinicas h1 {
+                font-size: 1.6rem;
+            }
+            
+            .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+        /* Novos estilos para os filtros */
+.filtros-container {
+   
+    top: 80px;
+    z-index: 10;
+    background-color: var(--branco);
+    padding-top: 15px;
+    margin-top: -15px;
+}
+
+.filtros-collapse {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.filtro-group {
+    background-color: var(--roxo-claro);
+    border-radius: 8px;
+    padding: 15px;
+    height: 100%;
+}
+
+.filtro-group-title {
+    font-size: 1rem;
+    color: var(--roxo-primario);
+    margin-bottom: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 992px) {
+    .filtros-container {
+        top: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .filtros-container {
+        top: 60px;
+    }
+    
+    .filtro-group {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .filtros-container {
+        top: 55px;
+    }
+    
+    .d-flex.justify-content-between.align-items-center.mb-3 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .d-flex.justify-content-between.align-items-center.mb-3 > div {
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+    #toggleFiltros {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .dropdown.d-inline-block {
+        width: 100%;
+    }
+    
+    .dropdown.d-inline-block .dropdown-toggle {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Botão flutuante do WhatsApp -->
+    <div class="whatsapp-float">
+        <div class="whatsapp-button" id="whatsappButton">
+            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top pt-3 mb-0" style="background-color: #4e20b0 !important;">
+        <div class="container-fluid px-5">
+            <!-- Logo alinhada à esquerda -->
+            <a class="navbar-brand me-auto" href="index.html">
+                <img src="assets/img/illustration/ajudda-logo-branca (1).png" height="35" alt="logo" />
+            </a>
+    
+            <!-- Botão de menu para mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Itens centrais e botão na direita -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto d-flex gap-4 align-items-center" style="font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; padding: 8px;">
+                    <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="quem-somos.html">Sobre Nós</a></li>
+                    <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="parceiros.html">Quero ser Parceiro</a></li>
+                    <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="clinicas-credenciadas.html">Clínicas credenciadas</a></li>
+                </ul>
+                
+                <!-- Botão na extrema direita -->
+                <button id="meuBotaoModal" class="btn btn-primary" style="background-color: #6a11cb !important; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+                    Agendar Demonstração
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <style>
+        /* Estilos personalizados para o modal */
+        .modal-custom {
+            display: none; /* Adicionado para esconder inicialmente */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-custom-content {
+            background-color: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.3s;
+            overflow: hidden;
+        }
+        
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        .modal-custom-header {
+            padding: 20px 25px;
+            background-color: #4e20b0;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+        
+        .logo {
+            height: 100%;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+        }
+        
+        .modal-custom-close {
+            font-size: 32px;
+            cursor: pointer;
+            color: white;
+            transition: color 0.3s;
+        }
+        
+        .modal-custom-close:hover {
+            color: #ece8f5;
+        }
+        
+        .modal-custom-body {
+            padding: 30px;
+            background-color: #f8f9fa;
+        }
+        
+        .modal-custom-footer {
+            padding: 20px 25px;
+            background-color: #e9ecef;
+            text-align: right;
+        }
+        
+        /* Estilos para os campos do formulário */
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #212529;
+            font-size: 16px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            font-size: 16px;
+            height: 50px;
+        }
+        
+        .form-control:focus {
+            border-color: #7146ce;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(110, 33, 177, 0.2);
+        }
+        
+        /* Estilos para os botões */
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            height: 50px;
+        }
+        
+        .btn-primary {
+            background-color: #4e20b0;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3a1890;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: #e9ecef;
+            color: #212529;
+            margin-right: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d1d7dc;
+        }
+        </style>
+        
+        <!-- Modal (deve ficar preferencialmente no final do body) -->
+        <div id="meuModal" class="modal-custom" style="display: none;">
+            <div class="modal-custom-content">
+                <div class="modal-custom-header">
+                    <div class="logo-container">
+                        <img src="assets/img/illustration/ajudda-logo-branca (1).png" alt="Ajudda Card Logo" class="logo">
+                    </div>
+                    <span class="modal-custom-close">&times;</span>
+                </div>
+                <div class="modal-custom-body">
+                    <form id="formDemonstracao">
+                        <div class="form-group">
+                            <label for="nomeRepresentante">Nome do Representante</label>
+                            <input type="text" class="form-control" id="nomeRepresentante" placeholder="Seu nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Empresa</label>
+                            <input type="text" class="form-control" id="empresa" placeholder="Nome da sua empresa" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" class="form-control" id="email" placeholder="seu@email.com" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-custom-footer">
+                    <button class="btn btn-secondary" id="btnCancelar">Cancelar</button>
+                    <button class="btn btn-primary" id="btnEnviar">Enviar</button>
+                </div>
+            </div>
+        </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('meuModal');
+            const btn = document.getElementById('meuBotaoModal');
+            const span = document.querySelector('.modal-custom-close');
+            const btnCancelar = document.getElementById('btnCancelar');
+            const btnEnviar = document.getElementById('btnEnviar');
+            
+            // Abre o modal
+            btn.onclick = function() {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Fecha o modal
+            function fecharModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Fecha o modal ao clicar no X
+            span.onclick = fecharModal;
+            
+            // Fecha o modal ao clicar no botão Cancelar
+            btnCancelar.onclick = fecharModal;
+            
+            // Fecha o modal ao clicar fora do conteúdo
+            modal.onclick = function(event) {
+                if (event.target === modal) {
+                    fecharModal();
+                }
+            }
+            
+            // Fecha o modal ao pressionar ESC
+            document.onkeydown = function(event) {
+                if (event.key === 'Escape') {
+                    fecharModal();
+                }
+            }
+            
+            // Envia os dados para o WhatsApp
+            btnEnviar.onclick = function() {
+                const nome = document.getElementById('nomeRepresentante').value;
+                const empresa = document.getElementById('empresa').value;
+                const email = document.getElementById('email').value;
+                
+                if (!nome || !empresa || !email) {
+                    alert('Por favor, preencha todos os campos!');
+                    return;
+                }
+                
+                // Formata a mensagem para o WhatsApp
+                const mensagem = `Olá, gostaria de agendar uma demonstração do Ajudda Card:\n\n` +
+                                `*Nome do Representante:* ${nome}\n` +
+                                `*Empresa:* ${empresa}\n` +
+                                `*E-mail:* ${email}\n\n` +
+                                `Por favor, informe os horários disponíveis.`;
+                
+                // Codifica a mensagem para URL
+                const mensagemCodificada = encodeURIComponent(mensagem);
+                
+                // Cria o link do WhatsApp
+                const urlWhatsApp = `https://wa.me/5585984415490?text=${mensagemCodificada}`;
+                
+                // Abre o WhatsApp em uma nova aba
+                window.open(urlWhatsApp, '_blank');
+                
+                // Fecha o modal
+                fecharModal();
+                
+                // Limpa o formulário
+                document.getElementById('formDemonstracao').reset();
+            }
+        });
+        </script>
+
+    <!-- Hero Section -->
+    <section class="hero-clinicas">
+        <div class="container">
+            <h1>Encontre clínicas credenciadas</h1>
+            <p>Descubra os melhores profissionais e estabelecimentos de saúde perto de você</p>
+        </div>
+    </section>
+
+    <!-- Seção de Busca -->
+    <section class="section-busca">
+        <div class="container">
+            <div class="search-card">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+                            <input type="text" class="form-control border-start-0" id="input-busca" placeholder="Busque por clínica, especialidade ou profissional">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="filtro-estado">
+                            <option selected value="">Todos os estados</option>
+                            <option>Ceará</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="filtro-cidade">
+                            <option selected value="">Todas as cidades</option>
+                            <option>Fortaleza</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Seção de Resultados -->
+<section class="section-resultados">
+    <div class="container">
+        <!-- Barra de Filtros Superior -->
+        <div class="filtros-container mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="mb-0">5 resultados encontrados em <strong>Fortaleza, CE</strong></h4>
+                <div>
+                    <button class="btn btn-outline-primary me-2" type="button" id="toggleFiltros">
+                        <i class="bi bi-funnel"></i> Filtrar
+                    </button>
+                   
+                </div>
+            </div>
+            
+            <div class="filtros-collapse" id="filtrosCollapse">
+                <div class="card card-body border-0 shadow-sm">
+                    <div class="row g-3">
+                        <!-- Especialidades -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="filtro-group">
+                                <h5 class="filtro-group-title">
+                                    <i class="bi bi-heart-pulse me-2"></i> Especialidades
+                                </h5>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="check-otorrino" checked>
+                                            <label class="form-check-label" for="check-otorrino">Otorrinolaringologia</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="check-ortopedia" checked>
+                                            <label class="form-check-label" for="check-ortopedia">Ortopedia</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="check-fisioterapia" checked>
+                                            <label class="form-check-label" for="check-fisioterapia">Fisioterapia</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="check-neurologia" checked>
+                                            <label class="form-check-label" for="check-neurologia">Neurologia</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="check-psiquiatria" checked>
+                                            <label class="form-check-label" for="check-psiquiatria">Psiquiatria</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="check-clinico" checked>
+                                            <label class="form-check-label" for="check-clinico">Clínico Geral</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tipos de Estabelecimento -->
+                        <div class="col-md-6 col-lg-3">
+                            <div class="filtro-group">
+                                <h5 class="filtro-group-title">
+                                    <i class="bi bi-building me-2"></i> Tipos
+                                </h5>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="check-clinica" checked>
+                                    <label class="form-check-label" for="check-clinica">Clínicas</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="check-consultorio" checked>
+                                    <label class="form-check-label" for="check-consultorio">Consultórios</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Ações -->
+                        <div class="col-md-6 col-lg-2 d-flex align-items-end">
+                            <div class="w-100">
+                                <button class="btn btn-primary w-100 mb-2" id="aplicarFiltros">
+                                    Aplicar
+                                </button>
+                                <button class="btn btn-outline-secondary w-100" id="limparFiltros">
+                                    Limpar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lista de Resultados -->
+        <div class="row">
+            <!-- Otomax Saúde -->
+            <div class="col-md-12">
+                <div class="clinica-card">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="assets/img/illustration/otomax-img.png" class="clinica-img w-100 h-40" alt="Otomax Saúde">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="clinica-body">
+                                <h3 class="clinica-title">Otomax Saúde</h3>
+                                <div class="clinica-meta">
+                                    <span><i class="bi bi-geo-alt"></i> R. Des. Lauro Nogueira, 1500 - Papicu, Fortaleza</span>
+                                    <span><i class="bi bi-star-fill text-warning"></i> 4.9</span>
+                                </div>
+                                <div class="mb-3">
+                                    <span class="badge-especialidade">Otorrinolaringologia</span>
+                                    <span class="badge-especialidade">Exames Auditivos</span>
+                                    <span class="badge-especialidade">Cirurgias</span>
+                                </div>
+                                <p>Referência em otorrino, exames auditivos e cirurgias. Atendimento especializado em ouvido, nariz e garganta.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="#" class="clinica-link" data-bs-toggle="modal" data-bs-target="#partnerModal1">Ver detalhes <i class="bi bi-arrow-right"></i></a>
+                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita Ajudda Card</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Clínica Qorpo -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="clinica-card">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="assets/img/illustration/qorpo.png" class="clinica-img w-100 h-40" alt="Clínica Qorpo">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="clinica-body">
+                                <h3 class="clinica-title">Clínica Qorpo</h3>
+                                <div class="clinica-meta">
+                                    <span><i class="bi bi-geo-alt"></i> Av. Senador Virgílio Távora, 195 - Fortaleza</span>
+                                    <span><i class="bi bi-star-fill text-warning"></i> 4.8</span>
+                                </div>
+                                <div class="mb-3">
+                                    <span class="badge-especialidade">Ortopedia</span>
+                                    <span class="badge-especialidade">Fisioterapia</span>
+                                    <span class="badge-especialidade">Reabilitação</span>
+                                </div>
+                                <p>Excelência em ortopedia, fisioterapia e reabilitação. Estrutura moderna e atendimento especializado.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="#" class="clinica-link" data-bs-toggle="modal" data-bs-target="#partnerModal2">Ver detalhes <i class="bi bi-arrow-right"></i></a>
+                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita Ajudda Card</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Clínica Dez -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="clinica-card">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="assets/img/illustration/dez-img.png" class="clinica-img w-100 h-40" alt="Clínica Dez">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="clinica-body">
+                                <h3 class="clinica-title">Clínica Dez (Messejana)</h3>
+                                <div class="clinica-meta">
+                                    <span><i class="bi bi-geo-alt"></i> Rua Alberto Torres, 73 - Messejana, Fortaleza</span>
+                                    <span><i class="bi bi-star-fill text-warning"></i> 4.7</span>
+                                </div>
+                                <div class="mb-3">
+                                    <span class="badge-especialidade">Clínico Geral</span>
+                                    <span class="badge-especialidade">Diversas Especialidades</span>
+                                    <span class="badge-especialidade">Exames</span>
+                                </div>
+                                <p>Centro completo com médicos de várias especialidades. Exames no mesmo lugar, com foco em agilidade e cuidado integral.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="#" class="clinica-link" data-bs-toggle="modal" data-bs-target="#partnerModal3">Ver detalhes <i class="bi bi-arrow-right"></i></a>
+                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita Ajudda Card</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Clínica Cuidar Mais -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="clinica-card">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="assets/img/illustration/cuidarmais.png" class="clinica-img w-100 h-40" alt="Clínica Cuidar Mais">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="clinica-body">
+                                <h3 class="clinica-title">Clínica Cuidar Mais</h3>
+                                <div class="clinica-meta">
+                                    <span><i class="bi bi-geo-alt"></i> Rua Senador Pompeu, 487 - Centro, Fortaleza</span>
+                                    <span><i class="bi bi-star-fill text-warning"></i> 4.6</span>
+                                </div>
+                                <div class="mb-3">
+                                    <span class="badge-especialidade">Neurologia</span>
+                                    <span class="badge-especialidade">Psiquiatria</span>
+                                    <span class="badge-especialidade">Cuidados Multidisciplinares</span>
+                                </div>
+                                <p>Clínica popular humanizada com foco em neurologia, psiquiatria e cuidados multidisciplinares.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="#" class="clinica-link" data-bs-toggle="modal" data-bs-target="#partnerModal4">Ver detalhes <i class="bi bi-arrow-right"></i></a>
+                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita Ajudda Card</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Multiclínica Fortaleza -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="clinica-card">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe" class="clinica-img w-100 h-100" alt="Multiclínica Fortaleza">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="clinica-body">
+                                <h3 class="clinica-title">Multiclínica Fortaleza</h3>
+                                <div class="clinica-meta">
+                                    <span><i class="bi bi-geo-alt"></i> Rua Guaratinguetá, 60 - Parangaba, Fortaleza</span>
+                                    <span><i class="bi bi-star-fill text-warning"></i> 4.5</span>
+                                </div>
+                                <div class="mb-3">
+                                    <span class="badge-especialidade">Clínico Geral</span>
+                                    <span class="badge-especialidade">Diversas Especialidades</span>
+                                    <span class="badge-especialidade">Exames</span>
+                                </div>
+                                <p>Clínica popular com diversas especialidades médicas. Exames e atendimento acessível para toda a família.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="#" class="clinica-link" data-bs-toggle="modal" data-bs-target="#partnerModal5">Ver detalhes <i class="bi bi-arrow-right"></i></a>
+                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita Ajudda Card</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mapa -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h4 class="mb-3">Localização das clínicas</h4>
+                <div id="mapa-clinicas"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Seção de Credenciamento -->
+<section class="section-credenciamento py-5" style="background-color: #f8f9fa;">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Faça parte da nossa rede credenciada</h2>
+            <p class="text-muted">Escolha a opção que melhor se adapta ao seu perfil</p>
+        </div>
+        
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6">
+                <div class="credenciamento-card text-center p-4 bg-white rounded shadow-sm">
+                    <div class="credenciamento-icon mb-3">
+                        <i class="fas fa-user-md fa-3x" style="color: #4e20b0;"></i>
+                    </div>
+                    <h3 class="credenciamento-title fw-bold mb-3">Quero atender pelo Ajudda</h3>
+                    <p class="text-justify">Para profissionais de saúde que realizam atendimentos individuais (presenciais ou online).</p>
+                    <ul class="text-start mb-4 ps-4">
+                        <li>Psicólogos, nutricionistas, fisioterapeutas</li>
+                        <li>Médicos com consultório próprio ou alugado</li>
+                        <li>Profissionais que atendem em domicílio</li>
+                    </ul>
+                    <a href="https://wa.me/5585984415490?text=Olá,%20gostaria%20de%20me%20cadastrar%20como%20profissional%20no%20Ajudda%20Card" 
+                       class="btn btn-primary btn-lg" 
+                       target="_blank" 
+                       style="background-color: #4e20b0;">
+                        Cadastrar como profissional
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="credenciamento-card text-center p-4 bg-white rounded shadow-sm">
+                    <div class="credenciamento-icon mb-3">
+                        <i class="fas fa-hospital fa-3x" style="color: #4e20b0;"></i>
+                    </div>
+                    <h3 class="credenciamento-title fw-bold mb-3">Quero credenciar minha clínica</h3>
+                    <p class="text-justify">Para clínicas, consultórios e laboratórios que desejam fazer parte da nossa rede.</p>
+                    <ul class="text-start mb-4 ps-4">
+                        <li>Clínicas médicas e multiprofissionais</li>
+                        <li>Laboratórios de análises clínicas</li>
+                        <li>Clínicas de diagnóstico por imagem</li>
+                        <li>Centros de terapia e reabilitação</li>
+                    </ul>
+                    <a href="https://wa.me/5585984415490?text=Olá,%20gostaria%20de%20credenciar%20minha%20clínica%20no%20Ajudda%20Card" 
+                       class="btn btn-primary btn-lg" 
+                       target="_blank" 
+                       style="background-color: #4e20b0;">
+                        Cadastrar minha clínica
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <div class="card border-0 bg-transparent">
+                <div class="card-body">
+                    <h3 class="mb-3">Dúvidas sobre o credenciamento?</h3>
+                    <p class="mb-4">Nossa equipe está pronta para te ajudar a entender todos os benefícios de fazer parte da rede Ajudda Card.</p>
+                    <a href="https://wa.me/5585984415490" 
+                       class="btn btn-outline-primary btn-lg" 
+                       target="_blank"
+                       style="border-color: #4e20b0; color: #4e20b0;">
+                        <i class="fab fa-whatsapp"></i> Falar com consultor
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+   <!-- Footer -->
+<footer class="footer" style="background: linear-gradient(135deg, #4e20b0 0%, #7146ce 100%); color: white; padding: 4rem 0 2rem;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <a href="index.html" class="footer-logo d-block mb-3" style="color: white; font-size: 1.5rem; font-weight: 700; text-decoration: none;">AJUDDA</a>
+                <p class="footer-about" style="opacity: 0.9; margin-bottom: 1.5rem;">Soluções inovadoras para tornar a saúde acessível a todos.</p>
+                <div class="social-links" style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <a href="#" style="color: white; font-size: 1.2rem; opacity: 0.8; transition: opacity 0.3s;"><i class="bi bi-facebook"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem; opacity: 0.8; transition: opacity 0.3s;"><i class="bi bi-instagram"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem; opacity: 0.8; transition: opacity 0.3s;"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem; opacity: 0.8; transition: opacity 0.3s;"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                <h3 style="font-size: 1.2rem; margin-top: 0; margin-bottom: 1.5rem;">Links Rápidos</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="index.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Home</a></li>
+                    <li class="mb-2"><a href="quem-somos.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Sobre Nós</a></li>
+                    <li class="mb-2"><a href="parceiros.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Quero ser Parceiro</a></li>
+                    <li class="mb-2"><a href="clinicas.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Clínicas Credenciadas</a></li>
+                    <li class="mb-2"><a href="blog.html" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                <h3 style="font-size: 1.2rem; margin-top: 0; margin-bottom: 1.5rem;">Categorias</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Saúde</a></li>
+                    <li class="mb-2"><a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Bem-estar</a></li>
+                    <li class="mb-2"><a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Dicas</a></li>
+                    <li class="mb-2"><a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Prevenção</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <h3 style="font-size: 1.2rem; margin-top: 0; margin-bottom: 1.5rem;">Contato</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-envelope me-2"></i> <a href="mailto:ajuddacard@gmail.com" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">ajuddacard@gmail.com</a></li>
+                    <li class="mb-2"><i class="bi bi-telephone me-2"></i> <a href="tel:+5585984415490" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">(85) 9 8441-5490</a></li>
+                    <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> Fortaleza, CE</li>
+                    <li class="mb-2"><i class="bi bi-whatsapp me-2"></i> <a href="https://wa.me/5585984415490" target="_blank" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright" style="text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.8;">
+            <p>&copy;2025 Ajudda Card. Todos os direitos reservados.</p>
+            <p class="fs--1 my-2 text-center">
+                Desenvolvido por <a class="fw-bold" href="https://www.linkedin.com/in/trajanoluan" target="_blank" style="color: white;">LuanDev</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Modal de Agendamento -->
+    <div class="modal fade" id="agendamentoModal" tabindex="-1" aria-labelledby="agendamentoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="agendamentoModalLabel">Agendar Demonstração</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formAgendamento">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" id="nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="tel" class="form-control" id="telefone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="data" class="form-label">Data preferencial</label>
+                            <input type="date" class="form-control" id="data" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensagem" class="form-label">Mensagem (opcional)</label>
+                            <textarea class="form-control" id="mensagem" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" id="enviarAgendamento">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Parceiro 1 - Otomax -->
+    <div class="modal fade" id="partnerModal1" tabindex="-1" aria-labelledby="partnerModalLabel1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="partnerModalLabel1">Otomax Saúde</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-4">
+              <img src="assets/img/illustration/parceiro1.PNG" alt="Otomax Saúde" class="img-fluid" style="max-height: 150px; max-width: 190px;">
+            </div>
+            <div class="alert alert-info mb-4">
+              <strong>Especialista em ouvido, nariz e garganta.</strong> Referência em otorrino, exames auditivos e cirurgias.
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <strong>Endereço:</strong> 
+                <a href="https://www.google.com/maps/search/?api=1&query=Otomax Saúde,R. Des. Lauro Nogueira, 1500 - Piso E2 loja 225 - Papicu, Fortaleza - CE, 60175-055" 
+                   target="_blank" class="text-decoration-none">
+                   R. Des. Lauro Nogueira, 1500 - Piso E2 loja 225 - Papicu, Fortaleza - CE, 60175-055
+                </a>
+              </li>
+              <li class="list-group-item"><strong>Telefone:</strong> (85) 2180-9880</li>
+              <li class="list-group-item">
+                <strong>WhatsApp:</strong> 
+                <a href="https://wa.me/5585921809880" target="_blank" class="text-decoration-none">
+                  (85) 9 2180-9880
+                </a>
+              </li>
+              <li class="list-group-item">
+                <strong>Site:</strong> 
+                <a href="https://otomaxsaude.com.br/" class="text-decoration-none" target="_blank">
+                  https://otomaxsaude.com.br/
+                </a>
+              </li>
+              <li class="list-group-item">
+                <strong>Redes Sociais:</strong>
+                <div class="mt-2">
+                  <a href="https://www.facebook.com/share/1F72w3ZCeT/?mibextid=wwXIfr" class="btn btn-sm btn-outline-primary me-2" target="_blank">
+                    <i class="bi bi-facebook"></i> Facebook
+                  </a>
+                  <a href="https://www.instagram.com/otomaxsaude?igsh=Z2lkdTI5dGpianpp" class="btn btn-sm btn-outline-info" target="_blank">
+                    <i class="bi bi-instagram"></i> Instagram
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <a href="https://wa.me/5585921809880" class="btn btn-success" target="_blank">
+              <i class="bi bi-whatsapp"></i> Contatar via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Parceiro 2 - Clínica Qorpo -->
+    <div class="modal fade" id="partnerModal2" tabindex="-1" aria-labelledby="partnerModalLabel2" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="partnerModalLabel2">Clínica Qorpo</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-4">
+              <img src="assets/img/illustration/parceiro2.PNG" alt="Clínica Qorpo" class="img-fluid" style="max-height: 150px; max-width: 190px;">
+            </div>
+            <div class="alert alert-info mb-4">
+              <strong>Excelência em ortopedia, fisioterapia e reabilitação.</strong> Estrutura moderna e atendimento especializado.
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <strong>Endereço:</strong> 
+                <a href="https://www.google.com/maps/search/?api=1&query=Avenida Senador Virgílio Távora, 195, Fortaleza, Brazil" 
+                   target="_blank" class="text-decoration-none">
+                   Avenida Senador Virgílio Távora, 195, Fortaleza, Brazil
+                </a>
+              </li>
+              <li class="list-group-item"><strong>Telefone:</strong> (85) 3274-6187</li>
+              <li class="list-group-item">
+                <strong>WhatsApp:</strong> 
+                <a href="https://wa.me/558597328698" target="_blank" class="text-decoration-none">
+                  (85) 99732-8698
+                </a>
+              </li>
+              <li class="list-group-item">
+                <strong>Site:</strong> 
+                <a href="https://qorpo.com.br/" class="text-decoration-none" target="_blank">
+                  https://qorpo.com.br/
+                </a>
+              </li>
+              <li class="list-group-item">
+                <strong>Redes Sociais:</strong>
+                <div class="mt-2">
+                  <a href="https://www.facebook.com/share/169gL6V55o/?mibextid=wwXIfr" class="btn btn-sm btn-outline-primary me-2" target="_blank">
+                    <i class="bi bi-facebook"></i> Facebook
+                  </a>
+                  <a href="https://instagram.com/clinicaqorpo" class="btn btn-sm btn-outline-info" target="_blank">
+                    <i class="bi bi-instagram"></i> Instagram
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <a href="https://wa.me/558597328698" class="btn btn-success" target="_blank">
+              <i class="bi bi-whatsapp"></i> Contatar via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Parceiro 3 - Clínica Dez -->
+    <div class="modal fade" id="partnerModal3" tabindex="-1" aria-labelledby="partnerModalLabel3" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="partnerModalLabel3">Clínica Dez (Messejana)</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-4">
+              <img src="assets/img/illustration/parceiro3.PNG" alt="Clínica Dez" class="img-fluid" style="max-height: 150px; max-width: 190px;">
+            </div>
+            <div class="alert alert-info mb-4">
+              <strong>Centro completo com médicos de várias especialidades.</strong> Exames no mesmo lugar, com foco em agilidade e cuidado integral.
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <strong>Endereço:</strong> 
+                <a href="https://www.google.com/maps/search/?api=1&query=Rua Alberto torres, 73, Fortaleza, Brazil" 
+                   target="_blank" class="text-decoration-none">
+                   Rua Alberto torres, 73, Fortaleza, Brazil
+                </a>
+              </li>
+              <li class="list-group-item"><strong>Telefone:</strong> (85) 3274-6187</li>
+              <li class="list-group-item">
+                <strong>WhatsApp:</strong> 
+                <a href="https://wa.me/5585997328698" target="_blank" class="text-decoration-none">
+                  (85) 99732-8698
+                </a>
+              </li>
+              <li class="list-group-item">
+                <strong>Site:</strong> 
+                <a href="https://clinicadez.com/" class="text-decoration-none" target="_blank">
+                  https://clinicadez.com/
+                </a>
+              </li>
+              <li class="list-group-item">
+                <strong>Redes Sociais:</strong>
+                <div class="mt-2">
+                  <a href="https://www.instagram.com/clinicadezmessejana_/" class="btn btn-sm btn-outline-info" target="_blank">
+                    <i class="bi bi-instagram"></i> Instagram
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <a href="https://wa.me/5585997328698" class="btn btn-success" target="_blank">
+              <i class="bi bi-whatsapp"></i> Contatar via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Parceiro 4 - Cuidar Mais -->
+    <div class="modal fade" id="partnerModal4" tabindex="-1" aria-labelledby="partnerModalLabel4" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="partnerModalLabel4">Clínica Cuidar Mais</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-4">
+              <img src="assets/img/illustration/parceiro4.PNG" alt="Clínica Cuidar Mais" class="img-fluid" style="max-height: 150px; max-width: 190px;">
+            </div>
+            <div class="alert alert-info mb-4">
+              <strong>Clínica popular humanizada</strong> com foco em neurologia, psiquiatria e cuidados multidisciplinares.
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <strong>Endereço:</strong> 
+                <a href="https://www.google.com/maps/search/?api=1&query=Rua Senador Pompeu 487 - Centro, Fortaleza/CE" 
+                   target="_blank" class="text-decoration-none">
+                   Rua Senador Pompeu 487 - Centro, Fortaleza/CE
+                </a>
+              </li>
+              <li class="list-group-item"><strong>Telefone:</strong> (85) 3254-4440</li>
+              <li class="list-group-item">
+                <strong>WhatsApp:</strong> 
+                <a href="https://wa.me/message/AGCKQE2FFDWXP1" target="_blank" class="text-decoration-none">
+                  (85) 99816-0208
+                </a>
+              </li>
+              <li class="list-group-item">
+                <strong>Redes Sociais:</strong>
+                <div class="mt-2">
+                  <a href="https://www.instagram.com/clinicacuidarmaisoficial/" class="btn btn-sm btn-outline-info" target="_blank">
+                    <i class="bi bi-instagram"></i> Instagram
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <a href="https://wa.me/message/AGCKQE2FFDWXP1" class="btn btn-success" target="_blank">
+              <i class="bi bi-whatsapp"></i> Contatar via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Parceiro 5 - Multiclínica Fortaleza -->
+    <div class="modal fade" id="partnerModal5" tabindex="-1" aria-labelledby="partnerModalLabel5" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="partnerModalLabel5">Multiclínica Fortaleza</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-4">
+              <img src="assets/img/illustration/parceiro5.PNG" alt="Multiclínica Fortaleza" class="img-fluid" style="max-height: 150px; max-width: 190px;">
+            </div>
+            <div class="alert alert-info mb-4">
+              <strong>Clínica popular com diversas especialidades médicas.</strong> Exames e atendimento acessível para toda a família.
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <strong>Endereço:</strong> 
+                <a href="https://www.google.com/maps/search/?api=1&query=RUA GUARATINGUETÁ, 60 - PARANGABA CEP: 60710-180 - FORTALEZA/CE" 
+                   target="_blank" class="text-decoration-none">
+                   RUA GUARATINGUETÁ, 60 - PARANGABA CEP: 60710-180 - FORTALEZA/CE
+                </a>
+              </li>
+              <li class="list-group-item">
+                <strong>WhatsApp:</strong> 
+                <a href="https://wa.me/5585989832063" target="_blank" class="text-decoration-none">
+                  (85) 9 8983-2063
+                </a>
+              </li>
+              <li class="list-group-item">
+                <strong>Email:</strong> 
+                <a href="mailto:marketing@multiclinicafortaleza.com.br" class="text-decoration-none">
+                  marketing@multiclinicafortaleza.com.br
+                </a>
+              </li>
+              <li class="list-group-item">
+                <strong>Site:</strong> 
+                <a href="https://multiclinicafortaleza.com.br/" class="text-decoration-none" target="_blank">
+                  https://multiclinicafortaleza.com.br/
+                </a>
+              </li>
+              <li class="list-group-item">
+                <strong>Redes Sociais:</strong>
+                <div class="mt-2">
+                  <a href="https://www.facebook.com/share/1KAY157YMp/?mibextid=wwXIfr" class="btn btn-sm btn-outline-primary me-2" target="_blank">
+                    <i class="bi bi-facebook"></i> Facebook
+                  </a>
+                  <a href="https://www.instagram.com/multiclinicafortaleza?igsh=NDhiZTVkMnc0MnZ0" class="btn btn-sm btn-outline-info" target="_blank">
+                    <i class="bi bi-instagram"></i> Instagram
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <a href="https://wa.me/5585989832063" class="btn btn-success" target="_blank">
+              <i class="bi bi-whatsapp"></i> Contatar via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Leaflet JS (Mapa) -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    
+    <script>
+        // Inicialização do Mapa
+        function initMap() {
+            // Coordenadas de Fortaleza (centro do mapa)
+            const fortaleza = { lat: -3.7319, lng: -38.5267 };
+            
+            // Criar o mapa
+            const map = L.map('mapa-clinicas').setView(fortaleza, 13);
+            
+            // Adicionar camada do mapa (OpenStreetMap)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Adicionar marcadores para as clínicas
+            const clinicas = [
+                {
+                    nome: "Otomax Saúde",
+                    endereco: "R. Des. Lauro Nogueira, 1500 - Piso E2 loja 225 - Papicu, Fortaleza",
+                    lat: -3.7365,
+                    lng: -38.5168,
+                    icone: "otomax",
+                    modalId: "partnerModal1"
+                },
+                {
+                    nome: "Clínica Qorpo",
+                    endereco: "Av. Senador Virgílio Távora, 195 - Fortaleza",
+                    lat: -3.7422,
+                    lng: -38.5103,
+                    icone: "qorpo",
+                    modalId: "partnerModal2"
+                },
+                {
+                    nome: "Clínica Dez (Messejana)",
+                    endereco: "Rua Alberto Torres, 73 - Messejana, Fortaleza",
+                    lat: -3.7528,
+                    lng: -38.4893,
+                    icone: "dez",
+                    modalId: "partnerModal3"
+                },
+                {
+                    nome: "Clínica Cuidar Mais",
+                    endereco: "Rua Senador Pompeu, 487 - Centro, Fortaleza",
+                    lat: -3.7289,
+                    lng: -38.5057,
+                    icone: "cuidar",
+                    modalId: "partnerModal4"
+                },
+                {
+                    nome: "Multiclínica Fortaleza",
+                    endereco: "Rua Guaratinguetá, 60 - Parangaba, Fortaleza",
+                    lat: -3.7351,
+                    lng: -38.5032,
+                    icone: "multi",
+                    modalId: "partnerModal5"
+                }
+            ];
+            
+            // Ícones personalizados
+            const icones = {
+                "otomax": {
+                    iconUrl: 'assets/img/illustration/parceiro1.PNG',
+                    iconSize: [37, 42],
+                    iconAnchor: [16, 32]
+                },
+                "qorpo": {
+                    iconUrl: 'assets/img/illustration/parceiro2.PNG',
+                    iconSize: [37, 42],
+                    iconAnchor: [16, 32]
+                },
+                "dez": {
+                    iconUrl: 'assets/img/illustration/parceiro3.PNG',
+                    iconSize: [37, 42],
+                    iconAnchor: [16, 32]
+                },
+                "cuidar": {
+                    iconUrl: 'assets/img/illustration/parceiro4.PNG',
+                    iconSize: [37, 42],
+                    iconAnchor: [16, 32]
+                },
+                "multi": {
+                    iconUrl: 'assets/img/illustration/parceiro5.PNG',
+                    iconSize: [37, 42],
+                    iconAnchor: [16, 32]
+                }
+            };
+            
+            // Adicionar marcadores ao mapa
+            clinicas.forEach(clinica => {
+                const icone = L.icon(icones[clinica.icone]);
+                const marker = L.marker([clinica.lat, clinica.lng], { icon: icone }).addTo(map);
+                
+                // Criar popup com botão para abrir modal
+                const popupContent = `
+                    <b>${clinica.nome}</b><br>
+                    ${clinica.endereco}<br><br>
+                    <button class="btn btn-sm btn-primary" onclick="document.getElementById('${clinica.modalId}').style.display='block';">
+                        Ver detalhes
+                    </button>
+                `;
+                
+                marker.bindPopup(popupContent);
+                
+                // Ao clicar no marcador, abrir o modal correspondente
+                marker.on('click', function() {
+                    const modal = new bootstrap.Modal(document.getElementById(clinica.modalId));
+                    modal.show();
+                });
+            });
+        }
+        
+        // Inicializar o mapa quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            initMap();
+            
+            // Adicionar padding-top ao body para compensar a navbar fixa
+            document.body.style.paddingTop = document.querySelector('.navbar').offsetHeight + 'px';
+            
+            // Filtros de busca
+            const inputBusca = document.getElementById('input-busca');
+            const filtroEstado = document.getElementById('filtro-estado');
+            const filtroCidade = document.getElementById('filtro-cidade');
+            const clinicaCards = document.querySelectorAll('.clinica-card');
+            
+            function filtrarClinicas() {
+                const termoBusca = inputBusca.value.toLowerCase();
+                const estado = filtroEstado.value.toLowerCase();
+                const cidade = filtroCidade.value.toLowerCase();
+                
+                clinicaCards.forEach(card => {
+                    const titulo = card.querySelector('.clinica-title').textContent.toLowerCase();
+                    const endereco = card.querySelector('.clinica-meta span:first-child').textContent.toLowerCase();
+                    const descricao = card.querySelector('p').textContent.toLowerCase();
+                    
+                    const correspondeBusca = titulo.includes(termoBusca) || descricao.includes(termoBusca);
+                    const correspondeEstado = estado === '' || endereco.includes(estado);
+                    const correspondeCidade = cidade === '' || endereco.includes(cidade);
+                    
+                    if (correspondeBusca && correspondeEstado && correspondeCidade) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+            
+            inputBusca.addEventListener('input', filtrarClinicas);
+            filtroEstado.addEventListener('change', filtrarClinicas);
+            filtroCidade.addEventListener('change', filtrarClinicas);
+            
+            // Filtros avançados
+            const toggleFiltros = document.getElementById('toggleFiltros');
+            const filtrosCollapse = document.getElementById('filtrosCollapse');
+            const aplicarFiltros = document.getElementById('aplicarFiltros');
+            const limparFiltros = document.getElementById('limparFiltros');
+            
+            // Mostrar/ocultar filtros avançados
+            toggleFiltros.addEventListener('click', function() {
+                if (filtrosCollapse.style.height === '0px' || !filtrosCollapse.style.height) {
+                    filtrosCollapse.style.height = filtrosCollapse.scrollHeight + 'px';
+                    toggleFiltros.innerHTML = '<i class="bi bi-funnel-fill"></i> Ocultar filtros';
+                } else {
+                    filtrosCollapse.style.height = '0px';
+                    toggleFiltros.innerHTML = '<i class="bi bi-funnel"></i> Filtrar';
+                }
+            });
+            
+            // Aplicar filtros avançados
+            aplicarFiltros.addEventListener('click', function() {
+                const especialidades = {
+                    otorrino: document.getElementById('check-otorrino').checked,
+                    ortopedia: document.getElementById('check-ortopedia').checked,
+                    fisioterapia: document.getElementById('check-fisioterapia').checked,
+                    neurologia: document.getElementById('check-neurologia').checked,
+                    psiquiatria: document.getElementById('check-psiquiatria').checked,
+                    clinico: document.getElementById('check-clinico').checked
+                };
+                
+                const tipos = {
+                    clinica: document.getElementById('check-clinica').checked,
+                    consultorio: document.getElementById('check-consultorio').checked
+                };
+                
+                clinicaCards.forEach(card => {
+                    const especialidadesCard = Array.from(card.querySelectorAll('.badge-especialidade')).map(el => el.textContent.toLowerCase());
+                    const tipoCard = card.querySelector('.clinica-title').textContent.toLowerCase().includes('clínica') ? 'clinica' : 'consultorio';
+                    
+                    // Verificar se pelo menos uma especialidade do card está selecionada
+                    const especialidadeCorresponde = Object.entries(especialidades).some(([key, checked]) => {
+                        const nomeEspecialidade = key === 'otorrino' ? 'otorrinolaringologia' : key;
+                        return checked && especialidadesCard.some(ec => ec.includes(nomeEspecialidade));
+                    });
+                    
+                    // Verificar tipo
+                    const tipoCorresponde = (tipos.clinica && tipoCard === 'clinica') || 
+                                          (tipos.consultorio && tipoCard === 'consultorio');
+                    
+                    // Verificar também a busca básica
+                    const termoBusca = inputBusca.value.toLowerCase();
+                    const titulo = card.querySelector('.clinica-title').textContent.toLowerCase();
+                    const descricao = card.querySelector('p').textContent.toLowerCase();
+                    const correspondeBusca = termoBusca === '' || titulo.includes(termoBusca) || descricao.includes(termoBusca);
+                    
+                    const estado = filtroEstado.value.toLowerCase();
+                    const cidade = filtroCidade.value.toLowerCase();
+                    const endereco = card.querySelector('.clinica-meta span:first-child').textContent.toLowerCase();
+                    const correspondeEstado = estado === '' || endereco.includes(estado);
+                    const correspondeCidade = cidade === '' || endereco.includes(cidade);
+                    
+                    if (especialidadeCorresponde && tipoCorresponde && correspondeBusca && correspondeEstado && correspondeCidade) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Atualizar contagem de resultados
+                const resultadosVisiveis = document.querySelectorAll('.clinica-card[style="display: block"]').length;
+                document.querySelector('h4.mb-0').textContent = `${resultadosVisiveis} resultados encontrados em Fortaleza, CE`;
+                
+                // Fechar filtros após aplicar
+                filtrosCollapse.style.height = '0px';
+                toggleFiltros.innerHTML = '<i class="bi bi-funnel"></i> Filtrar';
+            });
+            
+            // Limpar filtros
+            limparFiltros.addEventListener('click', function() {
+                // Resetar todos os checkboxes
+                document.querySelectorAll('.form-check-input').forEach(checkbox => {
+                    checkbox.checked = true;
+                });
+                
+                // Resetar busca básica
+                inputBusca.value = '';
+                filtroEstado.value = '';
+                filtroCidade.value = '';
+                
+                // Mostrar todas as clínicas
+                clinicaCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                
+                // Atualizar contagem
+                document.querySelector('h4.mb-0').textContent = '5 resultados encontrados em Fortaleza, CE';
+            });
+            
+            // Modal de Agendamento
+            const enviarAgendamento = document.getElementById('enviarAgendamento');
+            
+            enviarAgendamento.addEventListener('click', function() {
+                const nome = document.getElementById('nome').value;
+                const email = document.getElementById('email').value;
+                const telefone = document.getElementById('telefone').value;
+                const data = document.getElementById('data').value;
+                
+                if (nome && email && telefone && data) {
+                    // Aqui você pode adicionar o código para enviar os dados
+                    alert('Agendamento enviado com sucesso! Entraremos em contato para confirmar.');
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('agendamentoModal'));
+                    modal.hide();
+                    document.getElementById('formAgendamento').reset();
+                } else {
+                    alert('Por favor, preencha todos os campos obrigatórios.');
+                }
+            });
+            
+            // WhatsApp Button
+            const whatsappButton = document.getElementById('whatsappButton');
+            const whatsappChat = document.getElementById('whatsappChat');
+            const messageInput = document.getElementById('messageInput');
+            const sendButton = document.getElementById('sendButton');
+            const chatMessages = document.getElementById('chatMessages');
+            const typingIndicator = document.getElementById('typingIndicator');
+            const whatsappNumber = '5585984415490';
+            
+            // Abrir/fechar chat
+            whatsappButton.addEventListener('click', function() {
+                whatsappChat.style.display = whatsappChat.style.display === 'block' ? 'none' : 'block';
+                if (whatsappChat.style.display === 'block') {
+                    messageInput.focus();
+                }
+            });
+            
+            // Auto-ajuste da altura do textarea
+            messageInput.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight > 84 ? 84 : this.scrollHeight) + 'px';
+            });
+            
+            // Adicionar mensagem
+            function addMessage(text, isReceived) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', isReceived ? 'received' : 'sent');
+                messageElement.textContent = text;
+                chatMessages.insertBefore(messageElement, typingIndicator);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            // Enviar mensagem
+            function sendMessage() {
+                const message = messageInput.value.trim();
+                if (message) {
+                    addMessage(message, false);
+                    messageInput.value = '';
+                    messageInput.style.height = 'auto';
+                    
+                    // Resposta automática
+                    typingIndicator.style.display = 'block';
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    setTimeout(() => {
+                        typingIndicator.style.display = 'none';
+                        addMessage("Recebemos sua mensagem. Iremos te direcionar para o WhatsApp responsável para podermos te ajudar.", true);
+                        
+                        // Redireciona para o WhatsApp
+                        setTimeout(() => {
+                            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá, vim pelo chat do site: ' + message)}`, '_blank');
+                        }, 1500);
+                    }, 1000);
+                }
+            }
+            
+            // Eventos
+            sendButton.addEventListener('click', sendMessage);
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+            
+            // Fechar chat quando clicar fora
+            document.addEventListener('click', function(e) {
+                if (!whatsappButton.contains(e.target) && !whatsappChat.contains(e.target)) {
+                    whatsappChat.style.display = 'none';
+                }
+            });
+        });
+    </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const modal = document.getElementById('meuModal');
+              const btn = document.getElementById('meuBotaoModal');
+              const span = document.querySelector('.modal-custom-close');
+              const btnCancelar = document.getElementById('btnCancelar');
+              const btnEnviar = document.getElementById('btnEnviar');
+              
+              // Abre o modal
+              btn.onclick = function() {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+              }
+              
+              // Fecha o modal
+              function fecharModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+              }
+              
+              // Fecha o modal ao clicar no X
+              span.onclick = fecharModal;
+              
+              // Fecha o modal ao clicar no botão Cancelar
+              btnCancelar.onclick = fecharModal;
+              
+              // Fecha o modal ao clicar fora do conteúdo
+              modal.onclick = function(event) {
+                if (event.target === modal) {
+                  fecharModal();
+                }
+              }
+              
+              // Fecha o modal ao pressionar ESC
+              document.onkeydown = function(event) {
+                if (event.key === 'Escape') {
+                  fecharModal();
+                }
+              }
+              
+              // Envia os dados para o WhatsApp
+              btnEnviar.onclick = function() {
+                const nome = document.getElementById('nomeRepresentante').value;
+                const empresa = document.getElementById('empresa').value;
+                const email = document.getElementById('email').value;
+                
+                if (!nome || !empresa || !email) {
+                  alert('Por favor, preencha todos os campos!');
+                  return;
+                }
+                
+                // Formata a mensagem para o WhatsApp
+                const mensagem = `Olá, gostaria de agendar uma demonstração do Ajudda Card:\n\n` +
+                                `*Nome do Representante:* ${nome}\n` +
+                                `*Empresa:* ${empresa}\n` +
+                                `*E-mail:* ${email}\n\n` +
+                                `Por favor, informe os horários disponíveis.`;
+                
+                // Codifica a mensagem para URL
+                const mensagemCodificada = encodeURIComponent(mensagem);
+                
+                // Cria o link do WhatsApp
+                const urlWhatsApp = `https://wa.me/5585984415490?text=${mensagemCodificada}`;
+                
+                // Abre o WhatsApp em uma nova aba
+                window.open(urlWhatsApp, '_blank');
+                
+                // Fecha o modal
+                fecharModal();
+                
+                // Limpa o formulário
+                document.getElementById('formDemonstracao').reset();
+              }
+            });
+            </script>
+</body>
+</html>

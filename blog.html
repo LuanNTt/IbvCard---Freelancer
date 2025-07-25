@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Ajudda - Saúde Acessível</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- jQuery (necessário para Bootstrap e Owl Carousel) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+<!-- Bootstrap Icons (versão mais recente) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<!-- Owl Carousel CSS (apenas uma vez) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  
+<!-- Favicons -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+<link rel="manifest" href="assets/img/favicons/manifest.json">
+<meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+<meta name="theme-color" content="#ffffff">
+    <style>
+        :root {
+            /* Paleta de cores */
+            --roxo-primario: #4e20b0;
+            --roxo-secundario: #7146ce;
+            --roxo-claro: #ece8f5;
+            --branco: #ffffff;
+            --cinza-claro: #f8f9fa;
+            --cinza-texto: #6c757d;
+            --preto: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--preto);
+            background-color: var(--branco);
+            margin: 0;
+            padding: 0;
+        }
+           /* Responsividade */
+           @media (max-width: 768px) {
+            .hero-clinicas h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-clinicas p {
+                font-size: 1.1rem;
+            }
+            
+            .navbar-collapse .btn-primary {
+                margin-left: 0 !important;
+                margin-top: 15px;
+                width: 100%;
+                text-align: center;
+                display: block;
+            }
+            
+            .navbar-collapse {
+                text-align: center;
+            }
+            
+            .navbar-nav {
+                width: 100%;
+            }
+            
+            .whatsapp-chat {
+                width: 90%;
+                right: 5%;
+                bottom: 100px;
+            }
+        }
+        
+                /* 1. Centralizar botão "Agendar Demonstração" no mobile */
+                @media (max-width: 768px) {
+            .navbar-collapse .btn-primary {
+                margin-left: 0 !important;
+                margin-top: 15px;
+                width: 100%;
+                text-align: center;
+                display: block;
+            }
+            
+            .navbar-collapse {
+                text-align: center;
+            }
+            
+            .navbar-nav {
+                width: 100%;
+            }
+        }
+     
+  .navbar {
+    background-color: transparent;
+    transition: background-color 0.4s ease;
+    background-color: #4e20b0;
+    
+  }
+
+  .navbar-scrolled {
+    background-color: #4e20b0 !important;
+    transition: background-color 1.0s ease;
+  }
+
+        
+        
+        /* Hero Section */
+        .hero {
+            background: #4e20b0;
+            color: var(--branco) !important;
+            padding: 4rem 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        #search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: none;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        #search-button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--roxo-primario);
+            color: var(--branco);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        #search-button:hover {
+            background: var(--roxo-secundario);
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        
+        /* Articles */
+        .articles {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .article-card {
+            background: var(--branco);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .article-content {
+            padding: 1.5rem;
+        }
+        
+        .article-category {
+            display: inline-block;
+            background: var(--roxo-claro);
+            color: var(--roxo-primario);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        
+        .article-title {
+            font-size: 1.5rem;
+            margin: 0 0 1rem;
+            color: var(--preto);
+        }
+        
+        .article-excerpt {
+            color: var(--cinza-texto);
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--cinza-texto);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .sidebar-widget {
+            background: var(--branco);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .widget-title {
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--roxo-claro);
+            color: var(--roxo-primario);
+        }
+        
+        .popular-posts {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        .popular-post {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            text-decoration: none;
+            color: var(--preto);
+            transition: opacity 0.3s;
+        }
+        
+        .popular-post:hover {
+            opacity: 0.8;
+        }
+        
+        .popular-post img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .popular-post-title {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        .popular-post-date {
+            font-size: 0.8rem;
+            color: var(--cinza-texto);
+        }
+        
+        .categories-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .categories-list li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .category-link {
+            color: var(--cinza-texto);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        
+        .category-link:hover, .category-link.active {
+            color: var(--roxo-primario);
+            font-weight: 500;
+        }
+        
+        .category-count {
+            background: var(--roxo-claro);
+            color: var(--roxo-primario);
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.7rem;
+        }
+        
+        /* Newsletter */
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .newsletter-form input {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        #newsletter-button {
+            background: var(--roxo-primario);
+            color: var(--branco);
+            border: none;
+            padding: 0.8rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        #newsletter-button:hover {
+            background: var(--roxo-secundario);
+        }
+        
+        /* Paginação */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+        
+        .page-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--branco);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: var(--preto);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .page-link:hover, .page-link.active {
+            background: var(--roxo-primario);
+            color: var(--branco);
+            border-color: var(--roxo-primario);
+        }
+        
+        /* Article Page */
+        .article-banner {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .article-page {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        
+        .article-header {
+            margin-bottom: 2rem;
+        }
+        
+        .article-page-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--roxo-primario);
+        }
+        
+        .article-page-meta {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--cinza-texto);
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-page-content {
+            line-height: 1.8;
+        }
+        
+        .article-page-content h2 {
+            color: var(--roxo-primario);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-page-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-page-content ul, .article-page-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .back-to-blog {
+            display: inline-block;
+            margin-top: 3rem;
+            color: var(--roxo-primario);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .back-to-blog:hover {
+            opacity: 0.8;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--roxo-primario) 0%, var(--roxo-secundario) 100%);
+            color: var(--branco);
+            padding: 4rem 20px 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .footer-about {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .footer-links h3 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--branco);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--branco);
+            font-size: 1.2rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .social-links a:hover {
+            opacity: 1;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+        }
+        
+        /* Mensagens */
+        .message {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .article-banner {
+                height: 250px;
+            }
+            
+            .article-page-title {
+                font-size: 2rem;
+            }
+        }
+
+
+.logo-home-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+}
+
+.back-arrow {
+    font-size: 24px;
+    color: #333; /* ou a cor do seu tema */
+    font-weight: bold;
+}
+
+.logo-image {
+    height: 30px; /* ajuste conforme necessário */
+    width: auto;
+}
+
+/* Efeito hover para feedback visual */
+.logo-home-link:hover .back-arrow {
+    color: #0066cc; /* cor do seu tema para hover */
+}
+/* Estilo do botão flutuante */
+   /* Reset de espaçamentos */
+   * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+         }
+         
+         /* Botão flutuante */
+         .whatsapp-float {
+             position: fixed;
+             bottom: 30px;
+             right: 30px;
+             z-index: 100;
+             animation: pulse 20s infinite;
+         }
+         
+         @keyframes pulse {
+             0%, 100% { transform: translateY(0); }
+             2% { transform: translateY(-10px); }
+             4% { transform: translateY(0); }
+         }
+         
+         .whatsapp-button {
+             width: 60px;
+             height: 60px;
+             background-color: #25D366;
+             border-radius: 50%;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+             cursor: pointer;
+             transition: all 0.3s;
+         }
+         
+         .whatsapp-button:hover {
+             transform: scale(1.1);
+         }
+         
+         .whatsapp-button img {
+             width: 35px;
+             height: 35px;
+         }
+         
+         /* Chat container */
+         .whatsapp-chat {
+             display: none;
+             position: fixed;
+             bottom: 90px;
+             right: 30px;
+             width: 300px;
+             height: 400px;
+             background: #e5ddd5;
+             border-radius: 10px;
+             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+             overflow: hidden;
+             z-index: 101;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         }
+         
+         /* Cabeçalho */
+         .chat-header {
+             background: #075e54;
+             color: white;
+             padding: 12px 16px;
+             font-size: 16px;
+             font-weight: bold;
+         }
+         
+         .chat-status {
+             font-size: 11px;
+             font-weight: normal;
+             opacity: 0.8;
+             display: block;
+             margin-top: 2px;
+         }
+         
+         /* Área de mensagens */
+         .chat-messages {
+             height: 280px;
+             padding: 10px;
+             overflow-y: auto;
+             background-image: url('https://web.whatsapp.com/img/bg-chat-tile-light_a4be512e7195b6b733d9110b408f075d.png');
+             display: flex;
+             flex-direction: column;
+         }
+         
+         /* Estilo das mensagens - CORREÇÃO DO ESPAÇAMENTO */
+         .message {
+             max-width: 80%;
+             padding: 8px 12px;
+             margin-bottom: 10px;
+             border-radius: 7.5px;
+             position: relative;
+             word-wrap: break-word;
+             white-space: pre-wrap;
+             line-height: 1.4;
+             font-size: 14.2px;
+             box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+         }
+         
+         .received {
+             background: white;
+             align-self: flex-start;
+             border-top-left-radius: 0;
+         }
+         
+         .sent {
+             background: #dcf8c6;
+             align-self: flex-end;
+             border-top-right-radius: 0;
+         }
+         
+         /* Área de input - CORREÇÃO DO LAYOUT */
+         .chat-input-area {
+             position: absolute;
+             bottom: 0;
+             width: 100%;
+             padding: 8px;
+             background: #f0f0f0;
+             border-top: 1px solid #ddd;
+             display: flex;
+         }
+         
+         .input-container {
+             flex: 1;
+             background: white;
+             border-radius: 20px;
+             display: flex;
+             align-items: center;
+             padding: 0 12px;
+             max-height: 100px;
+             overflow: hidden;
+         }
+         
+         .message-input {
+             flex: 1;
+             border: none;
+             outline: none;
+             font-size: 14px;
+             padding: 8px 0;
+             resize: none;
+             font-family: inherit;
+             max-height: 84px;
+             line-height: 1.4;
+         }
+         
+         /* Botão de enviar - AGORA VISÍVEL */
+         .send-button {
+             background: transparent;
+             border: none;
+             cursor: pointer;
+             padding: 8px;
+             margin-left: 4px;
+         }
+         
+         .send-icon {
+             width: 24px;
+             height: 24px;
+             color: #075e54;
+         }
+         
+         /* Indicador de digitação */
+         .typing-indicator {
+             display: none;
+             font-size: 12px;
+             color: #888;
+             padding: 4px 12px;
+             font-style: italic;
+             align-self: flex-start;
+         }
+           /* Cabeçalho */
+           .chat-header {
+             background: #075e54;
+             color: white;
+             padding: 12px 16px;
+             font-size: 16px;
+             font-weight: bold;
+         }
+         
+         .chat-status {
+             font-size: 11px;
+             font-weight: normal;
+             opacity: 0.8;
+             display: block;
+             margin-top: 2px;
+         }
+         
+         /* Área de mensagens */
+         .chat-messages {
+             height: 280px;
+             padding: 10px;
+             overflow-y: auto;
+             background-image: url('https://web.whatsapp.com/img/bg-chat-tile-light_a4be512e7195b6b733d9110b408f075d.png');
+             display: flex;
+             flex-direction: column;
+         }
+         
+         /* Estilo das mensagens - CORREÇÃO DO ESPAÇAMENTO */
+         .message {
+             max-width: 80%;
+             padding: 8px 12px;
+             margin-bottom: 10px;
+             border-radius: 7.5px;
+             position: relative;
+             word-wrap: break-word;
+             white-space: pre-wrap;
+             line-height: 1.4;
+             font-size: 14.2px;
+             box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+         }
+         
+         .received {
+             background: white;
+             align-self: flex-start;
+             border-top-left-radius: 0;
+         }
+         
+         .sent {
+             background: #dcf8c6;
+             align-self: flex-end;
+             border-top-right-radius: 0;
+         }
+         
+         /* Área de input - CORREÇÃO DO LAYOUT */
+         .chat-input-area {
+             position: absolute;
+             bottom: 0;
+             width: 100%;
+             padding: 8px;
+             background: #f0f0f0;
+             border-top: 1px solid #ddd;
+             display: flex;
+         }
+         
+         .input-container {
+             flex: 1;
+             background: white;
+             border-radius: 20px;
+             display: flex;
+             align-items: center;
+             padding: 0 12px;
+             max-height: 100px;
+             overflow: hidden;
+         }
+         
+         .message-input {
+             flex: 1;
+             border: none;
+             outline: none;
+             font-size: 14px;
+             padding: 8px 0;
+             resize: none;
+             font-family: inherit;
+             max-height: 84px;
+             line-height: 1.4;
+         }
+         
+         /* Botão de enviar - AGORA VISÍVEL */
+         .send-button {
+             background: transparent;
+             border: none;
+             cursor: pointer;
+             padding: 8px;
+             margin-left: 4px;
+         }
+         
+         .send-icon {
+             width: 24px;
+             height: 24px;
+             color: #075e54;
+         }
+         
+         /* Indicador de digitação */
+         .typing-indicator {
+             display: none;
+             font-size: 12px;
+             color: #888;
+             padding: 4px 12px;
+             font-style: italic;
+             align-self: flex-start;
+         }
+    
+    </style>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&amp;family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&amp;display=swap" rel="stylesheet">
+<link href="assets/css/theme.css" rel="stylesheet" />
+<link href="assets/css/user.css" rel="stylesheet" />
+<body>
+      <!-- Botão flutuante -->
+      <div class="whatsapp-float">
+        <div class="whatsapp-button" id="whatsappButton">
+            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+        </div>
+    </div>
+    
+    <!-- Chat -->
+    <div class="whatsapp-chat" id="whatsappChat">
+        <div class="chat-header">
+            Suporte Ajudda Card
+            <span class="chat-status">Online</span>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message received">Olá! Somos o suporte do Ajudda Card. Como podemos te ajudar hoje?</div>
+            <div class="typing-indicator" id="typingIndicator">Suporte está digitando...</div>
+        </div>
+        <div class="chat-input-area">
+            <div class="input-container">
+                <textarea class="message-input" id="messageInput" placeholder="Digite sua mensagem..." rows="1"></textarea>
+                <button class="send-button" id="sendButton">
+                    <svg class="send-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Página principal do blog -->
+    <div id="blog-page">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top pt-3 mb-0" >
+            <div class="container-fluid px-5">
+              <!-- Logo alinhada à esquerda -->
+              <a class="navbar-brand me-auto" href="index.html">
+                <img src="assets/img/illustration/ajudda-logo-branca (1).png" height="35" alt="logo" />
+              </a>
+        
+              <!-- Botão de menu para mobile -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+        
+              <!-- Itens centrais e botão na direita -->
+              <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto d-flex gap-4 align-items-center">
+                  <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="index.html">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="quem-somos.html">Sobre Nós</a></li>
+                  <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="parceiros.html">Quero ser Parceiro</a></li>
+                 
+                  <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="blog.html">Blog</a></li>
+                  <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="clinicas-credenciadas.html">Clinicas credenciadas</a></li>
+
+                </ul>
+                <!-- Botão na extrema direita -->
+             <!-- Botão que aciona o modal -->
+    <button id="meuBotaoModal" class="btn btn-primary" style="background-color: #6a11cb !important;">
+      Agendar Demonstração
+    </button>
+    
+    <!-- Estrutura do Modal -->
+    <div id="meuModal" class="modal-custom">
+      <div class="modal-custom-content">
+        <div class="modal-custom-header">
+          <div class="logo-container">
+            <img src="assets/img/illustration/ajudda-logo-branca (1).png" alt="Ajudda Card Logo" class="logo">
+          </div>
+          <span class="modal-custom-close">&times;</span>
+        </div>
+        <div class="modal-custom-body">
+          <form id="formDemonstracao">
+            <div class="form-group">
+              <label for="nomeRepresentante">Nome do Representante</label>
+              <input type="text" class="form-control" id="nomeRepresentante" placeholder="Seu nome completo" required>
+            </div>
+            <div class="form-group">
+              <label for="empresa">Empresa</label>
+              <input type="text" class="form-control" id="empresa" placeholder="Nome da sua empresa" required>
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" class="form-control" id="email" placeholder="seu@email.com" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-custom-footer">
+          <button class="btn btn-secondary" id="btnCancelar">Cancelar</button>
+          <button class="btn btn-primary" id="btnEnviar">Enviar</button>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+    /* Cores personalizadas no tema roxo */
+ 
+    
+    /* Estilos personalizados para o modal */
+    .modal-custom {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-custom-content {
+      background-color: var(--branco);
+      width: 90%;
+      max-width: 600px; /* Aumentei a largura máxima */
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+      animation: modalFadeIn 0.3s;
+      overflow: hidden;
+    }
+    
+    @keyframes modalFadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    
+    .modal-custom-header {
+      padding: 20px 25px; /* Aumentei o padding */
+      background-color: var(--roxo-primario);
+      color: var(--branco);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      height: 50px; /* Altura fixa para a logo */
+    }
+    
+    .logo {
+      height: 100%;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+    }
+    
+    .modal-custom-close {
+      font-size: 32px; /* Aumentei o tamanho */
+      cursor: pointer;
+      color: var(--branco);
+      transition: color 0.3s;
+    }
+    
+    .modal-custom-close:hover {
+      color: var(--roxo-claro);
+    }
+    
+    .modal-custom-body {
+      padding: 30px; /* Aumentei o padding */
+      background-color: var(--cinza-claro);
+    }
+    
+    .modal-custom-footer {
+      padding: 20px 25px; /* Aumentei o padding */
+      background-color: var(--cinza-medio);
+      text-align: right;
+    }
+    
+    /* Estilos para os campos do formulário - AUMENTADOS */
+    .form-group {
+      margin-bottom: 25px; /* Aumentei o espaçamento */
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 10px; /* Aumentei o espaçamento */
+      font-weight: 600;
+      color: var(--roxo-escuro);
+      font-size: 16px; /* Aumentei a fonte */
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 14px; /* Aumentei o padding */
+      border: 2px solid var(--cinza-medio);
+      border-radius: 8px; /* Aumentei o border-radius */
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+      font-size: 16px;
+      height: 50px; /* Altura fixa maior */
+    }
+    
+    .form-control:focus {
+      border-color: var(--roxo-secundario);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(138, 43, 226, 0.2); /* Aumentei a sombra */
+    }
+    
+    /* Estilos para os botões - AUMENTADOS */
+    .btn {
+      padding: 12px 24px; /* Aumentei o padding */
+      border: none;
+      border-radius: 8px; /* Aumentei o border-radius */
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s;
+      height: 50px; /* Altura fixa */
+    }
+    
+    .btn-primary {
+      background-color: var(--roxo-primario);
+      color: var(--branco);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--roxo-escuro);
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background-color: var(--cinza-medio);
+      color: var(--roxo-escuro);
+      margin-right: 15px; /* Aumentei o espaçamento */
+    }
+    
+    .btn-secondary:hover {
+      background-color: #d1d7dc;
+    }
+    </style>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('meuModal');
+      const btn = document.getElementById('meuBotaoModal');
+      const span = document.querySelector('.modal-custom-close');
+      const btnCancelar = document.getElementById('btnCancelar');
+      const btnEnviar = document.getElementById('btnEnviar');
+      
+      // Abre o modal
+      btn.onclick = function() {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+      
+      // Fecha o modal
+      function fecharModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+      
+      // Fecha o modal ao clicar no X
+      span.onclick = fecharModal;
+      
+      // Fecha o modal ao clicar no botão Cancelar
+      btnCancelar.onclick = fecharModal;
+      
+      // Fecha o modal ao clicar fora do conteúdo
+      modal.onclick = function(event) {
+        if (event.target === modal) {
+          fecharModal();
+        }
+      }
+      
+      // Fecha o modal ao pressionar ESC
+      document.onkeydown = function(event) {
+        if (event.key === 'Escape') {
+          fecharModal();
+        }
+      }
+      
+      // Envia os dados para o WhatsApp
+      btnEnviar.onclick = function() {
+        const nome = document.getElementById('nomeRepresentante').value;
+        const empresa = document.getElementById('empresa').value;
+        const email = document.getElementById('email').value;
+        
+        if (!nome || !empresa || !email) {
+          alert('Por favor, preencha todos os campos!');
+          return;
+        }
+        
+        // Formata a mensagem para o WhatsApp
+        const mensagem = `Olá, gostaria de agendar uma demonstração do Ajudda Card:\n\n` +
+                        `*Nome do Representante:* ${nome}\n` +
+                        `*Empresa:* ${empresa}\n` +
+                        `*E-mail:* ${email}\n\n` +
+                        `Por favor, informe os horários disponíveis.`;
+        
+        // Codifica a mensagem para URL
+        const mensagemCodificada = encodeURIComponent(mensagem);
+        
+        // Cria o link do WhatsApp
+        const urlWhatsApp = `https://wa.me/5585984415490?text=${mensagemCodificada}`;
+        
+        // Abre o WhatsApp em uma nova aba
+        window.open(urlWhatsApp, '_blank');
+        
+        // Fecha o modal
+        fecharModal();
+        
+        // Limpa o formulário
+        document.getElementById('formDemonstracao').reset();
+      }
+    });
+    </script>
+              </div>
+            </div>
+          </nav>
+<style>/* Estilos para a barra de pesquisa */
+    .search-container {
+        position: relative;
+        width: 100%;
+        max-width: 500px; /* Ajuste conforme necessário */
+        margin: 20px auto;
+    }
+    
+    #search-input {
+        width: 100%;
+        padding: 12px 45px 12px 15px; /* Espaço à direita para o ícone */
+        border: 1px solid #ddd;
+        border-radius: 30px; /* Bordas arredondadas */
+        font-size: 16px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        outline: none;
+    }
+    
+    #search-button {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        color: #666;
+        padding: 0;
+    }
+    
+    #search-button:hover {
+        color: #333;
+    }</style>
+        <!-- Hero Section -->
+        <section class="hero" style="margin-top: 67px;">
+            <h1 style="color: white;">Conteúdos para cuidar melhor da sua saúde</h1>
+            <p>Descubra artigos, dicas e novidades sobre saúde acessível e qualidade de vida</p>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Buscar artigos...">
+                <button id="search-button">🔍</button>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="container">
+            <!-- Articles Section -->
+            <main class="articles" id="articles-container">
+                <!-- Artigos serão carregados aqui via JavaScript -->
+            </main>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- About Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Sobre o Blog</h3>
+                    <p>O Blog Ajudda traz conteúdos exclusivos sobre saúde acessível, cuidados preventivos e bem-estar para você e sua família.</p>
+                </div>
+
+                <!-- Popular Posts -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Artigos Populares</h3>
+                    <div class="popular-posts" id="popular-posts">
+                        <!-- Popular posts serão carregados aqui -->
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Categorias</h3>
+                    <ul class="categories-list" id="categories-list">
+                        <!-- Categorias serão carregadas aqui -->
+                    </ul>
+                </div>
+                <style>
+                    .feedback-widget {
+                        background: #f8f9fa;
+                        padding: 20px;
+                        border-radius: 10px;
+                        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+                    }
+                    
+                    .feedback-form .form-group {
+                        margin-bottom: 15px;
+                    }
+                    
+                    .feedback-form input,
+                    .feedback-form select,
+                    .feedback-form textarea {
+                        width: 100%;
+                        padding: 12px;
+                        border: 1px solid #ddd;
+                        border-radius: 5px;
+                        font-size: 14px;
+                    }
+                    
+                    .feedback-form textarea {
+                        height: 100px;
+                        resize: vertical;
+                    }
+                    
+                    .whatsapp-button1 {
+                        background-color: #25D366;
+                        color: white;
+                        border: none;
+                        padding: 12px 20px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        font-weight: bold;
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                        transition: background-color 0.3s;
+                    }
+                    
+                    .whatsapp-button:hover {
+                        background-color: #128C7E;
+                    }
+                    
+                    #feedback-status {
+                        margin-top: 15px;
+                        padding: 10px;
+                        border-radius: 5px;
+                        display: none;
+                    }
+                    
+                    .feedback-success {
+                        background-color: #d4edda;
+                        color: #155724;
+                    }
+                    
+                    .feedback-error {
+                        background-color: #f8d7da;
+                        color: #721c24;
+                    }
+                    </style>
+                <!-- Newsletter -->
+                <div class="sidebar-widget feedback-widget">
+                    <h3 class="widget-title">Nosso blog foi útil?</h3>
+                    <p>Compartilhe sua experiência conosco via WhatsApp:</p>
+                    
+                    <form class="feedback-form" id="feedback-form">
+                        <div class="form-group">
+                            <input type="text" id="feedback-name" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="feedback-rating" required>
+                                <option value="" disabled selected>Como você avalia o conteúdo?</option>
+                                <option value="⭐ Excelente">⭐ Excelente</option>
+                                <option value="👍 Bom">👍 Bom</option>
+                                <option value="😐 Regular">😐 Regular</option>
+                                <option value="👎 Precisa melhorar">👎 Precisa melhorar</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="feedback-message" placeholder="Sua mensagem (opcional)"></textarea>
+                        </div>
+                        <button type="submit" class="whatsapp-button1">
+                            <i class="fab fa-whatsapp"></i> Enviar via WhatsApp
+                        </button>
+                    </form>
+                    
+                    <div id="feedback-status"></div>
+                </div>
+                <script>
+                    document.getElementById('feedback-form').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        
+                        const name = document.getElementById('feedback-name').value;
+                        const rating = document.getElementById('feedback-rating').value;
+                        const message = document.getElementById('feedback-message').value;
+                        
+                        // Formata a mensagem para o WhatsApp
+                        const whatsappMessage = `*Feedback sobre o Blog Ajudda*\n\n` +
+                                               `*Nome:* ${name}\n` +
+                                               `*Avaliação:* ${rating}\n` +
+                                               `*Mensagem:* ${message || 'Nenhuma mensagem adicional'}`;
+                        
+                        // Codifica a mensagem para URL
+                        const encodedMessage = encodeURIComponent(whatsappMessage);
+                        
+                        // Número de telefone (substitua pelo seu número)
+                        const phoneNumber = "5588999999999"; // Exemplo: 55 (Brasil) + DDD + número
+                        
+                        // Cria o link do WhatsApp
+                        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                        
+                        // Abre em uma nova aba
+                        window.open(whatsappUrl, '_blank');
+                        
+                        // Mostra mensagem de sucesso
+                        const statusDiv = document.getElementById('feedback-status');
+                        statusDiv.textContent = "Obrigado pelo seu feedback! Você será redirecionado para o WhatsApp.";
+                        statusDiv.style.display = "block";
+                        statusDiv.className = "feedback-success";
+                        
+                        // Limpa o formulário
+                        this.reset();
+                    });
+                    </script>
+            </aside>
+        </div>
+
+        <!-- Paginação -->
+        <div class="container">
+            <div class="pagination" id="pagination">
+                <!-- Paginação será carregada aqui -->
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a style="color: white;" src="assets/img/illustration/ajudda-logo-branca (1).png" class="footer-logo" id="footer-home-link">AJUDDA</a>
+                    <p class="footer-about">Soluções inovadoras para tornar a saúde acessível a todos.</p>
+                   
+                </div>
+                <div class="footer-links">
+                    <h3 style="color: white;">Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html" class="footer-link" data-category="all">Home</a></li>
+                        <li><a href="quem-somos.html" class="footer-link" data-category="sobre">Sobre Nós</a></li>
+                        <li><a href="https://wa.me/5585984415490" class="footer-link" data-category="servicos">Serviços</a></li>
+                        <li><a href="blog.html" class="footer-link" data-category="blog">Blog</a></li>
+                        <li><a href="https://wa.me/5585984415490" class="footer-link" data-category="contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 style="color: white;">Categorias</h3>
+                    <ul>
+                        <li><a href="#" class="footer-category" data-category="saude">Saúde</a></li>
+                        <li><a href="#" class="footer-category" data-category="bem-estar">Bem-estar</a></li>
+                        <li><a href="#" class="footer-category" data-category="dicas">Dicas</a></li>
+                        <li><a href="#" class="footer-category" data-category="prevencao">Prevenção</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 style="color: white;">Contato</h3>
+                    <ul>
+                        <li><a href="mailto:ajuddacard@gmail.com">ajuddacard@gmail.com</a></li>
+                        <li><a href="tel:+5585984415490">(85) 9 8441-5490</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy;2025 Ajudda Card. Todos os direitos reservados.</p>
+                <p class="fs--1 my-2 text-center text-200">
+                    &nbsp; Desenvolvido por&nbsp;<a class="fw-bold text-info text-200" href="https://www.linkedin.com/in/trajanoluan" target="_blank" style="color: white;">LuanDev</a>
+                  </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Página de artigo detalhado (inicialmente oculta) -->
+    <div id="article-page" style="display: none;">
+        <!-- O conteúdo será carregado aqui via JavaScript -->
+    </div>
+
+    <!-- jQuery PRIMEIRO (deve ser o primeiro script JS) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Depois os outros vendors (em ordem lógica) -->
+<script src="vendors/popper/popper.min.js"></script>
+<script src="vendors/bootstrap/bootstrap.min.js"></script>
+<script src="vendors/anchorjs/anchor.min.js"></script>
+<script src="vendors/is/is.min.js"></script>
+<script src="vendors/fontawesome/all.min.js"></script>
+<script src="vendors/lodash/lodash.min.js"></script>
+<script src="vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+<script src="vendors/gsap/customEase.js"></script>
+<script src="vendors/gsap/scrollToPlugin.js"></script>
+    <script>
+        // Banco de dados de artigos com conteúdo completo
+        const articles = [
+            {
+                id: 1,
+                title: "Como ter acesso a consultas médicas a preços acessíveis",
+                excerpt: "Descubra como o Ajudda Card pode facilitar seu acesso a médicos de diversas especialidades sem comprometer seu orçamento mensal.",
+                category: "saude",
+                image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528",
+                author: "Dr. Carlos Silva",
+                readTime: "10 min de leitura",
+                date: "15 Maio 2023",
+                popular: true,
+                content: `
+                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528" alt="Consulta médica" class="article-banner">
+                    <div class="article-page">
+                        <div class="article-header">
+                            <span class="article-category">Saúde</span>
+                            <h1 class="article-page-title">Como ter acesso a consultas médicas a preços acessíveis</h1>
+                            <div class="article-page-meta">
+                                <span>Por Dr. Carlos Silva</span>
+                                <span>15 Maio 2023</span>
+                                <span>10 min de leitura</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-page-content">
+                            <p>No cenário atual, onde os custos com saúde não param de subir, encontrar maneiras de acessar serviços médicos de qualidade sem gastar fortunas tornou-se uma necessidade para muitas famílias brasileiras. Neste artigo, vamos explorar como o Ajudda Card está revolucionando o acesso à saúde no país.</p>
+                            
+                            <h2>O problema do acesso à saúde no Brasil</h2>
+                            <p>Segundo dados do IBGE, mais de 70% da população brasileira depende exclusivamente do SUS para atendimento médico, enquanto apenas 25% possuem planos de saúde privados. Os principais motivos para essa disparidade são:</p>
+                            <ul>
+                                <li>Altos custos dos planos de saúde</li>
+                                <li>Carência longa para utilização</li>
+                                <li>Reajustes abusivos anuais</li>
+                                <li>Cobertura limitada por região</li>
+                            </ul>
+                            
+                            <h2>Como o Ajudda Card funciona</h2>
+                            <p>Diferente dos planos de saúde tradicionais, o Ajudda Card oferece:</p>
+                            <ol>
+                                <li><strong>Ativação imediata:</strong> Sem períodos de carência</li>
+                                <li><strong>Preços acessíveis:</strong> Consultas a partir de R$ 50,00</li>
+                                <li><strong>Rede ampla:</strong> Mais de 100 clínicas parceiras</li>
+                                <li><strong>Sem mensalidade:</strong> Pague apenas quando usar</li>
+                            </ol>
+                            
+                            <h2>Especialidades disponíveis</h2>
+                            <p>Através do Ajudda Card, você pode marcar consultas em diversas especialidades:</p>
+                            <ul>
+                                <li>Clínico geral</li>
+                                <li>Pediatria</li>
+                                <li>Ginecologia</li>
+                                <li>Cardiologia</li>
+                                <li>Dermatologia</li>
+                                <li>Entre outras</li>
+                            </ul>
+                            
+                            <h2>Depoimentos de usuários</h2>
+                            <p><em>"Consegui marcar uma consulta com dermatologista por R$ 60,00, quando normalmente pagaria R$ 200,00. Foi um alívio para meu orçamento."</em> - Maria S., 32 anos</p>
+                            <p><em>"Uso o Ajudda há 6 meses e já economizei mais de R$ 800,00 em consultas para minha família."</em> - João P., 45 anos</p>
+                            
+                            <h2>Como começar a usar</h2>
+                            <p>Para começar a economizar em suas consultas médicas:</p>
+                            <ol>
+                                <li>Baixe o app Ajudda Card</li>
+                                <li>Faça seu cadastro em minutos</li>
+                                <li>Escolha a especialidade e local</li>
+                                <li>Agende sua consulta com desconto</li>
+                            </ol>
+                            
+                            <p>A saúde de qualidade não precisa ser um luxo. Com as soluções certas, você pode cuidar de si e de sua família sem comprometer suas finanças.</p>
+                            
+                            <a href="#" class="back-to-blog" id="back-to-blog-1">← Voltar para o blog</a>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 2,
+                title: "Guia completo para economizar em medicamentos essenciais",
+                excerpt: "Conheça estratégias comprovadas para reduzir seus gastos com farmácia sem abrir mão da qualidade dos tratamentos.",
+                category: "dicas",
+                image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef",
+                author: "Dra. Ana Paula",
+                readTime: "8 min de leitura",
+                date: "2 Maio 2023",
+                popular: true,
+                content: `
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef" alt="Medicamentos" class="article-banner">
+                    <div class="article-page">
+                        <div class="article-header">
+                            <span class="article-category">Dicas</span>
+                            <h1 class="article-page-title">Guia completo para economizar em medicamentos essenciais</h1>
+                            <div class="article-page-meta">
+                                <span>Por Dra. Ana Paula</span>
+                                <span>2 Maio 2023</span>
+                                <span>8 min de leitura</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-page-content">
+                            <p>Os gastos com medicamentos representam uma parcela significativa do orçamento familiar quando há necessidade de tratamentos contínuos. Neste guia, vamos explorar estratégias inteligentes para reduzir esses custos sem comprometer sua saúde.</p>
+                            
+                            <h2>1. Conheça os programas de desconto</h2>
+                            <p>Muitas farmácias e programas como o Ajudda Card oferecem descontos exclusivos:</p>
+                            <ul>
+                                <li>Até 40% em medicamentos de uso contínuo</li>
+                                <li>Descontos progressivos conforme uso</li>
+                                <li>Promoções sazonais para estoques</li>
+                            </ul>
+                            
+                            <h2>2. Opte por genéricos</h2>
+                            <p>Os medicamentos genéricos possuem a mesma eficácia dos de marca, com preços até 70% menores. Algumas vantagens:</p>
+                            <ul>
+                                <li>Mesmo princípio ativo</li>
+                                <li>Mesma dosagem</li>
+                                <li>Mesma via de administração</li>
+                                <li>Mesma indicação terapêutica</li>
+                                <li>Passam pelos mesmos testes de qualidade</li>
+                            </ul>
+                            
+                            <h2>3. Compre em farmácias populares</h2>
+                            <p>O programa Farmácia Popular do governo oferece medicamentos gratuitos ou com até 90% de desconto para diversas condições crônicas como:</p>
+                            <ul>
+                                <li>Diabetes</li>
+                                <li>Hipertensão</li>
+                                <li>Asma</li>
+                                <li>Osteoporose</li>
+                            </ul>
+                            
+                            <h2>4. Compre a granel</h2>
+                            <p>Para medicamentos de uso contínuo, comprar caixas maiores ou para 3 meses pode gerar economias de até 30%.</p>
+                            
+                            <h2>5. Não compre por impulso</h2>
+                            <p>Evite comprar medicamentos sem orientação médica. Muitas vezes pagamos caro por remédios que não são necessários ou que temos similares mais baratos.</p>
+                            
+                            <h2>6. Utilize o Ajudda Card</h2>
+                            <p>Com o Ajudda Card você tem acesso a:</p>
+                            <ul>
+                                <li>Rede de farmácias parceiras</li>
+                                <li>Descontos exclusivos</li>
+                                <li>Programa de acumulo de pontos</li>
+                                <li>Alertas de promoções</li>
+                            </ul>
+                            
+                            <p>Economizar em medicamentos é possível com informação e planejamento. Comece hoje mesmo a aplicar essas dicas e veja a diferença no seu orçamento.</p>
+                            
+                            <a href="#" class="back-to-blog" id="back-to-blog-2">← Voltar para o blog</a>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 3,
+                title: "Exames preventivos: quais fazer e quando realizar",
+                excerpt: "Um guia por faixa etária para você não negligenciar sua saúde e detectar problemas antes que se tornem graves.",
+                category: "saude",
+                image: "https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe",
+                author: "Dr. Roberto Almeida",
+                readTime: "12 min de leitura",
+                date: "25 Abril 2023",
+                popular: true,
+                content: `
+                    <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe" alt="Exames médicos" class="article-banner">
+                    <div class="article-page">
+                        <div class="article-header">
+                            <span class="article-category">Saúde</span>
+                            <h1 class="article-page-title">Exames preventivos: quais fazer e quando realizar</h1>
+                            <div class="article-page-meta">
+                                <span>Por Dr. Roberto Almeida</span>
+                                <span>25 Abril 2023</span>
+                                <span>12 min de leitura</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-page-content">
+                            <p>A medicina preventiva é a forma mais eficaz de manter a saúde em dia e evitar doenças graves. Neste guia completo, vamos detalhar os exames essenciais para cada fase da vida e como o Ajudda Card pode facilitar seu acesso a eles.</p>
+                            
+                            <h2>Exames por faixa etária</h2>
+                            
+                            <h3>20-30 anos</h3>
+                            <ul>
+                                <li><strong>Hemograma completo:</strong> Anual</li>
+                                <li><strong>Glicemia:</strong> A cada 2 anos</li>
+                                <li><strong>Colesterol:</strong> A cada 3 anos</li>
+                                <li><strong>Exames de DSTs:</strong> Conforme risco</li>
+                                <li><strong>Papanicolau (mulheres):</strong> Anual após início da vida sexual</li>
+                            </ul>
+                            
+                            <h3>30-40 anos</h3>
+                            <ul>
+                                <li><strong>Todos os anteriores</strong></li>
+                                <li><strong>TSH (tireoide):</strong> A cada 3 anos</li>
+                                <li><strong>Ultrassom de mama (mulheres):</strong> A partir dos 35 anos</li>
+                                <li><strong>PSA (homens):</strong> A partir dos 40 anos</li>
+                            </ul>
+                            
+                            <h3>40-50 anos</h3>
+                            <ul>
+                                <li><strong>Colonoscopia:</strong> A cada 5 anos</li>
+                                <li><strong>Mamografia (mulheres):</strong> Anual</li>
+                                <li><strong>Densitometria óssea:</strong> A partir dos 45 anos para mulheres</li>
+                                <li><strong>Teste ergométrico:</strong> A cada 2 anos</li>
+                            </ul>
+                            
+                            <h3>Acima de 50 anos</h3>
+                            <ul>
+                                <li><strong>Todos os anteriores com maior frequência</strong></li>
+                                <li><strong>Endoscopia:</strong> A cada 3 anos</li>
+                                <li><strong>Exames de próstata (homens):</strong> Anual</li>
+                                <li><strong>Avaliação cognitiva:</strong> A partir dos 60 anos</li>
+                            </ul>
+                            
+                            <h2>Como economizar em exames preventivos</h2>
+                            <p>Com o Ajudda Card você tem acesso a:</p>
+                            <ul>
+                                <li>Até 50% de desconto em exames laboratoriais</li>
+                                <li>Preços especiais em exames de imagem</li>
+                                <li>Pacotes promocionais para check-ups completos</li>
+                                <li>Agendamento rápido sem burocracia</li>
+                            </ul>
+                            
+                            <h2>Por que a prevenção é importante</h2>
+                            <p>Estudos mostrem que:</p>
+                            <ul>
+                                <li>90% dos casos de câncer têm maior chance de cura quando detectados precocemente</li>
+                                <li>Doenças cardiovasculares podem ser prevenidas com exames simples</li>
+                                <li>Diabetes tipo 2 pode ser evitado com acompanhamento adequado</li>
+                            </ul>
+                            
+                            <p>Não negligencie sua saúde. Agende seus exames preventivos hoje mesmo e garanta uma vida mais longa e saudável.</p>
+                            
+                            <a href="#" class="back-to-blog" id="back-to-blog-3">← Voltar para o blog</a>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 4,
+                title: "10 benefícios do Ajudda Card para sua família",
+                excerpt: "Descubra como um único cartão pode oferecer benefícios de saúde para toda sua família com economia e praticidade.",
+                category: "dicas",
+                image: "https://images.unsplash.com/photo-1550831107-1553da8c8464",
+                author: "Equipe Ajudda",
+                readTime: "6 min de leitura",
+                date: "10 Abril 2023",
+                content: `
+                    <img src="https://images.unsplash.com/photo-1550831107-1553da8c8464" alt="Família saudável" class="article-banner">
+                    <div class="article-page">
+                        <div class="article-header">
+                            <span class="article-category">Dicas</span>
+                            <h1 class="article-page-title">10 benefícios do Ajudda Card para sua família</h1>
+                            <div class="article-page-meta">
+                                <span>Por EquipeAjudda</span>
+                                <span>10 Abril 2023</span>
+                                <span>6 min de leitura</span>
+                                </div>
+                                </div>
+                                                    <div class="article-page-content">
+                        <p>O Ajudda Card foi criado para democratizar o acesso à saúde de qualidade para todas as famílias brasileiras. Conheça os principais benefícios que nosso cartão pode oferecer para você e seus familiares.</p>
+                        
+                        <h2>1. Atendimento para toda a família</h2>
+                        <p>Um único cartão cobre todos os membros da família, sem custos adicionais. Basta cadastrar os dependentes no app e todos terão acesso aos benefícios.</p>
+                        
+                        <h2>2. Consultas a preços acessíveis</h2>
+                        <p>Consultas com especialistas a partir de R$ 50,00, sem mensalidade ou taxas escondidas. Você paga apenas quando usar.</p>
+                        
+                        <h2>3. Rede credenciada ampla</h2>
+                        <p>Mais de 1.000 clínicas e consultórios parceiros em todo o Brasil, com opções próximas à sua casa ou trabalho.</p>
+                        
+                        <h2>4. Descontos em medicamentos</h2>
+                        <p>Até 40% de desconto em farmácias parceiras, tanto para medicamentos de uso contínuo quanto para aqueles de uso eventual.</p>
+                        
+                        <h2>5. Exames com até 50% off</h2>
+                        <p>Preços especiais em exames laboratoriais e de imagem em laboratórios conveniados em todo o país.</p>
+                        
+                        <h2>6. Sem carência</h2>
+                        <p>Diferente dos planos de saúde tradicionais, você pode usar seu Ajudda Card imediatamente após a ativação.</p>
+                        
+                        <h2>7. Atendimento 24h</h2>
+                        <p>Telemedicina disponível 24 horas por dia, 7 dias por semana, para tirar dúvidas e receber orientações médicas.</p>
+                        
+                        <h2>8. Programa de prevenção</h2>
+                        <p>Acesso a conteúdo exclusivo e lembretes para exames preventivos de acordo com a idade e perfil de cada familiar.</p>
+                        
+                        <h2>9. App integrado</h2>
+                        <p>Agendamento de consultas, resultados de exames e histórico médico tudo em um só lugar, com praticidade e segurança.</p>
+                        
+                        <h2>10. Sem burocracia</h2>
+                        <p>Sem questionários médicos complicados ou processos demorados. Cadastro simples e rápido.</p>
+                        
+                        <h2>Depoimento de clientes</h2>
+                        <p><em>"Com o Ajudda Card consegui levar meus dois filhos ao pediatra por menos da metade do preço que pagava antes."</em> - Carla R., 28 anos</p>
+                        <p><em>"Minha mãe idosa faz todos os exames dela com desconto pelo cartão. Foi a melhor solução que encontramos."</em> - Marcos T., 42 anos</p>
+                        
+                        <h2>Como adquirir seu Ajudda Card</h2>
+                        <ol>
+                            <li>Baixe o app Ajudda Card na Play Store ou App Store</li>
+                            <li>Faça seu cadastro em menos de 5 minutos</li>
+                            <li>Adicione seus familiares como dependentes</li>
+                            <li>Comece a usar imediatamente</li>
+                        </ol>
+                        
+                        <p>Não deixe que o custo seja um impedimento para cuidar da saúde de quem você ama. Com o Ajudda Card, saúde de qualidade cabe no seu orçamento.</p>
+                        
+                        <a href="#" class="back-to-blog" id="back-to-blog-4">← Voltar para o blog</a>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 5,
+            title: "Alimentação saudável com baixo custo: é possível?",
+            excerpt: "Aprenda a montar uma dieta nutritiva sem gastar muito e descubra como pequenas mudanças podem melhorar sua saúde.",
+            category: "bem-estar",
+            image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061",
+            author: "Nutricionista Juliana Martins",
+            readTime: "9 min de leitura",
+            date: "5 Abril 2023",
+            popular: true,
+            content: `
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061" alt="Alimentação saudável" class="article-banner">
+                <div class="article-page">
+                    <div class="article-header">
+                        <span class="article-category">Bem-estar</span>
+                        <h1 class="article-page-title">Alimentação saudável com baixo custo: é possível?</h1>
+                        <div class="article-page-meta">
+                            <span>Por Nutricionista Juliana Martins</span>
+                            <span>5 Abril 2023</span>
+                            <span>9 min de leitura</span>
+                        </div>
+                    </div>
+                    
+                    <div class="article-page-content">
+                        <p>Muitas pessoas acreditam que se alimentar bem é sinônimo de gastar muito, mas isso não é verdade. Com planejamento e conhecimento, é possível ter uma dieta balanceada mesmo com orçamento limitado.</p>
+                        
+                        <h2>1. Planejamento é fundamental</h2>
+                        <p>Antes de ir ao mercado:</p>
+                        <ul>
+                            <li>Faça um cardápio semanal</li>
+                            <li>Verifique o que já tem em casa</li>
+                            <li>Monte uma lista apenas do necessário</li>
+                            <li>Evite ir ao mercado com fome</li>
+                        </ul>
+                        
+                        <h2>2. Invista em alimentos básicos e versáteis</h2>
+                        <p>Alguns alimentos oferecem excelente custo-benefício nutricional:</p>
+                        <ul>
+                            <li>Arroz integral</li>
+                            <li>Feijão e outras leguminosas</li>
+                            <li>Ovos</li>
+                            <li>Banana</li>
+                            <li>Batata doce</li>
+                            <li>Couve</li>
+                            <li>Abóbora</li>
+                        </ul>
+                        
+                        <h2>3. Compre da época e local</h2>
+                        <p>Frutas e verduras da safra são mais baratas e nutritivas. Consulte o calendário de safras da sua região.</p>
+                        
+                        <h2>4. Aproveite integralmente os alimentos</h2>
+                        <p>Muitas partes que costumamos descartar são comestíveis e nutritivas:</p>
+                        <ul>
+                            <li>Talos de couve, brócolis e beterraba</li>
+                            <li>Cascas de banana, abóbora e batata</li>
+                            <li>Sementes de abóbora e melancia</li>
+                        </ul>
+                        
+                        <h2>5. Prepare suas refeições em casa</h2>
+                        <p>Cozinhar em casa é mais barato e saudável. Dedique algumas horas no fim de semana para preparar e congelar porções.</p>
+                        
+                        <h2>6. Compare preços e compre a granel</h2>
+                        <p>Produtos não perecíveis como grãos, farinhas e castanhas saem mais baratos quando comprados em quantidades maiores.</p>
+                        
+                        <h2>7. Hidrate-se corretamente</h2>
+                        <p>Substitua refrigerantes e sucos industrializados por água, chás naturais e água saborizada com frutas.</p>
+                        
+                        <h2>8. Utilize o Ajudda Card para consultas nutricionais</h2>
+                        <p>Com o Ajudda Card você tem acesso a:</p>
+                        <ul>
+                            <li>Nutricionistas por preços acessíveis</li>
+                            <li>Planos alimentares personalizados</li>
+                            <li>Acompanhamento nutricional</li>
+                            <li>Descontos em lojas de produtos naturais</li>
+                        </ul>
+                        
+                        <p>Alimentação saudável não precisa ser cara. Com essas dicas você pode melhorar sua dieta e sua saúde sem pesar no bolso.</p>
+                        
+                        <a href="#" class="back-to-blog" id="back-to-blog-5">← Voltar para o blog</a>
+                    </div>
+                </div>
+            `
+        }
+    ];
+
+     // Configurações de paginação
+     const articlesPerPage = 3;
+    let currentPage = 1;
+    let currentCategory = 'all';
+    let currentSearch = '';
+
+    // Função principal para renderizar artigos com paginação
+    function renderArticles(filteredArticles = articles) {
+        const articlesContainer = document.getElementById('articles-container');
+        articlesContainer.innerHTML = '';
+        
+        // Calcula os artigos para a página atual
+        const startIndex = (currentPage - 1) * articlesPerPage;
+        const endIndex = startIndex + articlesPerPage;
+        const paginatedArticles = filteredArticles.slice(startIndex, endIndex);
+        
+        if (paginatedArticles.length === 0) {
+            articlesContainer.innerHTML = `
+                <div class="message">
+                    <p>Nenhum artigo encontrado. Tente ajustar sua busca ou filtro.</p>
+                </div>
+            `;
+            return;
+        }
+        
+        paginatedArticles.forEach(article => {
+            const articleElement = document.createElement('article');
+            articleElement.className = 'article-card';
+            articleElement.dataset.id = article.id;
+            articleElement.dataset.category = article.category;
+            
+            articleElement.innerHTML = `
+                <img src="${article.image}" alt="${article.title}" class="article-image">
+                <div class="article-content">
+                    <span class="article-category">${getCategoryName(article.category)}</span>
+                    <h2 class="article-title">${article.title}</h2>
+                    <p class="article-excerpt">${article.excerpt}</p>
+                    <div class="article-meta">
+                        <span>${article.author}</span>
+                        <span>${article.date}</span>
+                        <span>${article.readTime}</span>
+                    </div>
+                </div>
+            `;
+            
+            articleElement.addEventListener('click', () => showArticle(article.id));
+            articlesContainer.appendChild(articleElement);
+        });
+        
+        // Renderiza a paginação
+        renderPagination(filteredArticles.length);
+    }
+
+    // Função para renderizar os controles de paginação
+    function renderPagination(totalArticles) {
+        const totalPages = Math.ceil(totalArticles / articlesPerPage);
+        const paginationContainer = document.getElementById('pagination');
+        paginationContainer.innerHTML = '';
+        
+        if (totalPages <= 1) return;
+        
+        // Botão Anterior
+        if (currentPage > 1) {
+            const prevButton = document.createElement('a');
+            prevButton.href = '#';
+            prevButton.className = 'page-link';
+            prevButton.textContent = '«';
+            prevButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentPage--;
+                updateArticles();
+            });
+            paginationContainer.appendChild(prevButton);
+        }
+        
+        // Números das páginas
+        for (let i = 1; i <= totalPages; i++) {
+            const pageLink = document.createElement('a');
+            pageLink.href = '#';
+            pageLink.className = `page-link ${i === currentPage ? 'active' : ''}`;
+            pageLink.textContent = i;
+            pageLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentPage = i;
+                updateArticles();
+            });
+            paginationContainer.appendChild(pageLink);
+        }
+        
+        // Botão Próximo
+        if (currentPage < totalPages) {
+            const nextButton = document.createElement('a');
+            nextButton.href = '#';
+            nextButton.className = 'page-link';
+            nextButton.textContent = '»';
+            nextButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentPage++;
+                updateArticles();
+            });
+            paginationContainer.appendChild(nextButton);
+        }
+    }
+
+    // Função para atualizar os artigos com os filtros atuais
+    function updateArticles() {
+        let filteredArticles = articles;
+        
+        // Aplica filtro de categoria
+        if (currentCategory !== 'all') {
+            filteredArticles = filteredArticles.filter(article => article.category === currentCategory);
+        }
+        
+        // Aplica filtro de busca
+        if (currentSearch) {
+            const lowerQuery = currentSearch.toLowerCase();
+            filteredArticles = filteredArticles.filter(article => 
+                article.title.toLowerCase().includes(lowerQuery) || 
+                article.excerpt.toLowerCase().includes(lowerQuery) ||
+                article.content.toLowerCase().includes(lowerQuery)
+            );
+        }
+        
+        renderArticles(filteredArticles);
+        window.scrollTo(0, 0);
+    }
+
+    // Função para filtrar por categoria
+    function filterByCategory(category) {
+        currentCategory = category;
+        currentPage = 1; // Reset para a primeira página
+        currentSearch = ''; // Limpa a busca
+        document.getElementById('search-input').value = ''; // Limpa o input de busca
+        updateArticles();
+    }
+
+    // Função para buscar artigos
+    function searchArticles(query) {
+        currentSearch = query;
+        currentPage = 1; // Reset para a primeira página
+        updateArticles();
+    }
+
+    // Função para mostrar um artigo completo
+    function showArticle(id) {
+        const article = articles.find(a => a.id === id);
+        if (!article) return;
+        
+        const blogPage = document.getElementById('blog-page');
+        const articlePage = document.getElementById('article-page');
+        
+        blogPage.style.display = 'none';
+        articlePage.style.display = 'block';
+        articlePage.innerHTML = article.content;
+        
+        // Adiciona evento ao botão "Voltar para o blog" se existir
+        const backButton = document.getElementById(`back-to-blog-${id}`);
+        if (backButton) {
+            backButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                blogPage.style.display = 'block';
+                articlePage.style.display = 'none';
+                window.scrollTo(0, 0);
+            });
+        }
+        
+        window.scrollTo(0, 0);
+    }
+
+    // Funções auxiliares para renderizar sidebar (popular posts e categorias)
+    function renderPopularPosts() {
+        const popularPostsContainer = document.getElementById('popular-posts');
+        popularPostsContainer.innerHTML = '';
+        
+        const popularArticles = articles.filter(article => article.popular);
+        
+        popularArticles.forEach(article => {
+            const postElement = document.createElement('a');
+            postElement.className = 'popular-post';
+            postElement.href = '#';
+            postElement.dataset.id = article.id;
+            
+            postElement.innerHTML = `
+                <img src="${article.image}" alt="${article.title}">
+                <div>
+                    <h4 class="popular-post-title">${article.title}</h4>
+                    <span class="popular-post-date">${article.date}</span>
+                </div>
+            `;
+            
+            postElement.addEventListener('click', (e) => {
+                e.preventDefault();
+                showArticle(article.id);
+            });
+            
+            popularPostsContainer.appendChild(postElement);
+        });
+    }
+
+    function renderCategories() {
+        const categoriesContainer = document.getElementById('categories-list');
+        categoriesContainer.innerHTML = '';
+        
+        const categories = {};
+        articles.forEach(article => {
+            categories[article.category] = (categories[article.category] || 0) + 1;
+        });
+        
+        // Adiciona a opção "Todas"
+        const allItem = document.createElement('li');
+        allItem.innerHTML = `
+            <a href="#" class="category-link active" data-category="all">
+                Todas
+                <span class="category-count">${articles.length}</span>
+            </a>
+        `;
+        allItem.addEventListener('click', (e) => {
+            e.preventDefault();
+            filterByCategory('all');
+            document.querySelectorAll('.category-link').forEach(link => link.classList.remove('active'));
+            e.target.classList.add('active');
+        });
+        categoriesContainer.appendChild(allItem);
+        
+        // Adiciona as demais categorias
+        for (const category in categories) {
+            const item = document.createElement('li');
+            item.innerHTML = `
+                <a href="#" class="category-link" data-category="${category}">
+                    ${getCategoryName(category)}
+                    <span class="category-count">${categories[category]}</span>
+                </a>
+            `;
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                filterByCategory(category);
+                document.querySelectorAll('.category-link').forEach(link => link.classList.remove('active'));
+                e.target.classList.add('active');
+            });
+            categoriesContainer.appendChild(item);
+        }
+    }
+
+    function getCategoryName(category) {
+        const names = {
+            'saude': 'Saúde',
+            'bem-estar': 'Bem-estar',
+            'dicas': 'Dicas',
+            'sobre': 'Sobre Nós',
+            'contato': 'Contato',
+            'prevencao': 'Prevenção'
+        };
+        return names[category] || category;
+    }
+
+    // Inicialização da página
+    document.addEventListener('DOMContentLoaded', () => {
+        renderArticles();
+        renderPopularPosts();
+        renderCategories();
+        
+        // Configura o botão de busca
+        document.getElementById('search-button').addEventListener('click', () => {
+            const query = document.getElementById('search-input').value;
+            searchArticles(query);
+        });
+        
+        // Configura o input de busca para responder ao Enter
+        document.getElementById('search-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const query = document.getElementById('search-input').value;
+                searchArticles(query);
+            }
+        });
+    });
+    // Elementos
+  const whatsappButton = document.getElementById('whatsappButton');
+  const whatsappChat = document.getElementById('whatsappChat');
+  const messageInput = document.getElementById('messageInput');
+  const sendButton = document.getElementById('sendButton');
+  const chatMessages = document.getElementById('chatMessages');
+  const typingIndicator = document.getElementById('typingIndicator');
+  const whatsappNumber = '5585984415490';
+  
+  // Abrir/fechar chat
+  whatsappButton.addEventListener('click', function() {
+      whatsappChat.style.display = whatsappChat.style.display === 'block' ? 'none' : 'block';
+      if (whatsappChat.style.display === 'block') {
+          messageInput.focus();
+      }
+  });
+  
+  // Auto-ajuste da altura do textarea
+  messageInput.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight > 84 ? 84 : this.scrollHeight) + 'px';
+  });
+  
+  // Adicionar mensagem
+  function addMessage(text, isReceived) {
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('message', isReceived ? 'received' : 'sent');
+      messageElement.textContent = text;
+      chatMessages.insertBefore(messageElement, typingIndicator);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+  
+  // Enviar mensagem
+  function sendMessage() {
+      const message = messageInput.value.trim();
+      if (message) {
+          addMessage(message, false);
+          messageInput.value = '';
+          messageInput.style.height = 'auto';
+          
+          // Resposta automática
+          typingIndicator.style.display = 'block';
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          
+          setTimeout(() => {
+              typingIndicator.style.display = 'none';
+              addMessage("Recebemos sua mensagem. Iremos te direcionar para o WhatsApp responsável para podermos te ajudar.", true);
+              
+              // Redireciona para o WhatsApp
+              setTimeout(() => {
+                  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá, vim pelo chat do site: ' + message)}`, '_blank');
+              }, 1500);
+          }, 1000);
+      }
+  }
+  
+  // Eventos
+  sendButton.addEventListener('click', sendMessage);
+  messageInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+      }
+  });
+  //navbar
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('navbar-scrolled');
+    } else {
+      navbar.classList.remove('navbar-scrolled');
+    }
+  });
+</script>
+
+</body> </html>

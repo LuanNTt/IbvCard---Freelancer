@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <title>Ajudda Card | Sua Clínica Gerando Valor Além da Consulta</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+  <link rel="manifest" href="assets/img/favicons/manifest.json">
+  <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --ajudda-purple: #6a11cb;
+      --ajudda-light-purple: #4e20b0;
+      --ajudda-gradient: linear-gradient(135deg, #4e20b0 0%, #7146ce 100%);
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+    }
+    
+    /* Navbar */
+    .navbar {
+      background-color: transparent;
+      transition: background-color 0.4s ease;
+      background-color: #4e20b0;
+    }
+    
+    .navbar-scrolled {
+      background-color: #4e20b0 !important;
+      transition: background-color 1.0s ease;
+    }
+    
+    /* Feature Cards */
+    .feature-card {
+      background-color: #6970dd;
+      color: #000000;
+      border: none;
+      border-radius: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      height: 100%;
+    }
+    
+    .text-light {
+      color: #ffffff !important;
+    }
+    
+    .feature-card:hover {
+      background-color: #4e20b0;
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+    
+    .feature-card:hover h4,
+    .feature-card:hover p {
+      color: #ffffff;
+    }
+    
+    .feature-icon {
+      width: 80px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+    
+    .bg-roxo {
+      background-color: #4e20b0 !important;
+    }
+    
+    /* Hover Scale Cards */
+    .hover-scale-card {
+      background-color: #b183ff;
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease-in-out;
+      height: 100%;
+      min-height: 330px;
+      margin-bottom: 24px;
+    }
+    
+    .hover-scale-card h4,
+    .hover-scale-card p {
+      color: #ffffff;
+    }
+    
+    .hover-scale-card:hover {
+      transform: translateY(-5px);
+      background-color: #4e20b0;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Services Cards */
+    .services-card-shadow {
+      background-color: #ffffff;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      margin-right: 30px !important;
+    }
+    
+    .services-card-shadow:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      transform: translateY(-9px);
+    }
+    
+    /* Text Helpers */
+    .color-white-inicio {
+      color: #ffffff;
+    }
+    
+    .icone-roxa {
+      color: #4e20b0
+    }
+    
+    .text-top {
+      text-align: start;
+    }
+    
+    /* Mission Section */
+    .mission-section {
+      background-color: #f9f6ff;
+      position: relative;
+      padding: 5rem 0;
+    }
+    
+    .mission-card {
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(106, 17, 203, 0.1);
+      height: 100%;
+    }
+    
+    .mission-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(106, 17, 203, 0.2);
+    }
+    
+    .mission-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(106, 17, 203, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    
+    /* Team Section */
+    .team-section {
+      background: var(--ajudda-gradient);
+      color: white;
+      padding: 5rem 0;
+    }
+    
+    .team-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .team-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .team-img {
+      height: 200px;
+      object-fit: cover;
+      object-position: top;
+    }
+    
+    /* Values Section */
+    .values-section {
+      padding: 5rem 0;
+      background-color: white;
+    }
+    
+    .value-item {
+      padding: 2rem;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      height: 100%;
+      border: 1px solid rgba(106, 17, 203, 0.1);
+    }
+    
+    .value-item:hover {
+      background-color: #f9f6ff;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(106, 17, 203, 0.1);
+    }
+    
+    .value-number {
+      width: 50px;
+      height: 50px;
+      background: var(--ajudda-gradient);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+    
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+    
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+    
+    /* Custom CSS */
+    .ajudda-solucoes {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ajudda-solucoes::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(158,111,255,0.1) 0%, rgba(158,111,255,0) 70%);
+      z-index: 0;
+    }
+    
+    .ajudda-solucoes::after {
+      content: "";
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(106,17,203,0.05) 0%, rgba(106,17,203,0) 70%);
+      z-index: 0;
+    }
+    
+    .ajudda-cuidado-qualidade {
+      width: 100%;
+      padding: 100px 0;
+      background-color: #f9f6ff;
+      position: relative;
+    }
+    
+    .ajudda-cuidado-container {
+      width: 100%;
+      max-width: 1700px;
+      margin: 0 auto;
+      display: flex;
+      position: relative;
+    }
+    
+    .ajudda-coluna-esquerda {
+      width: 70%;
+      margin-left: 10%;
+      padding-right: 20px;
+      box-sizing: border-box;
+    }
+    
+    .ajudda-coluna-direita {
+      width: 90%;
+      margin-left: 0;
+      padding-right: 10%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+    }
+    
+    .destaque-roxo {
+      color: #6a11cb;
+      font-weight: 700;
+    }
+    
+    .destaque-frase {
+      border-left: 3px solid #4e20b0;
+      padding-left: 20px;
+    }
+    
+    /* Sobre Section */
+    .sobre-section-corrected {
+      width: 100%;
+      background-color: #6a11cb;
+      border-radius: 40px;
+      margin: 60px 0;
+      padding: 80px 0;
+      position: relative;
+    }
+    
+    .sobre-container-corrected {
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 20px;
+      margin-bottom: 40px;
+      margin-left: 365px;
+    }
+    
+    .sobre-cards-wrapper-corrected {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      width: 110%;
+      margin: 0 auto;
+    }
+    
+    .sobre-card-corrected {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 2px solid white;
+      border-radius: 20px;
+      padding: 30px;
+      backdrop-filter: blur(5px);
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .sobre-card-title-corrected {
+      color: white;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+    
+    .sobre-card-text-corrected {
+      color: white;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: left;
+      margin: 0;
+      flex-grow: 1;
+    }
+    
+    .sobre-icons-section-corrected {
+      position: relative;
+      margin-top: -95px;
+      z-index: 2;
+    }
+    
+    .sobre-icons-wrapper-corrected {
+      display: flex;
+      justify-content: center;
+      gap: 336px;
+      margin-top: 0px;
+    }
+    
+    .sobre-icon-corrected {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: contain;
+      background: white;
+      padding: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: relative;
+      top: -140px;
+    }
+    
+    /* Modal Custom */
+    .modal-custom {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-custom-content {
+      background-color: white;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+      animation: modalFadeIn 0.3s;
+      overflow: hidden;
+    }
+    
+    @keyframes modalFadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    
+    /* ========== RESPONSIVE STYLES ========== */
+    @media (max-width: 1199.98px) {
+      .sobre-container-corrected {
+        margin-left: 200px;
+      }
+      
+      .sobre-icons-wrapper-corrected {
+        gap: 250px;
+      }
+    }
+    
+    @media (max-width: 991.98px) {
+      .ajudda-solucoes .row {
+        flex-direction: column-reverse;
+      }
+      
+      .ajudda-solucoes .col-lg-6 {
+        text-align: center;
+      }
+      
+      .ajudda-solucoes .pe-lg-4 {
+        padding-right: 0 !important;
+      }
+      
+      .ajudda-solucoes .d-flex {
+        justify-content: center;
+        text-align: left;
+      }
+      
+      .sobre-container-corrected {
+        margin-left: 100px;
+      }
+      
+      .sobre-icons-wrapper-corrected {
+        gap: 180px;
+      }
+      
+      .ajudda-cuidado-container {
+        flex-direction: column;
+      }
+      
+      .ajudda-coluna-esquerda,
+      .ajudda-coluna-direita {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 20px;
+      }
+      
+      .ajudda-coluna-direita {
+        margin-top: 40px;
+        padding-right: 20px;
+      }
+      
+      .destaque-frase {
+        border-left: none;
+        border-top: 3px solid #4e20b0;
+        padding-left: 0;
+        padding-top: 20px;
+      }
+    }
+    
+    @media (max-width: 767.98px) {
+      /* Navbar */
+      .navbar-collapse .btn-primary {
+        margin-left: 0 !important;
+        margin-top: 15px;
+        width: 110%;
+        text-align: center;
+        display: block;
+      }
+      
+      .navbar-collapse {
+        text-align: center;
+        background-color: #4e20b0;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 10px;
+      }
+      
+      .navbar-nav {
+        width: 100%;
+      }
+      
+      .navbar-nav .nav-item {
+        margin-bottom: 10px;
+      }
+      
+      .navbar-toggler {
+        border-color: rgb(255, 250, 250);
+      }
+      
+      /* Hero Section */
+      .py-7.position-relative.bg-roxo {
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
+      }
+      
+      .py-7.position-relative.bg-roxo h1 {
+        font-size: 1.8rem !important;
+        padding: 0 15px;
+      }
+      
+      /* Typography */
+      .display-4, .display-5 {
+        font-size: 2rem !important;
+      }
+      
+      .lead {
+        font-size: 1rem !important;
+      }
+      
+      /* Sections */
+      section {
+        padding: 2rem 0 !important;
+      }
+      
+      .py-6, .py-7 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+      }
+      
+      /* Sobre Section */
+      .sobre-section-corrected {
+        border-radius: 30px;
+        padding: 60px 0 !important;
+      }
+      
+      .sobre-container-corrected {
+        margin-left: 0;
+        padding: 0 15px;
+      }
+      
+      .sobre-cards-wrapper-corrected {
+        grid-template-columns: 1fr;
+        width: 90%;
+        gap: 20px;
+      }
+      
+      .sobre-card-corrected {
+        min-height: auto;
+        padding: 25px;
+      }
+      
+      .sobre-card-title-corrected {
+        font-size: 1.5rem !important;
+      }
+      
+      .sobre-card-text-corrected {
+        font-size: 1rem !important;
+      }
+      
+      .sobre-icons-wrapper-corrected {
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .sobre-icon-corrected {
+        width: 80px;
+        height: 80px;
+        top: -40px;
+      }
+      
+      /* Mission Cards */
+      .mission-card {
+        margin-bottom: 20px;
+      }
+      
+      .mission-icon {
+        width: 60px;
+        height: 60px;
+      }
+      
+      /* About Us Section */
+      .about-us .row {
+        flex-direction: column;
+      }
+      
+      .about-us .col-lg-6 {
+        width: 100% !important;
+        padding: 0 15px;
+      }
+      
+      .about-us .order-lg-1 {
+        order: 2 !important;
+        margin-top: 30px;
+      }
+      
+      .about-us .order-lg-2 {
+        order: 1 !important;
+      }
+      
+      /* Footer */
+      footer .row > div {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      
+      footer .d-flex {
+        justify-content: center !important;
+      }
+      
+      footer .col-12.col-sm-12.col-lg-6 {
+        order: -1;
+      }
+      
+      /* Modal */
+      .modal-custom-content {
+        width: 95% !important;
+      }
+      
+      .modal-custom-body {
+        padding: 20px !important;
+      }
+      
+      .form-control {
+        padding: 12px !important;
+      }
+    }
+    
+    @media (max-width: 575.98px) {
+      .sobre-icons-wrapper-corrected {
+        gap: 20px;
+      }
+      
+      .sobre-icon-corrected {
+        width: 70px;
+        height: 70px;
+        padding: 10px;
+      }
+      
+      .ajudda-coluna-esquerda h2 {
+        font-size: 1.8rem !important;
+        text-align: center;
+      }
+      
+      .destaque-frase p {
+        font-size: 1.2rem !important;
+        text-align: center;
+      }
+    }
+     /* Estilo do botão flutuante */
+   /* Reset de espaçamentos */
+   * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+         }
+         
+         /* Botão flutuante */
+         .whatsapp-float {
+             position: fixed;
+             bottom: 30px;
+             right: 30px;
+             z-index: 100;
+             animation: pulse 20s infinite;
+         }
+         
+         @keyframes pulse {
+             0%, 100% { transform: translateY(0); }
+             2% { transform: translateY(-10px); }
+             4% { transform: translateY(0); }
+         }
+         
+         .whatsapp-button {
+             width: 60px;
+             height: 60px;
+             background-color: #25D366;
+             border-radius: 50%;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+             cursor: pointer;
+             transition: all 0.3s;
+         }
+         
+         .whatsapp-button:hover {
+             transform: scale(1.1);
+         }
+         
+         .whatsapp-button img {
+             width: 35px;
+             height: 35px;
+         }
+         
+         /* Chat container */
+         .whatsapp-chat {
+             display: none;
+             position: fixed;
+             bottom: 90px;
+             right: 30px;
+             width: 300px;
+             height: 400px;
+             background: #e5ddd5;
+             border-radius: 10px;
+             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+             overflow: hidden;
+             z-index: 101;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         }
+         
+         /* Cabeçalho */
+         .chat-header {
+             background: #075e54;
+             color: white;
+             padding: 12px 16px;
+             font-size: 16px;
+             font-weight: bold;
+         }
+         
+         .chat-status {
+             font-size: 11px;
+             font-weight: normal;
+             opacity: 0.8;
+             display: block;
+             margin-top: 2px;
+         }
+         
+         /* Área de mensagens */
+         .chat-messages {
+             height: 280px;
+             padding: 10px;
+             overflow-y: auto;
+             background-image: url('https://web.whatsapp.com/img/bg-chat-tile-light_a4be512e7195b6b733d9110b408f075d.png');
+             display: flex;
+             flex-direction: column;
+         }
+         
+         /* Estilo das mensagens - CORREÇÃO DO ESPAÇAMENTO */
+         .message {
+             max-width: 80%;
+             padding: 8px 12px;
+             margin-bottom: 10px;
+             border-radius: 7.5px;
+             position: relative;
+             word-wrap: break-word;
+             white-space: pre-wrap;
+             line-height: 1.4;
+             font-size: 14.2px;
+             box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+         }
+         
+         .received {
+             background: white;
+             align-self: flex-start;
+             border-top-left-radius: 0;
+         }
+         
+         .sent {
+             background: #dcf8c6;
+             align-self: flex-end;
+             border-top-right-radius: 0;
+         }
+         
+         /* Área de input - CORREÇÃO DO LAYOUT */
+         .chat-input-area {
+             position: absolute;
+             bottom: 0;
+             width: 100%;
+             padding: 8px;
+             background: #f0f0f0;
+             border-top: 1px solid #ddd;
+             display: flex;
+         }
+         
+         .input-container {
+             flex: 1;
+             background: white;
+             border-radius: 20px;
+             display: flex;
+             align-items: center;
+             padding: 0 12px;
+             max-height: 100px;
+             overflow: hidden;
+         }
+         
+         .message-input {
+             flex: 1;
+             border: none;
+             outline: none;
+             font-size: 14px;
+             padding: 8px 0;
+             resize: none;
+             font-family: inherit;
+             max-height: 84px;
+             line-height: 1.4;
+         }
+         
+         /* Botão de enviar - AGORA VISÍVEL */
+         .send-button {
+             background: transparent;
+             border: none;
+             cursor: pointer;
+             padding: 8px;
+             margin-left: 4px;
+         }
+         
+         .send-icon {
+             width: 24px;
+             height: 24px;
+             color: #075e54;
+         }
+         
+         /* Indicador de digitação */
+         .typing-indicator {
+             display: none;
+             font-size: 12px;
+             color: #888;
+             padding: 4px 12px;
+             font-style: italic;
+             align-self: flex-start;
+         }
+           /* Cabeçalho */
+           .chat-header {
+             background: #075e54;
+             color: white;
+             padding: 12px 16px;
+             font-size: 16px;
+             font-weight: bold;
+         }
+         
+         .chat-status {
+             font-size: 11px;
+             font-weight: normal;
+             opacity: 0.8;
+             display: block;
+             margin-top: 2px;
+         }
+         
+         /* Área de mensagens */
+         .chat-messages {
+             height: 280px;
+             padding: 10px;
+             overflow-y: auto;
+             background-image: url('https://web.whatsapp.com/img/bg-chat-tile-light_a4be512e7195b6b733d9110b408f075d.png');
+             display: flex;
+             flex-direction: column;
+         }
+         
+         /* Estilo das mensagens - CORREÇÃO DO ESPAÇAMENTO */
+         .message {
+             max-width: 80%;
+             padding: 8px 12px;
+             margin-bottom: 10px;
+             border-radius: 7.5px;
+             position: relative;
+             word-wrap: break-word;
+             white-space: pre-wrap;
+             line-height: 1.4;
+             font-size: 14.2px;
+             box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+         }
+         
+         .received {
+             background: white;
+             align-self: flex-start;
+             border-top-left-radius: 0;
+         }
+         
+         .sent {
+             background: #dcf8c6;
+             align-self: flex-end;
+             border-top-right-radius: 0;
+         }
+         
+         /* Área de input - CORREÇÃO DO LAYOUT */
+         .chat-input-area {
+             position: absolute;
+             bottom: 0;
+             width: 100%;
+             padding: 8px;
+             background: #f0f0f0;
+             border-top: 1px solid #ddd;
+             display: flex;
+         }
+         
+         .input-container {
+             flex: 1;
+             background: white;
+             border-radius: 20px;
+             display: flex;
+             align-items: center;
+             padding: 0 12px;
+             max-height: 100px;
+             overflow: hidden;
+         }
+         
+         .message-input {
+             flex: 1;
+             border: none;
+             outline: none;
+             font-size: 14px;
+             padding: 8px 0;
+             resize: none;
+             font-family: inherit;
+             max-height: 84px;
+             line-height: 1.4;
+         }
+         
+         /* Botão de enviar - AGORA VISÍVEL */
+         .send-button {
+             background: transparent;
+             border: none;
+             cursor: pointer;
+             padding: 8px;
+             margin-left: 4px;
+         }
+         
+         .send-icon {
+             width: 24px;
+             height: 24px;
+             color: #075e54;
+         }
+         
+         /* Indicador de digitação */
+         .typing-indicator {
+             display: none;
+             font-size: 12px;
+             color: #888;
+             padding: 4px 12px;
+             font-style: italic;
+             align-self: flex-start;
+         }
+         
+  </style>
+
+  <!-- Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&amp;family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&amp;display=swap" rel="stylesheet">
+  <link href="assets/css/theme.css" rel="stylesheet" />
+  <link href="assets/css/user.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+   <!-- Botão flutuante -->
+   <div class="whatsapp-float">
+    <div class="whatsapp-button" id="whatsappButton">
+        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+    </div>
+</div>
+
+<!-- Chat -->
+<div class="whatsapp-chat" id="whatsappChat">
+    <div class="chat-header">
+        Suporte Ajudda Card
+        <span class="chat-status">Online</span>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+        <div class="message received">Olá! Somos o suporte do Ajudda Card. Como podemos te ajudar hoje?</div>
+        <div class="typing-indicator" id="typingIndicator">Suporte está digitando...</div>
+    </div>
+    <div class="chat-input-area">
+        <div class="input-container">
+            <textarea class="message-input" id="messageInput" placeholder="Digite sua mensagem..." rows="1"></textarea>
+            <button class="send-button" id="sendButton">
+                <svg class="send-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+  <!-- Main Content -->
+  <main class="main" id="top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top pt-3 mb-0" data-navbar-on-scroll="light">
+      <div class="container-fluid px-5">
+        <!-- Logo alinhada à esquerda -->
+        <a class="navbar-brand me-auto" href="index.html">
+          <img src="assets/img/illustration/ajudda-logo-branca (1).png" height="35" alt="logo" />
+        </a>
+  
+                <!-- Botão de menu para mobile -->
+    <!-- Botão de menu para mobile com ícone branco -->
+<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+aria-label="Toggle navigation">
+<span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+</button>
+
+
+  
+     <!-- Itens centrais e botão na direita -->
+<div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+<ul class="navbar-nav mx-auto d-flex gap-4 align-items-center">
+  <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="index.html#home">Home</a></li>
+  <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="index.html#ajudda-beneficios-cards">Sobre Nós</a></li>
+  <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="parceiros.html">Quero ser Parceiro</a></li>
+  <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="blog.html">Blog</a></li>
+  <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="clinicas-credenciadas.html">Clinicas credenciadas</a></li>
+
+</ul>
+<!-- Botão na extrema direita -->
+        <!-- Botão que aciona o modal -->
+<button id="meuBotaoModal" class="btn btn-primary">
+Agendar Demonstração
+</button>
+
+<!-- Estrutura do Modal -->
+<div id="meuModal" class="modal-custom">
+<div class="modal-custom-content">
+  <div class="modal-custom-header">
+    <div class="logo-container">
+      <img src="assets/img/illustration/ajudda-logo-branca (1).png" alt="Ajudda Card Logo" class="logo">
+    </div>
+    <span class="modal-custom-close">&times;</span>
+  </div>
+  <div class="modal-custom-body">
+    <form id="formDemonstracao">
+      <div class="form-group">
+        <label for="nomeRepresentante">Nome do Representante</label>
+        <input type="text" class="form-control" id="nomeRepresentante" placeholder="Seu nome completo" required>
+      </div>
+      <div class="form-group">
+        <label for="empresa">Empresa</label>
+        <input type="text" class="form-control" id="empresa" placeholder="Nome da sua empresa" required>
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="seu@email.com" required>
+      </div>
+    </form>
+  </div>
+  <div class="modal-custom-footer">
+    <button class="btn btn-secondary" id="btnCancelar">Cancelar</button>
+    <button class="btn btn-primary" id="btnEnviar">Enviar</button>
+  </div>
+</div>
+</div>
+
+<style>
+/* Cores personalizadas no tema roxo */
+:root {
+--roxo-primario: #6a0dad;
+--roxo-secundario: #8a2be2;
+--roxo-claro: #e6e6fa;
+--roxo-escuro: #4b0082;
+--cinza-claro: #f8f9fa;
+--cinza-medio: #e9ecef;
+--branco: #ffffff;
+}
+
+/* Estilos personalizados para o modal */
+.modal-custom {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.7);
+z-index: 1000;
+justify-content: center;
+align-items: center;
+}
+
+.modal-custom-content {
+background-color: var(--branco);
+width: 90%;
+max-width: 600px; /* Aumentei a largura máxima */
+border-radius: 12px;
+box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+animation: modalFadeIn 0.3s;
+overflow: hidden;
+}
+
+@keyframes modalFadeIn {
+from {opacity: 0; transform: translateY(-20px);}
+to {opacity: 1; transform: translateY(0);}
+}
+
+.modal-custom-header {
+padding: 20px 25px; /* Aumentei o padding */
+background-color: var(--roxo-primario);
+color: var(--branco);
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo-container {
+display: flex;
+align-items: center;
+height: 50px; /* Altura fixa para a logo */
+}
+
+.logo {
+height: 100%;
+width: auto;
+max-width: 200px;
+object-fit: contain;
+}
+
+.modal-custom-close {
+font-size: 32px; /* Aumentei o tamanho */
+cursor: pointer;
+color: var(--branco);
+transition: color 0.3s;
+}
+
+.modal-custom-close:hover {
+color: var(--roxo-claro);
+}
+
+.modal-custom-body {
+padding: 30px; /* Aumentei o padding */
+background-color: var(--cinza-claro);
+}
+
+.modal-custom-footer {
+padding: 20px 25px; /* Aumentei o padding */
+background-color: var(--cinza-medio);
+text-align: right;
+}
+
+/* Estilos para os campos do formulário - AUMENTADOS */
+.form-group {
+margin-bottom: 25px; /* Aumentei o espaçamento */
+}
+
+.form-group label {
+display: block;
+margin-bottom: 10px; /* Aumentei o espaçamento */
+font-weight: 600;
+color: var(--roxo-escuro);
+font-size: 16px; /* Aumentei a fonte */
+}
+
+.form-control {
+width: 100%;
+padding: 14px; /* Aumentei o padding */
+border: 2px solid var(--cinza-medio);
+border-radius: 8px; /* Aumentei o border-radius */
+box-sizing: border-box;
+transition: border-color 0.3s;
+font-size: 16px;
+height: 50px; /* Altura fixa maior */
+}
+
+.form-control:focus {
+border-color: var(--roxo-secundario);
+outline: none;
+box-shadow: 0 0 0 4px rgba(138, 43, 226, 0.2); /* Aumentei a sombra */
+}
+
+/* Estilos para os botões - AUMENTADOS */
+.btn {
+padding: 12px 24px; /* Aumentei o padding */
+border: none;
+border-radius: 8px; /* Aumentei o border-radius */
+cursor: pointer;
+font-size: 16px;
+font-weight: 600;
+transition: all 0.3s;
+height: 50px; /* Altura fixa */
+}
+
+.btn-primary {
+background-color: var(--roxo-primario);
+color: var(--branco);
+}
+
+.btn-primary:hover {
+background-color: var(--roxo-escuro);
+transform: translateY(-2px);
+}
+
+.btn-secondary {
+background-color: var(--cinza-medio);
+color: var(--roxo-escuro);
+margin-right: 15px; /* Aumentei o espaçamento */
+}
+
+.btn-secondary:hover {
+background-color: #d1d7dc;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const modal = document.getElementById('meuModal');
+const btn = document.getElementById('meuBotaoModal');
+const span = document.querySelector('.modal-custom-close');
+const btnCancelar = document.getElementById('btnCancelar');
+const btnEnviar = document.getElementById('btnEnviar');
+
+// Abre o modal
+btn.onclick = function() {
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+// Fecha o modal
+function fecharModal() {
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+// Fecha o modal ao clicar no X
+span.onclick = fecharModal;
+
+// Fecha o modal ao clicar no botão Cancelar
+btnCancelar.onclick = fecharModal;
+
+// Fecha o modal ao clicar fora do conteúdo
+modal.onclick = function(event) {
+  if (event.target === modal) {
+    fecharModal();
+  }
+}
+
+// Fecha o modal ao pressionar ESC
+document.onkeydown = function(event) {
+  if (event.key === 'Escape') {
+    fecharModal();
+  }
+}
+
+// Envia os dados para o WhatsApp
+btnEnviar.onclick = function() {
+  const nome = document.getElementById('nomeRepresentante').value;
+  const empresa = document.getElementById('empresa').value;
+  const email = document.getElementById('email').value;
+  
+  if (!nome || !empresa || !email) {
+    alert('Por favor, preencha todos os campos!');
+    return;
+  }
+  
+  // Formata a mensagem para o WhatsApp
+  const mensagem = `Olá, gostaria de agendar uma demonstração do Ajudda Card:\n\n` +
+                  `*Nome do Representante:* ${nome}\n` +
+                  `*Empresa:* ${empresa}\n` +
+                  `*E-mail:* ${email}\n\n` +
+                  `Por favor, informe os horários disponíveis.`;
+  
+  // Codifica a mensagem para URL
+  const mensagemCodificada = encodeURIComponent(mensagem);
+  
+  // Cria o link do WhatsApp
+  const urlWhatsApp = `https://wa.me/5585984415490?text=${mensagemCodificada}`;
+  
+  // Abre o WhatsApp em uma nova aba
+  window.open(urlWhatsApp, '_blank');
+  
+  // Fecha o modal
+  fecharModal();
+  
+  // Limpa o formulário
+  document.getElementById('formDemonstracao').reset();
+}
+});
+</script>
+        </div>
+      </div>
+    </nav>
+</div>
+ 
+  
+  
+    <style>
+      .navbar {
+        background-color: transparent;
+        transition: background-color 0.4s ease;
+        background-color: #4e20b0;
+      }
+  
+      .navbar-scrolled {
+        background-color: #4e20b0 !important;
+        transition: background-color 1.0s ease;
+      }
+    </style>
+  
+    <script>
+      window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.add('navbar-scrolled');
+        } else {
+          navbar.classList.remove('navbar-scrolled');
+        }
+      });
+    </script>
+  </main>
+
+
+  <!-- Banner Hero Section -->
+  <section class="py-5 py-md-7 position-relative bg-roxo" style="background: url('assets/img/illustration/banner-sobrenos.PNG') no-repeat center center/cover; height: 50vh;">
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.685);"></div>
+    <div class="container text-white position-relative z-1 text-center py-5 py-md-7">
+      <h1 class="display-4 fw-bold" style="color: #ffffff;" style="margin-top: 30px important!;">Conheça um pouco mais sobre o Ajudda!</h1>
+    </div>
+  </section>
+
+  <!-- Soluções Section -->
+  <section class="ajudda-solucoes py-5 py-md-6" style="background-color: #f9f6ff;">
+    <div class="container">
+      <div class="row align-items-center g-4 g-lg-5">
+        <!-- Text Column -->
+        <div class="col-lg-6 order-lg-1 order-2">
+          <div class="pe-lg-4">
+            <p class="text-uppercase fw-bold mb-3" style="color: #4e20b0; letter-spacing: 2px;">SOLUÇÕES</p>
+            <h2 class="display-5 fw-bold mb-4" style="color: #333;">
+              Atendimento simples, acessível e do jeito que você precisa.
+            </h2>
+            <p class="lead mb-4" style="color: #6a11cb; font-weight: 500;">
+              A Ajudda nasceu para facilitar o acesso à saúde, conectando você a consultas médicas, exames, farmácias e pequenas cirurgias com descontos reais.
+            </p>
+            <div class="d-flex mb-4">
+              <div class="me-3">
+                <div style="width: 24px; height: 24px; background-color: #4e20b0; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+              <p style="color: #505050;">Agendamento direto pelo app ou unidade parceira</p>
+            </div>
+            <div class="d-flex">
+              <div class="me-3">
+                <div style="width: 24px; height: 24px; background-color: #4e20b0; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+              <p style="color: #505050;">Você escolhe, agenda e é atendido — sem demora, sem surpresas, com preços que cabem no seu bolso</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Image Column -->
+        <div class="col-lg-6 order-lg-2 order-1">
+          <div class="position-relative">
+            <img src="assets/img/illustration/quem-somos-sessao1.PNG" alt="Atendimento médico acessível da Ajudda" class="img-fluid rounded-4 shadow-lg" style="border: 1px solid rgba(106, 17, 203, 0.1);">
+            
+            <!-- Decorative Elements -->
+            <div class="position-absolute top-0 start-0 translate-middle d-none d-lg-block" style="z-index: 1;">
+              <div style="width: 60px; height: 60px; background: rgba(158, 111, 255, 0.2); border-radius: 50%;"></div>
+            </div>
+            <div class="position-absolute bottom-0 end-0 translate-middle d-none d-lg-block" style="z-index: 1;">
+              <div style="width: 80px; height: 80px; background: rgba(106, 17, 203, 0.1); border-radius: 50%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cuidado Section -->
+  <section class="ajudda-cuidado-qualidade py-5 py-md-6">
+    <div class="ajudda-cuidado-container">
+      <!-- Left Column -->
+      <div class="ajudda-coluna-esquerda">
+        <h2 style="font-size: 2.5rem !important;" class="text-center text-lg-start">Cuidado de qualidade e o principal: <span class="destaque-roxo">com facilidade</span>.</h2>
+      </div>
+
+      <!-- Right Column -->
+      <div class="ajudda-coluna-direita">
+        <div class="destaque-frase" style="font-size: 20px;">
+          <p>Consultas e exames com preços acessíveis para quem está fora dos planos de saúde ou não pode esperar tanto tempo por atendimento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="about-us py-5 py-md-6" style="background-color: #f9f6ff;">
+    <div class="container">
+      <div class="row align-items-center g-4 g-lg-5">
+        <!-- Image Column -->
+        <div class="col-lg-6 order-lg-1 order-2">
+          <div class="position-relative">
+            <img src="assets/img/illustration/quem-somos-sessao3.PNG" alt="Ajudda Team - Humanized service" class="img-fluid rounded-4 shadow-lg" style="border: 1px solid rgba(106, 17, 203, 0.1);">
+            <!-- Decorative Element -->
+            <div class="position-absolute d-none d-lg-block" style="
+              width: 60px;
+              height: 60px;
+              background: rgba(158, 111, 255, 0.2);
+              border-radius: 50%;
+              bottom: -20px;
+              right: -20px;
+              z-index: 1;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Column -->
+        <div class="col-lg-6 order-lg-2 order-1">
+          <div class="ps-lg-4">
+            <p class="text-uppercase fw-bold mb-3" style="color: #4e20b0; letter-spacing: 2px;">QUEM SOMOS</p>
+            <h2 class="display-5 fw-bold mb-4" style="color: #333;">
+              Solução prática e <br class="d-none d-lg-block">acessível para atendimento <br class="d-none d-lg-block">rápido e de qualidade.
+            </h2>
+            <p class="lead mb-4" style="color: #6a11cb; font-weight: 500;">
+              Na Ajudda, acreditamos que saúde de verdade começa com acesso.<br> É isso que entregamos todos os dias:<span style="font-weight: bold;">ajuda real, no momento certo.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mission-section py-5 py-md-6">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-4 fw-bold mb-3" style="color: var(--ajudda-purple);">Nossos Valores</h2>
+        <div class="mx-auto" style="width: 100px; height: 3px; background-color: var(--ajudda-light-purple);"></div>
+      </div>
+      
+      <div class="row g-4" style="background-color: #4b0082; border-radius: 5vh;">
+        <div class="col-md-4 animate-fade">
+          <div class="mission-card p-4 text-center">
+            <div class="mission-icon">
+              <i class="bi bi-heart-pulse fs-2" style="color: white;"></i>
+            </div>
+            <h4 class="mb-3" style="color: white;">Visão</h4>
+            <p style="color: white;">Ser referência nacional em soluções de saúde acessível. Queremos estar presentes em todo o Brasil, ajudando cada vez mais famílias a cuidarem da saúde com dignidade e agilidade.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4 animate-fade delay-1">
+          <div class="mission-card p-4 text-center">
+            <div class="mission-icon">
+              <i class="bi bi-lightning-charge fs-2" style="color: white;"></i>
+            </div>
+            <h4 class="mb-3" style="color: white;" >Missão</h4>
+            <p style="color: white;">Conectar pessoas à saúde acessível. Facilitar o acesso a consultas, exames e atendimento de qualidade por meio de um cartão simples, econômico e descomplicado.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4 animate-fade delay-2">
+          <div class="mission-card p-4 text-center">
+            <div class="mission-icon">
+              <i class="bi bi-shield-check fs-2" style="color: white;"></i>
+            </div>
+            <h4 class="mb-3" style="color: white;">Valores</h4>
+            <p style="color: white;">Acessibilidade;
+              Respeito;
+              Transparência;
+              Simplicidade;
+              Comprometimento;
+              Humanização;
+              Agilidade.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <style>
+    /* Estilo para dispositivos móveis */
+    @media (max-width: 768px) {
+      .footer-mobile-center {
+        text-align: center !important;
+      }
+      .footer-mobile-center .row > div {
+        width: 100% !important;
+        margin-bottom: 2rem;
+      }
+      .footer-mobile-center .d-flex {
+        justify-content: center !important;
+      }
+      .footer-mobile-center ul {
+        padding-left: 0;
+      }
+      .footer-mobile-center li {
+        text-align: center !important;
+      }
+    }
+  </style>
+  
+  <section class="py-0 bg-roxo footer-mobile-center">
+    <div class="container">
+      <div class="row py-7">
+        <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0">
+          <div class="text-center text-md-start">
+            <a class="text-decoration-none" href="index.html">
+              <img src="assets/img/illustration/ajudda-logo-branca (1).png" height="51" alt="" />
+            </a>
+            <p class="text-light mt-4 mb-0">BR: 85 9 8441 5490</p>
+            
+            <p class="text-light mt-5">ajuddacard@gmail.com</p>
+            <div class="d-flex justify-content-md-start">
+              <a href="34"><img class="me-xl-3 me-1" src="assets/img/gallery/linkedin-line1.svg" alt="in" width="20px" height="20px" /></a>
+              <a href="#!"><img class="me-xl-3 me-1" src="assets/img/gallery/facebook-line1.svg" alt="fb" width="20px" height="20px" /></a>
+              <a href="#!"><img class="me-xl-3 me-1" src="assets/img/gallery/twitter-line1.svg" alt="twitter" width="20px" height="20px" /></a>
+              <a href="#!"><img class="me-xl-3 me-1" src="assets/img/gallery/instagram-line1.svg" alt="instragram" width="20px" height="20px" /></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-3 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
+          <h4 class="lh-lg fw-bold text-light font-sans-serif text-center text-md-start">Sobre o Ajudda</h4>
+          <ul class="list-unstyled text-light mb-md-4 text-center text-md-start">
+            <li class="lh-lg"><a class="footer-link text-light" href="quem-somos.html">Quem Somos</a></li>
+            <li class="lh-lg"><a class="footer-link text-light" href="quem-somos.html">Nossa Missão</a></li>
+            <li class="lh-lg"><a class="footer-link text-light" href="parceiros.html">Clinicas Parceiras</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+          <h4 class="lh-lg fw-bold text-light font-sans-serif text-center text-md-start">Serviços</h4>
+          <ul class="list-unstyled text-light mb-md-4 mb-lg-0 text-center text-md-start">
+            <li class="lh-lg"><a class="footer-link text-light" href="https://wa.me/5585984415490">Consultas</a></li>
+            <li class="lh-lg"><a class="footer-link text-light" href="https://wa.me/5585984415490">Exames</a></li>
+            <li class="lh-lg"><a class="footer-link text-light" href="https://wa.me/5585984415490">Medicamentos</a></li>
+            <li class="lh-lg"><a class="footer-link text-light" href="https://wa.me/5585984415490">Plano Familiar</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+          <h4 class="lh-lg fw-bold text-light font-sans-serif text-center text-md-start">Ajuda</h4>
+          <ul class="list-unstyled text-light mb-md-4 mb-lg-0 text-center text-md-start">
+            <li class="lh-lg"><a class="footer-link text-light" href="faq.html">Perguntas Frequentes</a></li>
+            <li class="lh-lg"><a class="footer-link text-light" href="https://wa.me/5585984415490">Suporte via WhatsApp</a></li>
+            <li class="lh-lg"><a class="footer-link text-light" href="politica-uso-privacidade.html">Política de Privacidade e Uso</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <section class="py-0 bg-roxo footer-mobile-center">
+      <div class="container">
+        <div class="row justify-content-md-between justify-content-evenly py-3">
+          <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center">
+            <p class="fs--1 my-2 fw-bold text-200">&copy; 2025 Ajudda Card</p>
+          </div>
+          <div class="col-12 col-sm-8 col-md-6">
+            <p class="fs--1 my-2 text-center text-200">
+              &nbsp; Desenvolvido por&nbsp;<a class="fw-bold text-info text-200" href="https://www.linkedin.com/in/trajanoluan" target="_blank">LuanDev</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- Modal -->
+  <div id="meuModal" class="modal-custom">
+    <div class="modal-custom-content">
+      <div class="modal-custom-header">
+        <div class="logo-container">
+          <img src="assets/img/illustration/ajudda-logo-branca (1).png" alt="Ajudda Card Logo" class="logo">
+        </div>
+        <span class="modal-custom-close">&times;</span>
+      </div>
+      <div class="modal-custom-body">
+        <form id="formDemonstracao">
+          <div class="form-group">
+            <label for="nomeRepresentante">Nome do Representante</label>
+            <input type="text" class="form-control" id="nomeRepresentante" placeholder="Seu nome completo" required>
+          </div>
+          <div class="form-group">
+            <label for="empresa">Empresa</label>
+            <input type="text" class="form-control" id="empresa" placeholder="Nome da sua empresa" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" id="email" placeholder="seu@email.com" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-custom-footer">
+        <button class="btn btn-secondary" id="btnCancelar">Cancelar</button>
+        <button class="btn btn-primary" id="btnEnviar">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
+  <script>
+    // Owl Carousel
+    $(document).ready(function(){
+      $(".testimonial-carousel").owlCarousel({
+        autoplay: true,
+        loop: true,
+        margin: 30,
+        dots: true,
+        nav: false,
+        responsive:{
+          0:{ items:1 },
+          576:{ items:2 },
+          768:{ items:3 },
+          992:{ items:4 }
+        }
+      });
+    });
+    
+    // Animate on Scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const animateElements = document.querySelectorAll('.animate-fade');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      animateElements.forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(el);
+      });
+    });
+    
+    // Modal
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('meuModal');
+      const btn = document.getElementById('meuBotaoModal');
+      const span = document.querySelector('.modal-custom-close');
+      const btnCancelar = document.getElementById('btnCancelar');
+      const btnEnviar = document.getElementById('btnEnviar');
+      
+      // Open modal
+      btn.onclick = function() {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+      
+      // Close modal
+      function fecharModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+      
+      // Close on X click
+      span.onclick = fecharModal;
+      
+      // Close on Cancel button
+      btnCancelar.onclick = fecharModal;
+      
+      // Close when clicking outside
+      modal.onclick = function(event) {
+        if (event.target === modal) {
+          fecharModal();
+        }
+      }
+      
+      // Close on ESC key
+      document.onkeydown = function(event) {
+        if (event.key === 'Escape') {
+          fecharModal();
+        }
+      }
+      
+      // Send to WhatsApp
+      btnEnviar.onclick = function() {
+        const nome = document.getElementById('nomeRepresentante').value;
+        const empresa = document.getElementById('empresa').value;
+        const email = document.getElementById('email').value;
+        
+        if (!nome || !empresa || !email) {
+          alert('Por favor, preencha todos os campos!');
+          return;
+        }
+        
+        const mensagem = `Olá, gostaria de agendar uma demonstração do Ajudda Card:\n\n` +
+                        `*Nome do Representante:* ${nome}\n` +
+                        `*Empresa:* ${empresa}\n` +
+                        `*E-mail:* ${email}\n\n` +
+                        `Por favor, informe os horários disponíveis.`;
+        
+        const mensagemCodificada = encodeURIComponent(mensagem);
+        const urlWhatsApp = `https://wa.me/5585984415490?text=${mensagemCodificada}`;
+        
+        window.open(urlWhatsApp, '_blank');
+        fecharModal();
+        document.getElementById('formDemonstracao').reset();
+      }
+    });
+  </script>
+  <script>
+    // Elementos
+    const whatsappButton = document.getElementById('whatsappButton');
+    const whatsappChat = document.getElementById('whatsappChat');
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('sendButton');
+    const chatMessages = document.getElementById('chatMessages');
+    const typingIndicator = document.getElementById('typingIndicator');
+    const whatsappNumber = '5585984415490';
+    
+    // Abrir/fechar chat
+    whatsappButton.addEventListener('click', function() {
+        whatsappChat.style.display = whatsappChat.style.display === 'block' ? 'none' : 'block';
+        if (whatsappChat.style.display === 'block') {
+            messageInput.focus();
+        }
+    });
+    
+    // Auto-ajuste da altura do textarea
+    messageInput.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight > 84 ? 84 : this.scrollHeight) + 'px';
+    });
+    
+    // Adicionar mensagem
+    function addMessage(text, isReceived) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', isReceived ? 'received' : 'sent');
+        messageElement.textContent = text;
+        chatMessages.insertBefore(messageElement, typingIndicator);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Enviar mensagem
+    function sendMessage() {
+        const message = messageInput.value.trim();
+        if (message) {
+            addMessage(message, false);
+            messageInput.value = '';
+            messageInput.style.height = 'auto';
+            
+            // Resposta automática
+            typingIndicator.style.display = 'block';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            setTimeout(() => {
+                typingIndicator.style.display = 'none';
+                addMessage("Recebemos sua mensagem. Iremos te direcionar para o WhatsApp responsável para podermos te ajudar.", true);
+                
+                // Redireciona para o WhatsApp
+                setTimeout(() => {
+                    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá, vim pelo chat do site: ' + message)}`, '_blank');
+                }, 1500);
+            }, 1000);
+        }
+    }
+    
+    // Eventos
+    sendButton.addEventListener('click', sendMessage);
+    messageInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+  </script>
+</body>
+</html>

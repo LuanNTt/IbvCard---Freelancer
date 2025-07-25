@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Ajudda Card</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+<link rel="manifest" href="assets/img/favicons/manifest.json">
+<meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-primario: #4e20b0;
+            --azul-escuro: #4e20b0;
+            --verde-destaque: #00a859;
+            --branco: #ffffff;
+            --cinza-claro: #f5f7fa;
+            --dourado: #ffd700;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cinza-claro);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .btn-voltar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: var(--azul-primario);
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .btn-voltar:hover {
+            background-color: var(--azul-escuro);
+            transform: translateY(-2px);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--azul-primario) 0%, var(--azul-escuro) 100%);
+            color: white;
+            padding: 100px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: -50px auto 50px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+            position: relative;
+            border-top: 5px solid var(--verde-destaque);
+        }
+        
+        .section-title {
+            color: var(--azul-primario);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--verde-destaque);
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            background-color: var(--azul-primario);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .faq-question:hover {
+            background-color: var(--azul-escuro);
+        }
+        
+        .faq-question:after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 20px;
+            transition: all 0.3s;
+        }
+        
+        .faq-question.collapsed:after {
+            transform: rotate(-180deg);
+        }
+        
+        .faq-answer {
+            padding: 20px;
+            background-color: white;
+            border-left: 3px solid var(--verde-destaque);
+        }
+        
+        .highlight-box {
+            background-color: rgba(0, 168, 89, 0.1);
+            border-left: 4px solid var(--verde-destaque);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .badge-premium {
+            background-color: var(--dourado);
+            color: #333;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        .search-box {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .search-box input {
+            padding-left: 40px;
+            border-radius: 50px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 12px;
+            color: var(--azul-primario);
+        }
+        
+        .category-badge {
+            display: inline-block;
+            background-color: var(--azul-primario);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-badge:hover, .category-badge.active {
+            background-color: var(--verde-destaque);
+        }
+        
+        footer {
+            background-color: var(--azul-escuro);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .faq-container {
+                margin: -30px 15px 30px;
+                padding: 25px;
+            }
+            
+            .hero-section {
+                padding: 80px 0 40px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão Voltar -->
+    <a href="index.html" class="btn-voltar" title="Voltar para página inicial">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-5 fw-bold mb-4">Perguntas Frequentes</h1>
+                    <p class="lead">Encontre respostas para as dúvidas mais comuns sobre o Ajudda Card</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Container -->
+    <div class="container">
+        <div class="faq-container">
+            <h2 class="section-title">FAQ Ajudda Card</h2>
+            
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" class="form-control" placeholder="Buscar perguntas...">
+            </div>
+            
+            <div class="mb-4">
+                <span class="category-badge active">Todas</span>
+                <span class="category-badge">Cadastro</span>
+                <span class="category-badge">Benefícios</span>
+                <span class="category-badge">Pagamentos</span>
+                <span class="category-badge">Rede Credenciada</span>
+                <span class="category-badge">App</span>
+            </div>
+            
+            <div class="highlight-box">
+                <p><i class="fas fa-info-circle me-2"></i> Não encontrou sua resposta? Entre em contato pelo <a href="#" class="text-primary">chat online</a> ou ligue para 0800 123 4567</p>
+            </div>
+            
+            <div class="accordion" id="faqAccordion">
+                <!-- Categoria: Cadastro -->
+                <h3 class="mt-4 mb-3" style="color: var(--azul-escuro); font-weight: 600;">Cadastro e Ativação</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        Como faço para me cadastrar no Ajudda Card?
+                    </div>
+                    <div id="faq1" class="collapse faq-answer" data-bs-parent="#faqAccordion">
+                        <p>O cadastro no Ajudda Card pode ser feito de três formas:</p>
+                        <ol>
+                            <li>Pelo nosso site oficial, na seção "Cadastre-se"</li>
+                            <li>Através do aplicativo Ajudda Card (disponível para iOS e Android)</li>
+                            <li>Em um de nossos postos de atendimento físico</li>
+                        </ol>
+                        <p>Você precisará fornecer documentos pessoais (RG, CPF, comprovante de residência) e informações básicas de saúde. O processo leva em média 15 minutos.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        Quanto tempo leva para ativar meu cartão?
+                    </div>
+                    <div id="faq2" class="collapse faq-answer" data-bs-parent="#faqAccordion">
+                        <p>A ativação do cartão físico leva até 5 dias úteis após a aprovação do cadastro. Porém, você pode começar a usar seus benefícios imediatamente através do:</p>
+                        <ul>
+                            <li><strong>Cartão Virtual:</strong> Disponível no app assim que o pagamento for confirmado</li>
+                            <li><strong>Número de Carteirinha:</strong> Fornecido no e-mail de confirmação</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Categoria: Benefícios -->
+                <h3 class="mt-4 mb-3" style="color: var(--azul-escuro); font-weight: 600;">Benefícios e Cobertura</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+                        Quais são os benefícios incluídos no Ajudda Card?
+                    </div>
+                    <div id="faq3" class="collapse faq-answer" data-bs-parent="#faqAccordion">
+                        <p>O Ajudda Card oferece uma ampla rede de benefícios médicos:</p>
+                        <ul>
+                            <li><strong>Consultas:</strong> Clínico geral, pediatra, ginecologista e mais 15 especialidades</li>
+                            <li><strong>Exames:</strong> Laboratoriais e de imagem com até 70% de desconto</li>
+                            <li><strong>Descontos:</strong> Em medicamentos nas farmácias parceiras</li>
+                            <li><strong>Atendimento VIP:</strong> Agendamento prioritário em clínicas selecionadas <span class="badge-premium">PREMIUM</span></li>
+                            <li><strong>Telemedicina:</strong> Consultas online 24h com nossa equipe</li>
+                        </ul>
+                        <p>A cobertura completa varia conforme o plano contratado.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq4">
+                        Como faço para agendar uma consulta?
+                    </div>
+                    <div id="faq4" class="collapse faq-answer" data-bs-parent="#faqAccordion">
+                        <p>Você pode agendar consultas de três maneiras:</p>
+                        <ol>
+                            <li><strong>Pelo Aplicativo:</strong> Na seção "Agendamentos", selecione especialidade, profissional e horário</li>
+                            <li><strong>Pelo Site:</strong> Acesse "Rede Credenciada" e utilize nosso agendamento online</li>
+                            <li><strong>Por Telefone:</strong> Ligue para nossa central de agendamento no +55 85 98101-5490</li>
+                        </ol>
+                        <div class="alert alert-info mt-3">
+                            <i class="fas fa-clock me-2"></i> <strong>Dica:</strong> Agendamentos com pelo menos 24h de antecedência garantem melhores horários.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Categoria: Pagamentos -->
+                <h3 class="mt-4 mb-3" style="color: var(--azul-escuro); font-weight: 600;">Pagamentos e Renovação</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq5">
+                        Quais são as formas de pagamento disponíveis?
+                    </div>
+                    <div id="faq5" class="collapse faq-answer" data-bs-parent="#faqAccordion">
+                        <p>Aceitamos diversas formas de pagamento:</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Pagamento Recorrente:</h5>
+                                <ul>
+                                    <li>Cartão de crédito (todas as bandeiras)</li>
+                                </ul>
+                            </div>
+                           
+                        </div>
+                        <p class="mt-3"><strong>Observação:</strong> Pagamentos via boleto podem levar até 2 dias úteis para serem processados.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq6">
+                        O que acontece se meu pagamento atrasar?
+                    </div>
+                    <div id="faq6" class="collapse faq-answer" data-bs-parent="#faqAccordion">
+                        <p>Em caso de atraso no pagamento:</p>
+                        <ul>
+                            <li><strong>Até 5 dias:</strong> Seus benefícios continuam ativos, mas sujeitos a bloqueio</li>
+                            <li><strong>6 a 15 dias:</strong> Acesso suspenso até regularização</li>
+                         
+                        </ul>
+                        <p>Para reativar após cancelamento, pode ser necessário pagar taxas administrativas e passar por nova análise cadastral.</p>
+                    </div>
+                </div>
+                
+                <!-- Categoria: Rede Credenciada -->
+                <h3 class="mt-4 mb-3" style="color: var(--azul-escuro); font-weight: 600;">Rede Credenciada</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question collapsed" data-bs-toggle="collapse" data-bs-target="#faq7">
+                        Como encontro profissionais e clínicas credenciadas?
+                    </div>
+                    <div id="faq7" class="collapse faq-answer" data-bs-parent="#faqAccordion">
+                        <p>Você pode encontrar nossa rede credenciada de três formas:</p>
+                        <ol>
+                            <li><strong>No Aplicativo:</strong> Acesse a seção "Rede Credenciada" e busque por especialidade, localização ou nome do profissional</li>
+                            <li><strong>Por Telefone:</strong> Nossa equipe pode indicar os melhores profissionais próximos a você</li>
+                        </ol>
+                        <div class="alert alert-success mt-3">
+                            <i class="fas fa-star me-2"></i> <strong>Dica Premium:</strong> Usuários do plano Premium têm acesso exclusivo a clínicas e profissionais selecionados.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-4">Ajudda Card</h5>
+                    <p>Seu benefício médico completo, com qualidade e preço acessível.</p>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-4">Central de Atendimento</h5>
+                    <p><i class="fas fa-phone-alt me-2"></i> +55 85 98101-5490</p>
+                    <p><i class="fas fa-envelope me-2"></i> atendimento@ajuddacard.com.br</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Av. Paulista, 1000 - São Paulo/SP</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-4">Links Rápidos</h5>
+                    <p><a href="#" class="footer-link"><i class="fas fa-chevron-right me-2"></i> Rede Credenciada</a></p>
+                    <p><a href="#" class="footer-link"><i class="fas fa-chevron-right me-2"></i> App Ajudda</a></p>
+                    <p><a href="#" class="footer-link"><i class="fas fa-chevron-right me-2"></i> Trabalhe Conosco</a></p>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">© 2025 Ajudda Card. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">
+                        <a href="#" class="footer-link me-3">Termos de Uso</a>
+                        <a href="#" class="footer-link">Política de Privacidade</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Função para filtrar FAQs por categoria
+        document.querySelectorAll('.category-badge').forEach(badge => {
+            badge.addEventListener('click', function() {
+                // Remove active class from all badges
+                document.querySelectorAll('.category-badge').forEach(b => {
+                    b.classList.remove('active');
+                });
+                
+                // Add active class to clicked badge
+                this.classList.add('active');
+                
+                // Implementar lógica de filtro aqui
+                // (seria necessário adicionar classes de categoria aos itens FAQ)
+            });
+        });
+        
+        // Função para busca
+        document.querySelector('.search-box input').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            // Implementar lógica de busca aqui
+        });
+    </script>
+</body>
+</html>

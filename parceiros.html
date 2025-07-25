@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Ajudda Card | Sua Clínica Gerando Valor Além da Consulta</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+      <!-- Owl Carousel CSS -->
+      <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+      <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+      <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
+      <link rel="manifest" href="assets/img/favicons/manifest.json">
+      <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <style>
+
+/* Ajustes para a seção hero em telas pequenas */
+@media (max-width: 768px) {
+    #home .bg-holder.hero-bg {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    #home .container {
+      order: 2;
+      margin-top: 20px;
+    }
+    
+    #home .row {
+      flex-direction: column;
+    }
+  }
+
+  /* Ajustes para o carrossel de feedbacks em telas pequenas */
+  @media (max-width: 768px) {
+    #feedbacks .row.align-items-center {
+      flex-direction: column;
+    }
+    
+    #feedbacks .col-lg-5 {
+      order: -1;
+      margin-bottom: 30px;
+      width: 100%;
+    }
+    
+    #feedbacks .col-lg-6 {
+      width: 100%;
+    }
+  }
+      .feature-card {
+  background-color: #6970dd;
+  color: #000000;
+  border: none;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  height: 100%;
+}
+.text-light{
+  color: #ffffff !important;
+}
+
+.feature-card:hover {
+  background-color: #4e20b0;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+.backgroundcolorfim{
+  background-color: #ffffff;
+}
+
+.feature-card:hover h4,
+.feature-card:hover p {
+  color: #ffffff;
+}
+
+.feature-icon {
+  width: 80px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+.bg-roxo {
+  background-color: #4e20b0 !important;
+}
+
+  .hover-scale-card {
+  background-color: #4e20b0;
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  min-height: 330px; /* altura mínima para padronizar */
+  margin-bottom: 24px; /* espaçamento entre os cards */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.24);
+}
+
+.hover-scale-card h4,
+.hover-scale-card p {
+  color: #ffffff;
+}
+/* Impede quebra de linha dos elementos lado a lado */
+#feedbacks .row.align-items-center {
+  flex-wrap: nowrap;
+}
+
+
+/* Ajusta altura dos quadrados dos feedbacks */
+#feedbacks .carousel .p-4 {
+  min-height: 280px;
+}
+
+/* Ajusta a altura do carrossel */
+#carouselFeedbacks {
+  min-height: 600px;
+}
+
+/* Força o carrossel a ocupar o espaço da coluna */
+#carouselFeedbacks .carousel-inner {
+  height: 100%;
+}
+
+       /* Estilos existentes... */
+
+        /* ========== NOVOS ESTILOS PARA RESPONSIVIDADE ========== */
+        
+        /* 1. Centralizar botão "Agendar Demonstração" no mobile */
+        @media (max-width: 768px) {
+            .navbar-collapse .btn-primary {
+                margin-left: 0 !important;
+                margin-top: 15px;
+                width: 100%;
+                text-align: center;
+                display: block;
+            }
+            
+            .navbar-collapse {
+                text-align: center;
+            }
+            
+            .navbar-nav {
+                width: 100%;
+            }
+        }
+
+/* Alinha verticalmente os feedbacks para ficarem uniformes */
+#carouselFeedbacks .row.g-4 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.hover-scale-card:hover {
+  transform: translateY(-5px);
+  background-color: #4e20b0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+  .services-card-shadow {
+  background-color: #ffffff; /* fundo branco */
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* sem sombra inicial */
+  margin-right: 30px !important; /* espaçamento entre os cards */
+}
+
+.services-card-shadow:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* sombra suave no hover */
+  transform: translateY(-9px); /* levanta levemente o card */
+}
+.color-white-inicio{
+  color: #ffffff;
+}
+.icone-roxa{
+  color:#4e20b0;
+}
+.text-top{
+  text-align: start;
+}
+ /* Estilo do botão flutuante */
+   /* Reset de espaçamentos */
+   * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+         }
+         
+         /* Botão flutuante */
+         .whatsapp-float {
+             position: fixed;
+             bottom: 30px;
+             right: 30px;
+             z-index: 100;
+             animation: pulse 20s infinite;
+         }
+         
+         @keyframes pulse {
+             0%, 100% { transform: translateY(0); }
+             2% { transform: translateY(-10px); }
+             4% { transform: translateY(0); }
+         }
+         
+         .whatsapp-button {
+             width: 60px;
+             height: 60px;
+             background-color: #25D366;
+             border-radius: 50%;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+             cursor: pointer;
+             transition: all 0.3s;
+         }
+         
+         .whatsapp-button:hover {
+             transform: scale(1.1);
+         }
+         
+         .whatsapp-button img {
+             width: 35px;
+             height: 35px;
+         }
+         
+         /* Chat container */
+         .whatsapp-chat {
+             display: none;
+             position: fixed;
+             bottom: 90px;
+             right: 30px;
+             width: 300px;
+             height: 400px;
+             background: #e5ddd5;
+             border-radius: 10px;
+             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+             overflow: hidden;
+             z-index: 101;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         }
+         
+         /* Cabeçalho */
+         .chat-header {
+             background: #075e54;
+             color: white;
+             padding: 12px 16px;
+             font-size: 16px;
+             font-weight: bold;
+         }
+         
+         .chat-status {
+             font-size: 11px;
+             font-weight: normal;
+             opacity: 0.8;
+             display: block;
+             margin-top: 2px;
+         }
+         
+         /* Área de mensagens */
+         .chat-messages {
+             height: 280px;
+             padding: 10px;
+             overflow-y: auto;
+             background-image: url('https://web.whatsapp.com/img/bg-chat-tile-light_a4be512e7195b6b733d9110b408f075d.png');
+             display: flex;
+             flex-direction: column;
+         }
+         
+         /* Estilo das mensagens - CORREÇÃO DO ESPAÇAMENTO */
+         .message {
+             max-width: 80%;
+             padding: 8px 12px;
+             margin-bottom: 10px;
+             border-radius: 7.5px;
+             position: relative;
+             word-wrap: break-word;
+             white-space: pre-wrap;
+             line-height: 1.4;
+             font-size: 14.2px;
+             box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+         }
+         
+         .received {
+             background: white;
+             align-self: flex-start;
+             border-top-left-radius: 0;
+         }
+         
+         .sent {
+             background: #dcf8c6;
+             align-self: flex-end;
+             border-top-right-radius: 0;
+         }
+         
+         /* Área de input - CORREÇÃO DO LAYOUT */
+         .chat-input-area {
+             position: absolute;
+             bottom: 0;
+             width: 100%;
+             padding: 8px;
+             background: #f0f0f0;
+             border-top: 1px solid #ddd;
+             display: flex;
+         }
+         
+         .input-container {
+             flex: 1;
+             background: white;
+             border-radius: 20px;
+             display: flex;
+             align-items: center;
+             padding: 0 12px;
+             max-height: 100px;
+             overflow: hidden;
+         }
+         
+         .message-input {
+             flex: 1;
+             border: none;
+             outline: none;
+             font-size: 14px;
+             padding: 8px 0;
+             resize: none;
+             font-family: inherit;
+             max-height: 84px;
+             line-height: 1.4;
+         }
+         
+         /* Botão de enviar - AGORA VISÍVEL */
+         .send-button {
+             background: transparent;
+             border: none;
+             cursor: pointer;
+             padding: 8px;
+             margin-left: 4px;
+         }
+         
+         .send-icon {
+             width: 24px;
+             height: 24px;
+             color: #075e54;
+         }
+         
+         /* Indicador de digitação */
+         .typing-indicator {
+             display: none;
+             font-size: 12px;
+             color: #888;
+             padding: 4px 12px;
+             font-style: italic;
+             align-self: flex-start;
+         }
+           /* Cabeçalho */
+           .chat-header {
+             background: #075e54;
+             color: white;
+             padding: 12px 16px;
+             font-size: 16px;
+             font-weight: bold;
+         }
+         
+         .chat-status {
+             font-size: 11px;
+             font-weight: normal;
+             opacity: 0.8;
+             display: block;
+             margin-top: 2px;
+         }
+         
+         /* Área de mensagens */
+         .chat-messages {
+             height: 280px;
+             padding: 10px;
+             overflow-y: auto;
+             background-image: url('https://web.whatsapp.com/img/bg-chat-tile-light_a4be512e7195b6b733d9110b408f075d.png');
+             display: flex;
+             flex-direction: column;
+         }
+         
+         /* Estilo das mensagens - CORREÇÃO DO ESPAÇAMENTO */
+         .message {
+             max-width: 80%;
+             padding: 8px 12px;
+             margin-bottom: 10px;
+             border-radius: 7.5px;
+             position: relative;
+             word-wrap: break-word;
+             white-space: pre-wrap;
+             line-height: 1.4;
+             font-size: 14.2px;
+             box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+         }
+         
+         .received {
+             background: white;
+             align-self: flex-start;
+             border-top-left-radius: 0;
+         }
+         
+         .sent {
+             background: #dcf8c6;
+             align-self: flex-end;
+             border-top-right-radius: 0;
+         }
+         
+         /* Área de input - CORREÇÃO DO LAYOUT */
+         .chat-input-area {
+             position: absolute;
+             bottom: 0;
+             width: 100%;
+             padding: 8px;
+             background: #f0f0f0;
+             border-top: 1px solid #ddd;
+             display: flex;
+         }
+         
+         .input-container {
+             flex: 1;
+             background: white;
+             border-radius: 20px;
+             display: flex;
+             align-items: center;
+             padding: 0 12px;
+             max-height: 100px;
+             overflow: hidden;
+         }
+         
+         .message-input {
+             flex: 1;
+             border: none;
+             outline: none;
+             font-size: 14px;
+             padding: 8px 0;
+             resize: none;
+             font-family: inherit;
+             max-height: 84px;
+             line-height: 1.4;
+         }
+         
+         /* Botão de enviar - AGORA VISÍVEL */
+         .send-button {
+             background: transparent;
+             border: none;
+             cursor: pointer;
+             padding: 8px;
+             margin-left: 4px;
+         }
+         
+         .send-icon {
+             width: 24px;
+             height: 24px;
+             color: #075e54;
+         }
+         
+         /* Indicador de digitação */
+         .typing-indicator {
+             display: none;
+             font-size: 12px;
+             color: #888;
+             padding: 4px 12px;
+             font-style: italic;
+             align-self: flex-start;
+         }
+</style>
+
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&amp;family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&amp;display=swap" rel="stylesheet">
+    <link href="assets/css/theme.css" rel="stylesheet" />
+    <link href="assets/css/user.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+
+
+  </head>
+
+
+  <body>
+     <!-- Botão flutuante -->
+     <div class="whatsapp-float">
+      <div class="whatsapp-button" id="whatsappButton">
+          <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+      </div>
+  </div>
+  
+  <!-- Chat -->
+  <div class="whatsapp-chat" id="whatsappChat">
+      <div class="chat-header">
+          Suporte Ajudda Card
+          <span class="chat-status">Online</span>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+          <div class="message received">Olá! Somos o suporte do Ajudda Card. Como podemos te ajudar hoje?</div>
+          <div class="typing-indicator" id="typingIndicator">Suporte está digitando...</div>
+      </div>
+      <div class="chat-input-area">
+          <div class="input-container">
+              <textarea class="message-input" id="messageInput" placeholder="Digite sua mensagem..." rows="1"></textarea>
+              <button class="send-button" id="sendButton">
+                  <svg class="send-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+              </button>
+          </div>
+      </div>
+  </div>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top pt-3 mb-0" data-navbar-on-scroll="light">
+        <div class="container-fluid px-5">
+          <!-- Logo alinhada à esquerda -->
+          <a class="navbar-brand me-auto" href="index.html">
+            <img src="assets/img/illustration/ajudda-logo-branca (1).png" height="35" alt="logo" />
+          </a>
+    
+                  <!-- Botão de menu para mobile -->
+      <!-- Botão de menu para mobile com ícone branco -->
+<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+  aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+</button>
+
+
+    
+       <!-- Itens centrais e botão na direita -->
+<div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+  <ul class="navbar-nav mx-auto d-flex gap-4 align-items-center">
+    <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="index.html">Home</a></li>
+    <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="quem-somos.html">Sobre Nós</a></li>
+    <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="parceiros.html">Quero ser Parceiro</a></li>
+    <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="blog.html">Blog</a></li>
+    <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="clinicas-credenciadas.html">Clinicas credenciadas</a></li>
+
+  </ul>
+  <!-- Botão na extrema direita -->
+          <!-- Botão que aciona o modal -->
+<button id="meuBotaoModal" class="btn btn-primary">
+  Agendar Demonstração
+</button>
+
+<!-- Estrutura do Modal -->
+<div id="meuModal" class="modal-custom">
+  <div class="modal-custom-content">
+    <div class="modal-custom-header">
+      <div class="logo-container">
+        <img src="assets/img/illustration/ajudda-logo-branca (1).png" alt="Ajudda Card Logo" class="logo">
+      </div>
+      <span class="modal-custom-close">&times;</span>
+    </div>
+    <div class="modal-custom-body">
+      <form id="formDemonstracao">
+        <div class="form-group">
+          <label for="nomeRepresentante">Nome do Representante</label>
+          <input type="text" class="form-control" id="nomeRepresentante" placeholder="Seu nome completo" required>
+        </div>
+        <div class="form-group">
+          <label for="empresa">Empresa</label>
+          <input type="text" class="form-control" id="empresa" placeholder="Nome da sua empresa" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" class="form-control" id="email" placeholder="seu@email.com" required>
+        </div>
+      </form>
+    </div>
+    <div class="modal-custom-footer">
+      <button class="btn btn-secondary" id="btnCancelar">Cancelar</button>
+      <button class="btn btn-primary" id="btnEnviar">Enviar</button>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Cores personalizadas no tema roxo */
+:root {
+  --roxo-primario: #6a0dad;
+  --roxo-secundario: #8a2be2;
+  --roxo-claro: #e6e6fa;
+  --roxo-escuro: #4b0082;
+  --cinza-claro: #f8f9fa;
+  --cinza-medio: #e9ecef;
+  --branco: #ffffff;
+}
+
+/* Estilos personalizados para o modal */
+.modal-custom {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-custom-content {
+  background-color: var(--branco);
+  width: 90%;
+  max-width: 600px; /* Aumentei a largura máxima */
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  animation: modalFadeIn 0.3s;
+  overflow: hidden;
+}
+
+@keyframes modalFadeIn {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.modal-custom-header {
+  padding: 20px 25px; /* Aumentei o padding */
+  background-color: var(--roxo-primario);
+  color: var(--branco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  height: 50px; /* Altura fixa para a logo */
+}
+
+.logo {
+  height: 100%;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+}
+
+.modal-custom-close {
+  font-size: 32px; /* Aumentei o tamanho */
+  cursor: pointer;
+  color: var(--branco);
+  transition: color 0.3s;
+}
+
+.modal-custom-close:hover {
+  color: var(--roxo-claro);
+}
+
+.modal-custom-body {
+  padding: 30px; /* Aumentei o padding */
+  background-color: var(--cinza-claro);
+}
+
+.modal-custom-footer {
+  padding: 20px 25px; /* Aumentei o padding */
+  background-color: var(--cinza-medio);
+  text-align: right;
+}
+
+/* Estilos para os campos do formulário - AUMENTADOS */
+.form-group {
+  margin-bottom: 25px; /* Aumentei o espaçamento */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px; /* Aumentei o espaçamento */
+  font-weight: 600;
+  color: var(--roxo-escuro);
+  font-size: 16px; /* Aumentei a fonte */
+}
+
+.form-control {
+  width: 100%;
+  padding: 14px; /* Aumentei o padding */
+  border: 2px solid var(--cinza-medio);
+  border-radius: 8px; /* Aumentei o border-radius */
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+  font-size: 16px;
+  height: 50px; /* Altura fixa maior */
+}
+
+.form-control:focus {
+  border-color: var(--roxo-secundario);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(138, 43, 226, 0.2); /* Aumentei a sombra */
+}
+
+/* Estilos para os botões - AUMENTADOS */
+.btn {
+  padding: 12px 24px; /* Aumentei o padding */
+  border: none;
+  border-radius: 8px; /* Aumentei o border-radius */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s;
+  height: 50px; /* Altura fixa */
+}
+
+.btn-primary {
+  background-color: var(--roxo-primario);
+  color: var(--branco);
+}
+
+.btn-primary:hover {
+  background-color: var(--roxo-escuro);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--cinza-medio);
+  color: var(--roxo-escuro);
+  margin-right: 15px; /* Aumentei o espaçamento */
+}
+
+.btn-secondary:hover {
+  background-color: #d1d7dc;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('meuModal');
+  const btn = document.getElementById('meuBotaoModal');
+  const span = document.querySelector('.modal-custom-close');
+  const btnCancelar = document.getElementById('btnCancelar');
+  const btnEnviar = document.getElementById('btnEnviar');
+  
+  // Abre o modal
+  btn.onclick = function() {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  
+  // Fecha o modal
+  function fecharModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+  
+  // Fecha o modal ao clicar no X
+  span.onclick = fecharModal;
+  
+  // Fecha o modal ao clicar no botão Cancelar
+  btnCancelar.onclick = fecharModal;
+  
+  // Fecha o modal ao clicar fora do conteúdo
+  modal.onclick = function(event) {
+    if (event.target === modal) {
+      fecharModal();
+    }
+  }
+  
+  // Fecha o modal ao pressionar ESC
+  document.onkeydown = function(event) {
+    if (event.key === 'Escape') {
+      fecharModal();
+    }
+  }
+  
+  // Envia os dados para o WhatsApp
+  btnEnviar.onclick = function() {
+    const nome = document.getElementById('nomeRepresentante').value;
+    const empresa = document.getElementById('empresa').value;
+    const email = document.getElementById('email').value;
+    
+    if (!nome || !empresa || !email) {
+      alert('Por favor, preencha todos os campos!');
+      return;
+    }
+    
+    // Formata a mensagem para o WhatsApp
+    const mensagem = `Olá, gostaria de agendar uma demonstração do Ajudda Card:\n\n` +
+                    `*Nome do Representante:* ${nome}\n` +
+                    `*Empresa:* ${empresa}\n` +
+                    `*E-mail:* ${email}\n\n` +
+                    `Por favor, informe os horários disponíveis.`;
+    
+    // Codifica a mensagem para URL
+    const mensagemCodificada = encodeURIComponent(mensagem);
+    
+    // Cria o link do WhatsApp
+    const urlWhatsApp = `https://wa.me/5585984415490?text=${mensagemCodificada}`;
+    
+    // Abre o WhatsApp em uma nova aba
+    window.open(urlWhatsApp, '_blank');
+    
+    // Fecha o modal
+    fecharModal();
+    
+    // Limpa o formulário
+    document.getElementById('formDemonstracao').reset();
+  }
+});
+</script>
+          </div>
+        </div>
+      </nav>
+</div>
+   
+    
+    
+      <style>
+        .navbar {
+          background-color: transparent;
+          transition: background-color 0.4s ease;
+          background-color: #4e20b0;
+        }
+    
+        .navbar-scrolled {
+          background-color: #4e20b0 !important;
+          transition: background-color 1.0s ease;
+        }
+      </style>
+    
+      <script>
+        window.addEventListener('scroll', () => {
+          const navbar = document.querySelector('.navbar');
+          if (window.scrollY > 50) {
+            navbar.classList.add('navbar-scrolled');
+          } else {
+            navbar.classList.remove('navbar-scrolled');
+          }
+        });
+      </script>
+    </main>
+  
+        <!-- Imagem de fundo para desktop -->
+        
+        
+       
+      
+       <!-- Banner Hero Section -->
+<section class="py-7 position-relative bg-roxo" style="background: url('assets/img/illustration/familiateste.jpeg') no-repeat center center/cover;">
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.685);"></div>
+    <div class="container text-white position-relative z-1 text-center py-7">
+      <h1 class="display-4 fw-bold" style="color: #ffffff;">Junte-se à Ajudda Card e transforme saúde em oportunidade!</h1>
+    </div>
+  </section>
+  
+  <!-- O que é ser um parceiro Ajudda Card -->
+  <section class="py-6" style="background: linear-gradient(#4e20b0,  #4e20b0);">
+    <div class="container text-center">
+      <h1 class="mb-5" style="color: #ffffff;">O que é ser um parceiro Ajudda Card?</h1>
+      <div class="row g-4">
+        <div class="col-md-6" style="color: #ffffff;">
+          <div class="hover-scale-card" >
+            <h2 style="color: #ffffff;">Parceriais que impulsionam!</h2>
+            <p style="font-size: 20px; margin-top: 5vh;">Ao se tornar um parceiro Ajudda Card, 
+              sua empresa se junta à nossa missão de promover saúde de qualidade e bem-estar aos nossos usuários.
+               Sua marca ganha visibilidade na nossa plataforma e conquista a confiança e fidelidade de milhares de famílias em todo o Ceará.
+               Para participar, basta oferecer condições especiais nos seus produtos ou serviços aos assinantes Ajudda Card.
+          </div>
+        </div>
+        <div class="col-md-6" style="color: #ffffff;">
+          <div class="hover-scale-card" >
+            <h2 style="color: #ffffff;">Como se tornar um parceiro? </h2>
+            <p style="font-size: 20px; margin-top:5vh ;">
+
+              Torne-se parceiro Ajudda Card e fortaleça nossa missão de levar saúde e bem-estar a milhares de pessoas. Basta preencher o formulário com os dados da sua empresa — nome, CNPJ, área de atuação, endereço, telefone, e-mail e responsável — e informar brevemente seus serviços ou produtos, bem como o desconto oferecido aos assinantes. Todas as propostas passam por uma avaliação antes da aprovação, garantindo a qualidade e o alinhamento das parcerias.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="parceiros" class="position-relative overflow-hidden" style="min-height: 100vh;">
+    <!-- Vídeo de fundo (opcional) ou imagem com overlay dinâmico -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 z-n1">
+      <div class="position-absolute top-0 start-0 w-100 h-100 z-n1" 
+      style="background: url('assets/img/illustration/familiateste.jpeg') no-repeat center center/cover;">
+   <div class="position-absolute top-0 start-0 w-100 h-100" 
+        style="background-color: rgba(0, 0, 0, 0.6);">
+   </div>
+ </div>
+          
+      </div>
+      <!-- Efeito de partículas opcional -->
+      <div class="position-absolute top-0 start-0 w-100 h-100" id="particles-js"></div>
+    </div>
+  
+    <!-- Conteúdo principal centralizado verticalmente -->
+    <div class="container position-relative z-1 h-100 d-flex flex-column justify-content-center py-5">
+      <!-- Cabeçalho com efeitos -->
+      <div class="text-center mb-0" data-aos="fade-down" data-aos-duration="800">
+        <h2 class="fw-bold display-4 text-white mb-4 position-relative">
+          <span class="position-relative z-1">Como virar parceiro  Ajudda Card</span>
+          
+        </h2>
+        <p class="lead text-white-75 mx-auto" style="max-width: 800px; color: #ffffff;" data-aos="fade-up" data-aos-delay="200">
+          Junte-se à nossa missão de transformar o acesso à saúde no Ceará! Torne-se parceiro e 
+          <span class="highlight"style="font-weight: bold;">destaque sua empresa para mais de <strong style="color: #ffffff;">120 mil vidas</strong></span>
+          oferecendo descontos exclusivos aos assinantes <strong style="color: #c1a2f7;">Ajudda Card</strong>.
+        </p>
+<style>
+  .highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  color: inherit;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0.1em;
+  height: 1.5em;
+  width: 0;
+  background-color: rgba(255, 234, 6, 0.509); /* amarelo apagado */
+  z-index: -1;
+  animation: highlight-appear 3.0s ease-out forwards;
+}
+
+@keyframes highlight-appear {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+</style>        
+      </div>
+  
+      <!-- Cards de benefícios com hover effects -->
+      <div class="row g-4 justify-content-center" data-aos="zoom-in" data-aos-delay="400">
+        <!-- Card 1 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card bg-white border-0 rounded-4 shadow-lg h-100 transition-all hover-scale">
+            <div class="card-body text-center p-4 p-xl-5">
+              <div class="icon-wrapper bg-primary-soft rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                <i class="fas fa-shopping-bag fa-2x text-primary"></i>
+              </div>
+              <h3 class="h4 text-dark mb-3">Atraia novos clientes</h3>
+              <p class="text-muted mb-0">Aumente seu público com acesso direto a nossa base de assinantes.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Card 2 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card bg-white border-0 rounded-4 shadow-lg h-100 transition-all hover-scale">
+            <div class="card-body text-center p-4 p-xl-5">
+              <div class="icon-wrapper bg-primary-soft rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                <i class="fas fa-users fa-2x text-primary"></i>
+              </div>
+              <h3 class="h4 text-dark mb-3">Conquiste visibilidade</h3>
+              <p class="text-muted mb-0">Destaque sua marca em nossos canais de comunicação.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Card 3 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card bg-white border-0 rounded-4 shadow-lg h-100 transition-all hover-scale">
+            <div class="card-body text-center p-4 p-xl-5">
+              <div class="icon-wrapper bg-primary-soft rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                <i class="fas fa-handshake fa-2x text-primary"></i>
+              </div>
+              <h3 class="h4 text-dark mb-3">Parcerias sólidas</h3>
+              <p class="text-muted mb-0">Relacionamentos comerciais baseados em confiança mútua.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Card 4 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card bg-white border-0 rounded-4 shadow-lg h-100 transition-all hover-scale">
+            <div class="card-body text-center p-4 p-xl-5">
+              <div class="icon-wrapper bg-primary-soft rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                <i class="fas fa-chart-line fa-2x text-primary"></i>
+              </div>
+              <h3 class="h4 text-dark mb-3">Crescimento garantido</h3>
+              <p class="text-muted mb-0">Aumente suas vendas com nosso programa de benefícios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Botão CTA -->
+      <div class="text-center mt-1 pt-3">
+        <a href="#parceiro" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow-sm">
+          Quero ser parceiro <i class="fas fa-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  
+    <!-- Elementos decorativos -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden z-n1">
+      
+    </div>
+  </section>
+  
+  <!-- CSS Customizado -->
+  <style>
+    .hover-scale {
+      transition: all 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+    }
+    .bg-primary-soft {
+      background-color: rgba(13, 110, 253, 0.1);
+    }
+    .transition-all {
+      transition: all 0.3s ease;
+    }
+    .icon-wrapper {
+      transition: all 0.3s ease;
+    }
+    .card:hover .icon-wrapper {
+      background-color: rgba(13, 110, 253, 0.2) !important;
+      transform: rotate(5deg) scale(1.1);
+    }
+  </style>
+  
+  
+  <style>
+    /* Estilos personalizados */
+    .partner-card {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .partner-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .partner-card h6 {
+      transition: color 0.3s ease;
+    }
+    
+    .partner-card:hover h6 {
+      color: #0d6efd;
+    }
+    
+    .modal-body img {
+      transition: transform 0.3s ease;
+    }
+    
+    .modal-body img:hover {
+      transform: scale(1.05);
+    }
+    
+    .list-group-item strong {
+      min-width: 100px;
+      display: inline-block;
+    }
+      /* Estilos para os links clicáveis */
+  .list-group-item a {
+    color: #0d6efd;
+    transition: color 0.2s;
+  }
+  
+  .list-group-item a:hover {
+    color: #0a58ca;
+    text-decoration: underline;
+  }
+  
+  /* Melhoria visual para os botões de redes sociais */
+  .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Espaçamento adicional para os ícones */
+  .bi {
+    margin-right: 0.25rem;
+  }
+  </style>
+  
+<!-- Partner Logos Carousel Start -->
+<section class="testimonial-section py-5 bg-light">
+  <div class="container">
+    <!-- Título da seção -->
+    <div class="text-center mb-5">
+      <h1 class="fw-bold display-6 text-c-dark">
+        Empresas que confiam na <span class="text-primary">Ajudda Card</span>
+      </h1>
+      <p class="fs-1 text-c-body mt-2">
+        Conheça alguns dos nossos parceiros que compartilham da missão de transformar a saúde.
+      </p> 
+    </div>
+
+    <!-- Carrossel -->
+    <div class="owl-carousel owl-theme testimonial-carousel">
+      <!-- Parceiro 1 -->
+      <div class="item p-4 bg-white rounded shadow-sm partner-card" style="height: 220px;" 
+           data-bs-toggle="modal" data-bs-target="#partnerModal1">
+        <div class="d-flex flex-column align-items-center justify-content-center h-100">
+          <img src="assets/img/illustration/parceiro1.PNG" alt="Clínica Saúde Total" 
+               style="max-height: 150px; max-width: 190px; object-fit: contain;">
+          <h4 class="mt-3 mb-0 text-center">Otomax</h4>
+        </div>
+      </div>
+
+      <!-- Parceiro 2 -->
+      <div class="item p-4 bg-white rounded shadow-sm partner-card" style="height: 220px;"
+           data-bs-toggle="modal" data-bs-target="#partnerModal2">
+        <div class="d-flex flex-column align-items-center justify-content-center h-100">
+          <img src="assets/img/illustration/parceiro2.PNG" alt="Laboratório Diagnóstico+" 
+               style="max-height: 150px; max-width: 190px; object-fit: contain;">
+          <h4 class="mt-3 mb-0 text-center">Clínica Qorpo</h4>
+        </div>
+      </div>
+
+      <!-- Parceiro 3 -->
+      <div class="item p-4 bg-white rounded shadow-sm partner-card" style="height: 220px;"
+           data-bs-toggle="modal" data-bs-target="#partnerModal3">
+        <div class="d-flex flex-column align-items-center justify-content-center h-100">
+          <img src="assets/img/illustration/parceiro3.PNG" alt="Hospital Vida Plena" 
+               style="max-height: 150px; max-width: 190px; object-fit: contain;">
+          <h4 class="mt-3 mb-0 text-center">Clínica Dez</h4>
+        </div>
+      </div>
+
+      <!-- Parceiro 4 -->
+      <div class="item p-4 bg-white rounded shadow-sm partner-card" style="height: 220px;"
+           data-bs-toggle="modal" data-bs-target="#partnerModal4">
+        <div class="d-flex flex-column align-items-center justify-content-center h-100">
+          <img src="assets/img/illustration/parceiro4.PNG" alt="Centro Médico Excelência" 
+               style="max-height: 150px; max-width: 190px; object-fit: contain;">
+          <h4 class="mt-3 mb-0 text-center">Cuidar Mais</h4>
+        </div>
+      </div>
+
+      <!-- Parceiro 5 -->
+      <div class="item p-4 bg-white rounded shadow-sm partner-card" style="height: 220px;"
+           data-bs-toggle="modal" data-bs-target="#partnerModal5">
+        <div class="d-flex flex-column align-items-center justify-content-center h-100">
+          <img src="assets/img/illustration/parceiro5.PNG" alt="Clínica Bem Estar" 
+               style="max-height: 150px; max-width: 190px; object-fit: contain;">
+          <h4 class="mt-3 mb-0 text-center">Multiclínica Fortaleza</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partner Logos Carousel End -->
+<!-- Modais dos Parceiros -->
+<!-- Modal Parceiro 1 - Otomax -->
+<div class="modal fade" id="partnerModal1" tabindex="-1" aria-labelledby="partnerModalLabel1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="partnerModalLabel1">Otomax Saúde</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center mb-4">
+          <img src="assets/img/illustration/parceiro1.PNG" alt="Otomax Saúde" class="img-fluid" style="max-height: 150px; max-width: 190px;">
+        </div>
+        <div class="alert alert-info mb-4">
+          <strong>Especialista em ouvido, nariz e garganta.</strong> Referência em otorrino, exames auditivos e cirurgias.
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Endereço:</strong> 
+            <a href="https://www.google.com/maps/search/?api=1&query=Otomax Saúde,R. Des. Lauro Nogueira, 1500 - Piso E2 loja 225 - Papicu, Fortaleza - CE, 60175-055" 
+               target="_blank" class="text-decoration-none">
+               R. Des. Lauro Nogueira, 1500 - Piso E2 loja 225 - Papicu, Fortaleza - CE, 60175-055
+            </a>
+          </li>
+          <li class="list-group-item"><strong>Telefone:</strong> (85) 2180-9880</li>
+          <li class="list-group-item">
+            <strong>WhatsApp:</strong> 
+            <a href="https://wa.me/5585921809880" target="_blank" class="text-decoration-none">
+              (85) 9 2180-9880
+            </a>
+          </li>
+          <li class="list-group-item">
+            <strong>Site:</strong> 
+            <a href="https://otomaxsaude.com.br/" class="text-decoration-none" target="_blank">
+              https://otomaxsaude.com.br/
+            </a>
+          </li>
+          <li class="list-group-item">
+            <strong>Redes Sociais:</strong>
+            <div class="mt-2">
+              <a href="https://www.facebook.com/share/1F72w3ZCeT/?mibextid=wwXIfr" class="btn btn-sm btn-outline-primary me-2" target="_blank">
+                <i class="bi bi-facebook"></i> Facebook
+              </a>
+              <a href="https://www.instagram.com/otomaxsaude?igsh=Z2lkdTI5dGpianpp" class="btn btn-sm btn-outline-info" target="_blank">
+                <i class="bi bi-instagram"></i> Instagram
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <a href="https://wa.me/5585921809880" class="btn btn-success" target="_blank">
+          <i class="bi bi-whatsapp"></i> Contatar via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Parceiro 2 - Clínica Qorpo -->
+<div class="modal fade" id="partnerModal2" tabindex="-1" aria-labelledby="partnerModalLabel2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="partnerModalLabel2">Clínica Qorpo</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center mb-4">
+          <img src="assets/img/illustration/parceiro2.PNG" alt="Clínica Qorpo" class="img-fluid" style="max-height: 150px; max-width: 190px;">
+        </div>
+        <div class="alert alert-info mb-4">
+          <strong>Excelência em ortopedia, fisioterapia e reabilitação.</strong> Estrutura moderna e atendimento especializado.
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Endereço:</strong> 
+            <a href="https://www.google.com/maps/search/?api=1&query=Avenida Senador Virgílio Távora, 195, Fortaleza, Brazil" 
+               target="_blank" class="text-decoration-none">
+               Avenida Senador Virgílio Távora, 195, Fortaleza, Brazil
+            </a>
+          </li>
+          <li class="list-group-item"><strong>Telefone:</strong> (85) 3274-6187</li>
+          <li class="list-group-item">
+            <strong>WhatsApp:</strong> 
+            <a href="https://wa.me/558597328698" target="_blank" class="text-decoration-none">
+              (85) 99732-8698
+            </a>
+          </li>
+          <li class="list-group-item">
+            <strong>Site:</strong> 
+            <a href="https://qorpo.com.br/" class="text-decoration-none" target="_blank">
+              https://qorpo.com.br/
+            </a>
+          </li>
+          <li class="list-group-item">
+            <strong>Redes Sociais:</strong>
+            <div class="mt-2">
+              <a href="https://www.facebook.com/share/169gL6V55o/?mibextid=wwXIfr" class="btn btn-sm btn-outline-primary me-2" target="_blank">
+                <i class="bi bi-facebook"></i> Facebook
+              </a>
+              <a href="https://instagram.com/clinicaqorpo" class="btn btn-sm btn-outline-info" target="_blank">
+                <i class="bi bi-instagram"></i> Instagram
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <a href="https://wa.me/558597328698" class="btn btn-success" target="_blank">
+          <i class="bi bi-whatsapp"></i> Contatar via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Parceiro 3 - Clínica Dez -->
+<div class="modal fade" id="partnerModal3" tabindex="-1" aria-labelledby="partnerModalLabel3" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="partnerModalLabel3">Clínica Dez (Messejana)</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center mb-4">
+          <img src="assets/img/illustration/parceiro3.PNG" alt="Clínica Dez" class="img-fluid" style="max-height: 150px; max-width: 190px;">
+        </div>
+        <div class="alert alert-info mb-4">
+          <strong>Centro completo com médicos de várias especialidades.</strong> Exames no mesmo lugar, com foco em agilidade e cuidado integral.
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Endereço:</strong> 
+            <a href="https://www.google.com/maps/search/?api=1&query=Rua Alberto torres, 73, Fortaleza, Brazil" 
+               target="_blank" class="text-decoration-none">
+               Rua Alberto torres, 73, Fortaleza, Brazil
+            </a>
+          </li>
+          <li class="list-group-item"><strong>Telefone:</strong> (85) 3274-6187</li>
+          <li class="list-group-item">
+            <strong>WhatsApp:</strong> 
+            <a href="https://wa.me/5585997328698" target="_blank" class="text-decoration-none">
+              (85) 99732-8698
+            </a>
+          </li>
+          <li class="list-group-item">
+            <strong>Site:</strong> 
+            <a href="https://clinicadez.com/" class="text-decoration-none" target="_blank">
+              https://clinicadez.com/
+            </a>
+          </li>
+          <li class="list-group-item">
+            <strong>Redes Sociais:</strong>
+            <div class="mt-2">
+              <a href="https://www.instagram.com/clinicadezmessejana_/" class="btn btn-sm btn-outline-info" target="_blank">
+                <i class="bi bi-instagram"></i> Instagram
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <a href="https://wa.me/5585997328698" class="btn btn-success" target="_blank">
+          <i class="bi bi-whatsapp"></i> Contatar via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Parceiro 4 - Cuidar Mais -->
+<div class="modal fade" id="partnerModal4" tabindex="-1" aria-labelledby="partnerModalLabel4" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="partnerModalLabel4">Clínica Cuidar Mais</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center mb-4">
+          <img src="assets/img/illustration/parceiro4.PNG" alt="Clínica Cuidar Mais" class="img-fluid" style="max-height: 150px; max-width: 190px;">
+        </div>
+        <div class="alert alert-info mb-4">
+          <strong>Clínica popular humanizada</strong> com foco em neurologia, psiquiatria e cuidados multidisciplinares.
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Endereço:</strong> 
+            <a href="https://www.google.com/maps/search/?api=1&query=Rua Senador Pompeu 487 - Centro, Fortaleza/CE" 
+               target="_blank" class="text-decoration-none">
+               Rua Senador Pompeu 487 - Centro, Fortaleza/CE
+            </a>
+          </li>
+          <li class="list-group-item"><strong>Telefone:</strong> (85) 3254-4440</li>
+          <li class="list-group-item">
+            <strong>WhatsApp:</strong> 
+            <a href="https://wa.me/message/AGCKQE2FFDWXP1" target="_blank" class="text-decoration-none">
+              (85) 99816-0208
+            </a>
+          </li>
+          <li class="list-group-item">
+            <strong>Redes Sociais:</strong>
+            <div class="mt-2">
+              <a href="https://www.instagram.com/clinicacuidarmaisoficial/" class="btn btn-sm btn-outline-info" target="_blank">
+                <i class="bi bi-instagram"></i> Instagram
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <a href="https://wa.me/message/AGCKQE2FFDWXP1" class="btn btn-success" target="_blank">
+          <i class="bi bi-whatsapp"></i> Contatar via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Parceiro 5 - Multiclínica Fortaleza -->
+<div class="modal fade" id="partnerModal5" tabindex="-1" aria-labelledby="partnerModalLabel5" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="partnerModalLabel5">Multiclínica Fortaleza</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center mb-4">
+          <img src="assets/img/illustration/parceiro5.PNG" alt="Multiclínica Fortaleza" class="img-fluid" style="max-height: 150px; max-width: 190px;">
+        </div>
+        <div class="alert alert-info mb-4">
+          <strong>Clínica popular com diversas especialidades médicas.</strong> Exames e atendimento acessível para toda a família.
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Endereço:</strong> 
+            <a href="https://www.google.com/maps/search/?api=1&query=RUA GUARATINGUETÁ, 60 - PARANGABA CEP: 60710-180 - FORTALEZA/CE" 
+               target="_blank" class="text-decoration-none">
+               RUA GUARATINGUETÁ, 60 - PARANGABA CEP: 60710-180 - FORTALEZA/CE
+            </a>
+          </li>
+          <li class="list-group-item">
+            <strong>WhatsApp:</strong> 
+            <a href="https://wa.me/5585989832063" target="_blank" class="text-decoration-none">
+              (85) 9 8983-2063
+            </a>
+          </li>
+          <li class="list-group-item">
+            <strong>Email:</strong> 
+            <a href="mailto:marketing@multiclinicafortaleza.com.br" class="text-decoration-none">
+              marketing@multiclinicafortaleza.com.br
+            </a>
+          </li>
+          <li class="list-group-item">
+            <strong>Site:</strong> 
+            <a href="https://multiclinicafortaleza.com.br/" class="text-decoration-none" target="_blank">
+              https://multiclinicafortaleza.com.br/
+            </a>
+          </li>
+          <li class="list-group-item">
+            <strong>Redes Sociais:</strong>
+            <div class="mt-2">
+              <a href="https://www.facebook.com/share/1KAY157YMp/?mibextid=wwXIfr" class="btn btn-sm btn-outline-primary me-2" target="_blank">
+                <i class="bi bi-facebook"></i> Facebook
+              </a>
+              <a href="https://www.instagram.com/multiclinicafortaleza?igsh=NDhiZTVkMnc0MnZ0" class="btn btn-sm btn-outline-info" target="_blank">
+                <i class="bi bi-instagram"></i> Instagram
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <a href="https://wa.me/5585989832063" class="btn btn-success" target="_blank">
+          <i class="bi bi-whatsapp"></i> Contatar via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <!-- Formulário - Versão com envio para WhatsApp -->
+<section class="py-6 text-white" style="background-color: #0000004f;" id="parceiro">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-lg-6">
+              <h1 class="mb-4" style="color: #ffffff;">Seja nosso parceiro de sucesso!</h1>
+              <form id="formParceiro">
+                  <div class="mb-3">
+                      <label for="empresa" class="form-label" style="font-size: 2vh;">Nome da Empresa*</label>
+                      <input type="text" class="form-control" id="empresa" placeholder="Digite o nome da Empresa" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="representante" class="form-label" style="font-size: 2vh;">Nome do Representante*</label>
+                      <input type="text" class="form-control" id="representante" placeholder="Digite o nome do Representante" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="email" class="form-label" style="font-size: 2vh;">E-mail*</label>
+                      <input type="email" class="form-control" id="email" placeholder="seuemail@exemplo.com.br" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="telefone" class="form-label" style="font-size: 2vh;">Telefone*</label>
+                      <input type="text" class="form-control" id="telefone" placeholder="(xx) xxxxx-xxxx" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="whatsapp" class="form-label" style="font-size: 2vh;">WhatsApp*</label>
+                      <input type="text" class="form-control" id="whatsapp" placeholder="(xx) xxxxx-xxxx" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="setor" class="form-label" style="font-size: 2vh;">Setor de Atuação da Empresa*</label>
+                      <input type="text" class="form-control" id="setor" placeholder="Saúde e Bem-Estar" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="conhecimento" class="form-label" style="font-size: 2vh;">Como você conheceu o Ajudda Card?</label>
+                      <input type="text" class="form-control" id="conhecimento" placeholder="Indicação">
+                  </div>
+                  <button type="submit" class="btn btn-light mt-3">Enviar</button>
+                  <div id="formError" class="alert alert-danger mt-3 d-none" role="alert">
+                      Por favor, preencha todos os campos obrigatórios marcados com *.
+                  </div>
+              </form>
+          </div>
+          <div class="col-lg-6 text-center">
+              <img src="assets/img/illustration/mulher-assinando.jpg" alt="Formulário" class="img-fluid" style="border-radius: 3vh;">
+          </div>
+      </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('formParceiro');
+  const errorAlert = document.getElementById('formError');
+  
+  // Máscara para telefone
+  const aplicarMascaraTelefone = (input) => {
+      input.addEventListener('input', function(e) {
+          let value = e.target.value.replace(/\D/g, '');
+          if (value.length > 11) value = value.substring(0, 11);
+          
+          if (value.length > 0) {
+              value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+              if (value.length > 10) {
+                  value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+              } else {
+                  value = value.replace(/(\d)(\d{3})$/, '$1-$2');
+              }
+          }
+          e.target.value = value;
+      });
+  };
+  
+  // Aplicar máscara aos campos de telefone
+  aplicarMascaraTelefone(document.getElementById('telefone'));
+  aplicarMascaraTelefone(document.getElementById('whatsapp'));
+  
+  // Validação do formulário
+  form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Verificar campos obrigatórios
+      const camposObrigatorios = form.querySelectorAll('[required]');
+      let formValido = true;
+      
+      camposObrigatorios.forEach(campo => {
+          if (!campo.value.trim()) {
+              campo.classList.add('is-invalid');
+              formValido = false;
+          } else {
+              campo.classList.remove('is-invalid');
+          }
+      });
+      
+      if (!formValido) {
+          errorAlert.classList.remove('d-none');
+          return;
+      }
+      
+      errorAlert.classList.add('d-none');
+      
+      // Construir mensagem para WhatsApp
+      const mensagem = `Olá Ajudda Card, gostaria de me tornar um parceiro!%0A%0A` +
+                       `*Empresa:* ${document.getElementById('empresa').value}%0A` +
+                       `*Representante:* ${document.getElementById('representante').value}%0A` +
+                       `*E-mail:* ${document.getElementById('email').value}%0A` +
+                       `*Telefone:* ${document.getElementById('telefone').value}%0A` +
+                       `*WhatsApp:* ${document.getElementById('whatsapp').value}%0A` +
+                       `*Setor de Atuação:* ${document.getElementById('setor').value}%0A` +
+                       `*Como conheceu:* ${document.getElementById('conhecimento').value || 'Não informado'}`;
+      
+      // Número do WhatsApp da Ajudda Card
+      const numeroWhatsApp = '5585984415490';
+      
+      // Redirecionar para o WhatsApp
+      window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagem}`, '_blank');
+      
+      // Opcional: Limpar o formulário após envio
+      form.reset();
+  });
+  
+  // Remover classe de erro quando o usuário começa a digitar
+  form.querySelectorAll('input').forEach(input => {
+      input.addEventListener('input', function() {
+          if (this.value.trim()) {
+              this.classList.remove('is-invalid');
+          }
+      });
+  });
+});
+</script>
+
+<style>
+/* Estilo para campos inválidos */
+.is-invalid {
+  border-color: #dc3545 !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.is-invalid:focus {
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+</style>
+  
+<style>
+  /* Estilo para dispositivos móveis */
+  @media (max-width: 768px) {
+    .footer-mobile-center {
+      text-align: center !important;
+    }
+    .footer-mobile-center .row > div {
+      width: 100% !important;
+      margin-bottom: 2rem;
+    }
+    .footer-mobile-center .d-flex {
+      justify-content: center !important;
+    }
+    .footer-mobile-center ul {
+      padding-left: 0;
+    }
+    .footer-mobile-center li {
+      text-align: center !important;
+    }
+  }
+</style>
+
+<section class="py-0 bg-roxo footer-mobile-center">
+  <div class="container">
+    <div class="row py-7">
+      <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0">
+        <div class="text-center text-md-start">
+          <a class="text-decoration-none" href="index.html">
+            <img src="assets/img/illustration/ajudda-logo-branca (1).png" height="51" alt="" />
+          </a>
+          <p class="text-light mt-4 mb-0">BR: 85 9 8441 5490</p>
+          
+          <p class="text-light mt-5">ajuddacard@gmail.com</p>
+          <div class="d-flex justify-content-md-start">
+            <a href="34"><img class="me-xl-3 me-1" src="assets/img/gallery/linkedin-line1.svg" alt="in" width="20px" height="20px" /></a>
+            <a href="#!"><img class="me-xl-3 me-1" src="assets/img/gallery/facebook-line1.svg" alt="fb" width="20px" height="20px" /></a>
+            <a href="#!"><img class="me-xl-3 me-1" src="assets/img/gallery/twitter-line1.svg" alt="twitter" width="20px" height="20px" /></a>
+            <a href="#!"><img class="me-xl-3 me-1" src="assets/img/gallery/instagram-line1.svg" alt="instragram" width="20px" height="20px" /></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-3 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
+        <h4 class="lh-lg fw-bold text-light font-sans-serif text-center text-md-start">Sobre o Ajudda</h4>
+        <ul class="list-unstyled text-light mb-md-4 text-center text-md-start">
+          <li class="lh-lg"><a class="footer-link text-light" href="quem-somos.html">Quem Somos</a></li>
+          <li class="lh-lg"><a class="footer-link text-light" href="quem-somos.html">Nossa Missão</a></li>
+          <li class="lh-lg"><a class="footer-link text-light" href="parceiros.html">Clinicas Parceiras</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+        <h4 class="lh-lg fw-bold text-light font-sans-serif text-center text-md-start">Serviços</h4>
+        <ul class="list-unstyled text-light mb-md-4 mb-lg-0 text-center text-md-start">
+          <li class="lh-lg"><a class="footer-link text-light" href="https://wa.me/5585984415490">Consultas</a></li>
+          <li class="lh-lg"><a class="footer-link text-light" href="https://wa.me/5585984415490">Exames</a></li>
+          <li class="lh-lg"><a class="footer-link text-light" href="https://wa.me/5585984415490">Medicamentos</a></li>
+          <li class="lh-lg"><a class="footer-link text-light" href="https://wa.me/5585984415490">Plano Familiar</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+        <h4 class="lh-lg fw-bold text-light font-sans-serif text-center text-md-start">Ajuda</h4>
+        <ul class="list-unstyled text-light mb-md-4 mb-lg-0 text-center text-md-start">
+          <li class="lh-lg"><a class="footer-link text-light" href="faq.html">Perguntas Frequentes</a></li>
+          <li class="lh-lg"><a class="footer-link text-light" href="https://wa.me/5585984415490">Suporte via WhatsApp</a></li>
+          <li class="lh-lg"><a class="footer-link text-light" href="politica-uso-privacidade.html">Política de Privacidade e Uso</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <section class="py-0 bg-roxo footer-mobile-center">
+    <div class="container">
+      <div class="row justify-content-md-between justify-content-evenly py-3">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center">
+          <p class="fs--1 my-2 fw-bold text-200">&copy; 2025 Ajudda Card</p>
+        </div>
+        <div class="col-12 col-sm-8 col-md-6">
+          <p class="fs--1 my-2 text-center text-200">
+            &nbsp; Desenvolvido por&nbsp;<a class="fw-bold text-info text-200" href="https://www.linkedin.com/in/trajanoluan" target="_blank">LuanDev</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+
+
+  </section>
+    </main>
+    <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap Bundle com Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<!-- Inicialização do Owl Carousel -->
+<script>
+        $(document).ready(function(){
+          $(".testimonial-carousel").owlCarousel({
+        autoplay: true,
+        loop: true,
+        margin: 30,
+        dots: true,
+        nav: false,
+        responsive:{
+          0:{ items:1 },
+          576:{ items:2 },
+          768:{ items:3 },
+          992:{ items:4 }
+        }
+      });
+  });
+</script>
+<script>
+  // Elementos
+  const whatsappButton = document.getElementById('whatsappButton');
+  const whatsappChat = document.getElementById('whatsappChat');
+  const messageInput = document.getElementById('messageInput');
+  const sendButton = document.getElementById('sendButton');
+  const chatMessages = document.getElementById('chatMessages');
+  const typingIndicator = document.getElementById('typingIndicator');
+  const whatsappNumber = '5585984415490';
+  
+  // Abrir/fechar chat
+  whatsappButton.addEventListener('click', function() {
+      whatsappChat.style.display = whatsappChat.style.display === 'block' ? 'none' : 'block';
+      if (whatsappChat.style.display === 'block') {
+          messageInput.focus();
+      }
+  });
+  
+  // Auto-ajuste da altura do textarea
+  messageInput.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight > 84 ? 84 : this.scrollHeight) + 'px';
+  });
+  
+  // Adicionar mensagem
+  function addMessage(text, isReceived) {
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('message', isReceived ? 'received' : 'sent');
+      messageElement.textContent = text;
+      chatMessages.insertBefore(messageElement, typingIndicator);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+  
+  // Enviar mensagem
+  function sendMessage() {
+      const message = messageInput.value.trim();
+      if (message) {
+          addMessage(message, false);
+          messageInput.value = '';
+          messageInput.style.height = 'auto';
+          
+          // Resposta automática
+          typingIndicator.style.display = 'block';
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          
+          setTimeout(() => {
+              typingIndicator.style.display = 'none';
+              addMessage("Recebemos sua mensagem. Iremos te direcionar para o WhatsApp responsável para podermos te ajudar.", true);
+              
+              // Redireciona para o WhatsApp
+              setTimeout(() => {
+                  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá, vim pelo chat do site: ' + message)}`, '_blank');
+              }, 1500);
+          }, 1000);
+      }
+  }
+  
+  // Eventos
+  sendButton.addEventListener('click', sendMessage);
+  messageInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+      }
+  });
+</script>
+</body>
+</html>
