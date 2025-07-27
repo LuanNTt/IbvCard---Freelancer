@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-  <title>Ajudda Card | Sua Clínica Gerando Valor Além da Consulta</title>
+  <title>IBVCard | Saúde Descomplicada e Acessível</title>
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/icon-pequeno-ajudda.PNG">
@@ -26,9 +26,9 @@
 
   <style>
     :root {
-      --ajudda-purple: #6a11cb;
-      --ajudda-light-purple: #4e20b0;
-      --ajudda-gradient: linear-gradient(135deg, #4e20b0 0%, #7146ce 100%);
+      --ibv-blue: #1e3a8a;
+      --ibv-light-blue: #3b82f6;
+      --ibv-gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
     }
     
     body {
@@ -40,17 +40,17 @@
     .navbar {
       background-color: transparent;
       transition: background-color 0.4s ease;
-      background-color: #4e20b0;
+      background-color: #1e3a8a;
     }
     
     .navbar-scrolled {
-      background-color: #4e20b0 !important;
+      background-color: #1e3a8a !important;
       transition: background-color 1.0s ease;
     }
     
     /* Feature Cards */
     .feature-card {
-      background-color: #6970dd;
+      background-color: #60a5fa;
       color: #000000;
       border: none;
       border-radius: 1rem;
@@ -64,7 +64,7 @@
     }
     
     .feature-card:hover {
-      background-color: #4e20b0;
+      background-color: #1e3a8a;
       color: #ffffff;
       transform: scale(1.05);
     }
@@ -81,13 +81,13 @@
       display: block;
     }
     
-    .bg-roxo {
-      background-color: #4e20b0 !important;
+    .bg-blue {
+      background-color: #1e3a8a !important;
     }
     
     /* Hover Scale Cards */
     .hover-scale-card {
-      background-color: #b183ff;
+      background-color: #93c5fd;
       color: #ffffff;
       border-radius: 16px;
       padding: 2rem;
@@ -104,7 +104,7 @@
     
     .hover-scale-card:hover {
       transform: translateY(-5px);
-      background-color: #4e20b0;
+      background-color: #1e3a8a;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
     
@@ -126,8 +126,8 @@
       color: #ffffff;
     }
     
-    .icone-roxa {
-      color: #4e20b0
+    .icone-blue {
+      color: #1e3a8a;
     }
     
     .text-top {
@@ -136,7 +136,7 @@
     
     /* Mission Section */
     .mission-section {
-      background-color: #f9f6ff;
+      background-color: #f0f9ff;
       position: relative;
       padding: 5rem 0;
     }
@@ -145,19 +145,19 @@
       border-radius: 15px;
       overflow: hidden;
       transition: all 0.4s ease;
-      box-shadow: 0 10px 30px rgba(106, 17, 203, 0.1);
+      box-shadow: 0 10px 30px rgba(30, 58, 138, 0.1);
       height: 100%;
     }
     
     .mission-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(106, 17, 203, 0.2);
+      box-shadow: 0 15px 40px rgba(30, 58, 138, 0.2);
     }
     
     .mission-icon {
       width: 80px;
       height: 80px;
-      background: rgba(106, 17, 203, 0.1);
+      background: rgba(30, 58, 138, 0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -167,7 +167,7 @@
     
     /* Team Section */
     .team-section {
-      background: var(--ajudda-gradient);
+      background: var(--ibv-gradient);
       color: white;
       padding: 5rem 0;
     }
@@ -203,19 +203,19 @@
       border-radius: 15px;
       transition: all 0.3s ease;
       height: 100%;
-      border: 1px solid rgba(106, 17, 203, 0.1);
+      border: 1px solid rgba(30, 58, 138, 0.1);
     }
     
     .value-item:hover {
-      background-color: #f9f6ff;
+      background-color: #f0f9ff;
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(106, 17, 203, 0.1);
+      box-shadow: 0 10px 30px rgba(30, 58, 138, 0.1);
     }
     
     .value-number {
       width: 50px;
       height: 50px;
-      background: var(--ajudda-gradient);
+      background: var(--ibv-gradient);
       color: white;
       border-radius: 50%;
       display: flex;
@@ -255,41 +255,41 @@
     }
     
     /* Custom CSS */
-    .ajudda-solucoes {
+    .ibv-solucoes {
       position: relative;
       overflow: hidden;
     }
     
-    .ajudda-solucoes::before {
+    .ibv-solucoes::before {
       content: "";
       position: absolute;
       top: -100px;
       right: -100px;
       width: 300px;
       height: 300px;
-      background: radial-gradient(circle, rgba(158,111,255,0.1) 0%, rgba(158,111,255,0) 70%);
+      background: radial-gradient(circle, rgba(147, 197, 253, 0.1) 0%, rgba(147, 197, 253, 0) 70%);
       z-index: 0;
     }
     
-    .ajudda-solucoes::after {
+    .ibv-solucoes::after {
       content: "";
       position: absolute;
       bottom: -150px;
       left: -150px;
       width: 400px;
       height: 400px;
-      background: radial-gradient(circle, rgba(106,17,203,0.05) 0%, rgba(106,17,203,0) 70%);
+      background: radial-gradient(circle, rgba(30, 58, 138, 0.05) 0%, rgba(30, 58, 138, 0) 70%);
       z-index: 0;
     }
     
-    .ajudda-cuidado-qualidade {
+    .ibv-cuidado-qualidade {
       width: 100%;
       padding: 100px 0;
-      background-color: #f9f6ff;
+      background-color: #f0f9ff;
       position: relative;
     }
     
-    .ajudda-cuidado-container {
+    .ibv-cuidado-container {
       width: 100%;
       max-width: 1700px;
       margin: 0 auto;
@@ -297,14 +297,14 @@
       position: relative;
     }
     
-    .ajudda-coluna-esquerda {
+    .ibv-coluna-esquerda {
       width: 70%;
       margin-left: 10%;
       padding-right: 20px;
       box-sizing: border-box;
     }
     
-    .ajudda-coluna-direita {
+    .ibv-coluna-direita {
       width: 90%;
       margin-left: 0;
       padding-right: 10%;
@@ -313,20 +313,20 @@
       align-items: center;
     }
     
-    .destaque-roxo {
-      color: #6a11cb;
+    .destaque-blue {
+      color: #1e3a8a;
       font-weight: 700;
     }
     
     .destaque-frase {
-      border-left: 3px solid #4e20b0;
+      border-left: 3px solid #1e3a8a;
       padding-left: 20px;
     }
     
     /* Sobre Section */
     .sobre-section-corrected {
       width: 100%;
-      background-color: #6a11cb;
+      background-color: #1e3a8a;
       border-radius: 40px;
       margin: 60px 0;
       padding: 80px 0;
@@ -443,19 +443,19 @@
     }
     
     @media (max-width: 991.98px) {
-      .ajudda-solucoes .row {
+      .ibv-solucoes .row {
         flex-direction: column-reverse;
       }
       
-      .ajudda-solucoes .col-lg-6 {
+      .ibv-solucoes .col-lg-6 {
         text-align: center;
       }
       
-      .ajudda-solucoes .pe-lg-4 {
+      .ibv-solucoes .pe-lg-4 {
         padding-right: 0 !important;
       }
       
-      .ajudda-solucoes .d-flex {
+      .ibv-solucoes .d-flex {
         justify-content: center;
         text-align: left;
       }
@@ -468,25 +468,25 @@
         gap: 180px;
       }
       
-      .ajudda-cuidado-container {
+      .ibv-cuidado-container {
         flex-direction: column;
       }
       
-      .ajudda-coluna-esquerda,
-      .ajudda-coluna-direita {
+      .ibv-coluna-esquerda,
+      .ibv-coluna-direita {
         width: 100%;
         margin-left: 0;
         padding: 0 20px;
       }
       
-      .ajudda-coluna-direita {
+      .ibv-coluna-direita {
         margin-top: 40px;
         padding-right: 20px;
       }
       
       .destaque-frase {
         border-left: none;
-        border-top: 3px solid #4e20b0;
+        border-top: 3px solid #1e3a8a;
         padding-left: 0;
         padding-top: 20px;
       }
@@ -504,7 +504,7 @@
       
       .navbar-collapse {
         text-align: center;
-        background-color: #4e20b0;
+        background-color: #1e3a8a;
         padding: 15px;
         border-radius: 10px;
         margin-top: 10px;
@@ -523,12 +523,12 @@
       }
       
       /* Hero Section */
-      .py-7.position-relative.bg-roxo {
+      .py-7.position-relative.bg-blue {
         padding-top: 100px !important;
         padding-bottom: 100px !important;
       }
       
-      .py-7.position-relative.bg-roxo h1 {
+      .py-7.position-relative.bg-blue h1 {
         font-size: 1.8rem !important;
         padding: 0 15px;
       }
@@ -662,7 +662,7 @@
         padding: 10px;
       }
       
-      .ajudda-coluna-esquerda h2 {
+      .ibv-coluna-esquerda h2 {
         font-size: 1.8rem !important;
         text-align: center;
       }
@@ -980,11 +980,11 @@
 <!-- Chat -->
 <div class="whatsapp-chat" id="whatsappChat">
     <div class="chat-header">
-        Suporte Ajudda Card
+        Suporte IBVCard
         <span class="chat-status">Online</span>
     </div>
     <div class="chat-messages" id="chatMessages">
-        <div class="message received">Olá! Somos o suporte do Ajudda Card. Como podemos te ajudar hoje?</div>
+        <div class="message received">Olá! Somos o suporte do IBVCard. Como podemos te ajudar hoje?</div>
         <div class="typing-indicator" id="typingIndicator">Suporte está digitando...</div>
     </div>
     <div class="chat-input-area">
@@ -1022,7 +1022,7 @@ aria-label="Toggle navigation">
 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
 <ul class="navbar-nav mx-auto d-flex gap-4 align-items-center">
   <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="index.html#home">Home</a></li>
-  <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="index.html#ajudda-beneficios-cards">Sobre Nós</a></li>
+  <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="index.html#ibv-beneficios-cards">Sobre Nós</a></li>
   <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="parceiros.html">Quero ser Parceiro</a></li>
   <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="blog.html">Blog</a></li>
   <li class="nav-item"><a class="nav-link" style="color: #ffffff; font-size: 20px;" href="clinicas-credenciadas.html">Clinicas credenciadas</a></li>
@@ -1039,7 +1039,7 @@ Agendar Demonstração
 <div class="modal-custom-content">
   <div class="modal-custom-header">
     <div class="logo-container">
-      <img src="assets/img/illustration/ajudda-logo-branca (1).png" alt="Ajudda Card Logo" class="logo">
+      <img src="assets/img/illustration/ajudda-logo-branca (1).png" alt="IBVCard Logo" class="logo">
     </div>
     <span class="modal-custom-close">&times;</span>
   </div>
@@ -1067,12 +1067,12 @@ Agendar Demonstração
 </div>
 
 <style>
-/* Cores personalizadas no tema roxo */
+/* Cores personalizadas no tema azul */
 :root {
---roxo-primario: #6a0dad;
---roxo-secundario: #8a2be2;
---roxo-claro: #e6e6fa;
---roxo-escuro: #4b0082;
+--azul-primario: #1e3a8a;
+--azul-secundario: #3b82f6;
+--azul-claro: #dbeafe;
+--azul-escuro: #1e3a8a;
 --cinza-claro: #f8f9fa;
 --cinza-medio: #e9ecef;
 --branco: #ffffff;
@@ -1109,7 +1109,7 @@ to {opacity: 1; transform: translateY(0);}
 
 .modal-custom-header {
 padding: 20px 25px; /* Aumentei o padding */
-background-color: var(--roxo-primario);
+background-color: var(--azul-primario);
 color: var(--branco);
 display: flex;
 justify-content: space-between;
@@ -1137,7 +1137,7 @@ transition: color 0.3s;
 }
 
 .modal-custom-close:hover {
-color: var(--roxo-claro);
+color: var(--azul-claro);
 }
 
 .modal-custom-body {
@@ -1160,7 +1160,7 @@ margin-bottom: 25px; /* Aumentei o espaçamento */
 display: block;
 margin-bottom: 10px; /* Aumentei o espaçamento */
 font-weight: 600;
-color: var(--roxo-escuro);
+color: var(--azul-escuro);
 font-size: 16px; /* Aumentei a fonte */
 }
 
@@ -1176,9 +1176,9 @@ height: 50px; /* Altura fixa maior */
 }
 
 .form-control:focus {
-border-color: var(--roxo-secundario);
+border-color: var(--azul-secundario);
 outline: none;
-box-shadow: 0 0 0 4px rgba(138, 43, 226, 0.2); /* Aumentei a sombra */
+box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2); /* Aumentei a sombra */
 }
 
 /* Estilos para os botões - AUMENTADOS */
@@ -1194,18 +1194,18 @@ height: 50px; /* Altura fixa */
 }
 
 .btn-primary {
-background-color: var(--roxo-primario);
+background-color: var(--azul-primario);
 color: var(--branco);
 }
 
 .btn-primary:hover {
-background-color: var(--roxo-escuro);
+background-color: var(--azul-escuro);
 transform: translateY(-2px);
 }
 
 .btn-secondary {
 background-color: var(--cinza-medio);
-color: var(--roxo-escuro);
+color: var(--azul-escuro);
 margin-right: 15px; /* Aumentei o espaçamento */
 }
 
@@ -1266,7 +1266,7 @@ btnEnviar.onclick = function() {
   }
   
   // Formata a mensagem para o WhatsApp
-  const mensagem = `Olá, gostaria de agendar uma demonstração do Ajudda Card:\n\n` +
+  const mensagem = `Olá, gostaria de agendar uma demonstração do IBVCard:\n\n` +
                   `*Nome do Representante:* ${nome}\n` +
                   `*Empresa:* ${empresa}\n` +
                   `*E-mail:* ${email}\n\n` +
@@ -1300,11 +1300,11 @@ btnEnviar.onclick = function() {
       .navbar {
         background-color: transparent;
         transition: background-color 0.4s ease;
-        background-color: #4e20b0;
+        background-color: #1e3a8a;
       }
   
       .navbar-scrolled {
-        background-color: #4e20b0 !important;
+        background-color: #1e3a8a !important;
         transition: background-color 1.0s ease;
       }
     </style>
@@ -1323,46 +1323,46 @@ btnEnviar.onclick = function() {
 
 
   <!-- Banner Hero Section -->
-  <section class="py-5 py-md-7 position-relative bg-roxo" style="background: url('assets/img/illustration/banner-sobrenos.PNG') no-repeat center center/cover; height: 50vh;">
+  <section class="py-5 py-md-7 position-relative bg-blue" style="background: url('assets/img/illustration/banner-sobrenos.PNG') no-repeat center center/cover; height: 50vh;">
     <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.685);"></div>
     <div class="container text-white position-relative z-1 text-center py-5 py-md-7">
-      <h1 class="display-4 fw-bold" style="color: #ffffff;" style="margin-top: 30px important!;">Conheça um pouco mais sobre o Ajudda!</h1>
+      <h1 class="display-4 fw-bold" style="color: #ffffff;" style="margin-top: 30px important!;">Conheça um pouco mais sobre o IBVCard!</h1>
     </div>
   </section>
 
   <!-- Soluções Section -->
-  <section class="ajudda-solucoes py-5 py-md-6" style="background-color: #f9f6ff;">
+  <section class="ibv-solucoes py-5 py-md-6" style="background-color: #f0f9ff;">
     <div class="container">
       <div class="row align-items-center g-4 g-lg-5">
         <!-- Text Column -->
         <div class="col-lg-6 order-lg-1 order-2">
           <div class="pe-lg-4">
-            <p class="text-uppercase fw-bold mb-3" style="color: #4e20b0; letter-spacing: 2px;">SOLUÇÕES</p>
+            <p class="text-uppercase fw-bold mb-3" style="color: #1e3a8a; letter-spacing: 2px;">SOLUÇÕES</p>
             <h2 class="display-5 fw-bold mb-4" style="color: #333;">
-              Atendimento simples, acessível e do jeito que você precisa.
+              Saúde descomplicada, acessível e pensada pra sua rotina
             </h2>
-            <p class="lead mb-4" style="color: #6a11cb; font-weight: 500;">
-              A Ajudda nasceu para facilitar o acesso à saúde, conectando você a consultas médicas, exames, farmácias e pequenas cirurgias com descontos reais.
+            <p class="lead mb-4" style="color: #1e3a8a; font-weight: 500;">
+              O IBVCard conecta você a uma rede completa de clínicas, laboratórios, farmácias, óticas e serviços de saúde com preços acessíveis e atendimento de verdade.
             </p>
             <div class="d-flex mb-4">
               <div class="me-3">
-                <div style="width: 24px; height: 24px; background-color: #4e20b0; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                <div style="width: 24px; height: 24px; background-color: #1e3a8a; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
               </div>
-              <p style="color: #505050;">Agendamento direto pelo app ou unidade parceira</p>
+              <p style="color: #505050;">Agendamento fácil pelo app ou em unidades credenciadas.</p>
             </div>
             <div class="d-flex">
               <div class="me-3">
-                <div style="width: 24px; height: 24px; background-color: #4e20b0; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                <div style="width: 24px; height: 24px; background-color: #1e3a8a; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
               </div>
-              <p style="color: #505050;">Você escolhe, agenda e é atendido — sem demora, sem surpresas, com preços que cabem no seu bolso</p>
+              <p style="color: #505050;">Você escolhe, marca e é atendido com liberdade, transparência e sem sustos no valor.</p>
             </div>
           </div>
         </div>
@@ -1370,14 +1370,14 @@ btnEnviar.onclick = function() {
         <!-- Image Column -->
         <div class="col-lg-6 order-lg-2 order-1">
           <div class="position-relative">
-            <img src="assets/img/illustration/quem-somos-sessao1.PNG" alt="Atendimento médico acessível da Ajudda" class="img-fluid rounded-4 shadow-lg" style="border: 1px solid rgba(106, 17, 203, 0.1);">
+            <img src="assets/img/illustration/quem-somos-sessao1.PNG" alt="Atendimento médico acessível do IBVCard" class="img-fluid rounded-4 shadow-lg" style="border: 1px solid rgba(30, 58, 138, 0.1);">
             
             <!-- Decorative Elements -->
             <div class="position-absolute top-0 start-0 translate-middle d-none d-lg-block" style="z-index: 1;">
-              <div style="width: 60px; height: 60px; background: rgba(158, 111, 255, 0.2); border-radius: 50%;"></div>
+              <div style="width: 60px; height: 60px; background: rgba(147, 197, 253, 0.2); border-radius: 50%;"></div>
             </div>
             <div class="position-absolute bottom-0 end-0 translate-middle d-none d-lg-block" style="z-index: 1;">
-              <div style="width: 80px; height: 80px; background: rgba(106, 17, 203, 0.1); border-radius: 50%;"></div>
+              <div style="width: 80px; height: 80px; background: rgba(30, 58, 138, 0.1); border-radius: 50%;"></div>
             </div>
           </div>
         </div>
@@ -1386,35 +1386,35 @@ btnEnviar.onclick = function() {
   </section>
 
   <!-- Cuidado Section -->
-  <section class="ajudda-cuidado-qualidade py-5 py-md-6">
-    <div class="ajudda-cuidado-container">
+  <section class="ibv-cuidado-qualidade py-5 py-md-6">
+    <div class="ibv-cuidado-container">
       <!-- Left Column -->
-      <div class="ajudda-coluna-esquerda">
-        <h2 style="font-size: 2.5rem !important;" class="text-center text-lg-start">Cuidado de qualidade e o principal: <span class="destaque-roxo">com facilidade</span>.</h2>
+      <div class="ibv-coluna-esquerda">
+        <h2 style="font-size: 2.5rem !important;" class="text-center text-lg-start">Cuidado que cabe na sua vida <br>— <span class="destaque-blue">e no seu bolso</span>.</h2>
       </div>
 
       <!-- Right Column -->
-      <div class="ajudda-coluna-direita">
+      <div class="ibv-coluna-direita">
         <div class="destaque-frase" style="font-size: 20px;">
-          <p>Consultas e exames com preços acessíveis para quem está fora dos planos de saúde ou não pode esperar tanto tempo por atendimento.</p>
+          <p>Ideal pra quem não tem plano de saúde ou precisa de atendimento rápido. Consultas, exames e serviços essenciais com valores justos, sem burocracia e com qualidade.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- About Us Section -->
-  <section class="about-us py-5 py-md-6" style="background-color: #f9f6ff;">
+  <section class="about-us py-5 py-md-6" style="background-color: #f0f9ff;">
     <div class="container">
       <div class="row align-items-center g-4 g-lg-5">
         <!-- Image Column -->
         <div class="col-lg-6 order-lg-1 order-2">
           <div class="position-relative">
-            <img src="assets/img/illustration/quem-somos-sessao3.PNG" alt="Ajudda Team - Humanized service" class="img-fluid rounded-4 shadow-lg" style="border: 1px solid rgba(106, 17, 203, 0.1);">
+            <img src="assets/img/illustration/quem-somos-sessao3.PNG" alt="IBVCard Team - Humanized service" class="img-fluid rounded-4 shadow-lg" style="border: 1px solid rgba(30, 58, 138, 0.1);">
             <!-- Decorative Element -->
             <div class="position-absolute d-none d-lg-block" style="
               width: 60px;
               height: 60px;
-              background: rgba(158, 111, 255, 0.2);
+              background: rgba(147, 197, 253, 0.2);
               border-radius: 50%;
               bottom: -20px;
               right: -20px;
@@ -1426,12 +1426,15 @@ btnEnviar.onclick = function() {
         <!-- Text Column -->
         <div class="col-lg-6 order-lg-2 order-1">
           <div class="ps-lg-4">
-            <p class="text-uppercase fw-bold mb-3" style="color: #4e20b0; letter-spacing: 2px;">QUEM SOMOS</p>
+            <p class="text-uppercase fw-bold mb-3" style="color: #1e3a8a; letter-spacing: 2px;">QUEM SOMOS</p>
             <h2 class="display-5 fw-bold mb-4" style="color: #333;">
-              Solução prática e <br class="d-none d-lg-block">acessível para atendimento <br class="d-none d-lg-block">rápido e de qualidade.
+              Conectamos você ao cuidado <br class="d-none d-lg-block">que sua saúde merece
             </h2>
-            <p class="lead mb-4" style="color: #6a11cb; font-weight: 500;">
-              Na Ajudda, acreditamos que saúde de verdade começa com acesso.<br> É isso que entregamos todos os dias:<span style="font-weight: bold;">ajuda real, no momento certo.</span>
+            <p class="lead mb-4" style="color: #1e3a8a; font-weight: 500;">
+              O IBVCard é uma alternativa moderna aos planos de saúde tradicionais. Unimos tecnologia, empatia e liberdade de escolha para tornar o acesso à saúde mais humano, acessível e prático.
+            </p>
+            <p class="mb-4" style="color: #505050;">
+              Nosso símbolo traduz esse propósito: o coração representa o cuidado com as pessoas, e a cruz, a proteção e o compromisso com o bem-estar. Juntos, simbolizam uma marca que valoriza o ser humano e entrega soluções com propósito.
             </p>
           </div>
         </div>
@@ -1443,53 +1446,43 @@ btnEnviar.onclick = function() {
   <section class="mission-section py-5 py-md-6">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="display-4 fw-bold mb-3" style="color: var(--ajudda-purple);">Nossos Valores</h2>
-        <div class="mx-auto" style="width: 100px; height: 3px; background-color: var(--ajudda-light-purple);"></div>
+        <h2 class="display-4 fw-bold mb-3" style="color: var(--ibv-blue);">Nossos Compromissos</h2>
+        <div class="mx-auto" style="width: 100px; height: 3px; background-color: var(--ibv-light-blue);"></div>
       </div>
       
-      <div class="row g-4" style="background-color: #4b0082; border-radius: 5vh;">
+      <div class="row g-4" style="background-color: #1e3a8a; border-radius: 5vh;">
         <div class="col-md-4 animate-fade">
           <div class="mission-card p-4 text-center">
             <div class="mission-icon">
-              <i class="bi bi-heart-pulse fs-2" style="color: white;"></i>
+              <i class="bi bi-rocket fs-2" style="color: white;"></i>
             </div>
-            <h4 class="mb-3" style="color: white;">Visão</h4>
-            <p style="color: white;">Ser referência nacional em soluções de saúde acessível. Queremos estar presentes em todo o Brasil, ajudando cada vez mais famílias a cuidarem da saúde com dignidade e agilidade.</p>
+            <h4 class="mb-3" style="color: white;">Missão</h4>
+            <p style="color: white;">Oferecer saúde descomplicada, humana e digital. Aproximar pessoas de atendimentos de qualidade com economia, rapidez e suporte de verdade — tudo em um só lugar.</p>
           </div>
         </div>
         
         <div class="col-md-4 animate-fade delay-1">
           <div class="mission-card p-4 text-center">
             <div class="mission-icon">
-              <i class="bi bi-lightning-charge fs-2" style="color: white;"></i>
+              <i class="bi bi-eye fs-2" style="color: white;"></i>
             </div>
-            <h4 class="mb-3" style="color: white;" >Missão</h4>
-            <p style="color: white;">Conectar pessoas à saúde acessível. Facilitar o acesso a consultas, exames e atendimento de qualidade por meio de um cartão simples, econômico e descomplicado.</p>
+            <h4 class="mb-3" style="color: white;" >Visão</h4>
+            <p style="color: white;">Ser reconhecida como a solução de saúde digital mais acessível e confiável do Brasil, presente na vida de milhões, com cuidado sem barreiras.</p>
           </div>
         </div>
         
         <div class="col-md-4 animate-fade delay-2">
           <div class="mission-card p-4 text-center">
             <div class="mission-icon">
-              <i class="bi bi-shield-check fs-2" style="color: white;"></i>
+              <i class="bi bi-stars fs-2" style="color: white;"></i>
             </div>
             <h4 class="mb-3" style="color: white;">Valores</h4>
-            <p style="color: white;">Acessibilidade;
-              Respeito;
-              Transparência;
-              Simplicidade;
-              Comprometimento;
-              Humanização;
-              Agilidade.</p>
+            <p style="color: white;">Acesso • Ética • Empatia • Respeito • Transparência</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-
-
-
 
   <style>
     /* Estilo para dispositivos móveis */
@@ -1513,7 +1506,7 @@ btnEnviar.onclick = function() {
     }
   </style>
   
-  <section class="py-0 bg-roxo footer-mobile-center">
+  <section class="py-0 bg-blue footer-mobile-center">
     <div class="container">
       <div class="row py-7">
         <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0">
@@ -1523,7 +1516,7 @@ btnEnviar.onclick = function() {
             </a>
             <p class="text-light mt-4 mb-0">BR: 85 9 8441 5490</p>
             
-            <p class="text-light mt-5">ajuddacard@gmail.com</p>
+            <p class="text-light mt-5">ibvcard@gmail.com</p>
             <div class="d-flex justify-content-md-start">
               <a href="34"><img class="me-xl-3 me-1" src="assets/img/gallery/linkedin-line1.svg" alt="in" width="20px" height="20px" /></a>
               <a href="#!"><img class="me-xl-3 me-1" src="assets/img/gallery/facebook-line1.svg" alt="fb" width="20px" height="20px" /></a>
@@ -1534,7 +1527,7 @@ btnEnviar.onclick = function() {
         </div>
         
         <div class="col-3 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
-          <h4 class="lh-lg fw-bold text-light font-sans-serif text-center text-md-start">Sobre o Ajudda</h4>
+          <h4 class="lh-lg fw-bold text-light font-sans-serif text-center text-md-start">Sobre o IBVCard</h4>
           <ul class="list-unstyled text-light mb-md-4 text-center text-md-start">
             <li class="lh-lg"><a class="footer-link text-light" href="quem-somos.html">Quem Somos</a></li>
             <li class="lh-lg"><a class="footer-link text-light" href="quem-somos.html">Nossa Missão</a></li>
@@ -1563,11 +1556,11 @@ btnEnviar.onclick = function() {
       </div>
     </div>
   
-    <section class="py-0 bg-roxo footer-mobile-center">
+    <section class="py-0 bg-blue footer-mobile-center">
       <div class="container">
         <div class="row justify-content-md-between justify-content-evenly py-3">
           <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center">
-            <p class="fs--1 my-2 fw-bold text-200">&copy; 2025 Ajudda Card</p>
+            <p class="fs--1 my-2 fw-bold text-200">&copy; 2025 IBVCard</p>
           </div>
           <div class="col-12 col-sm-8 col-md-6">
             <p class="fs--1 my-2 text-center text-200">
@@ -1584,7 +1577,7 @@ btnEnviar.onclick = function() {
     <div class="modal-custom-content">
       <div class="modal-custom-header">
         <div class="logo-container">
-          <img src="assets/img/illustration/ajudda-logo-branca (1).png" alt="Ajudda Card Logo" class="logo">
+          <img src="assets/img/illustration/ajudda-logo-branca (1).png" alt="IBVCard Logo" class="logo">
         </div>
         <span class="modal-custom-close">&times;</span>
       </div>
@@ -1709,7 +1702,7 @@ btnEnviar.onclick = function() {
           return;
         }
         
-        const mensagem = `Olá, gostaria de agendar uma demonstração do Ajudda Card:\n\n` +
+        const mensagem = `Olá, gostaria de agendar uma demonstração do IBVCard:\n\n` +
                         `*Nome do Representante:* ${nome}\n` +
                         `*Empresa:* ${empresa}\n` +
                         `*E-mail:* ${email}\n\n` +
