@@ -1356,7 +1356,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="carousel-inner">
       <!-- Banner 1 -->
       <div class="carousel-item active" data-bs-interval="5000">
-        <img src="assets/img/illustration/bannerprincipal.PNG" class="d-block w-100" alt="Consultas com desconto">
+        <img src="assets/img/illustration/banner1.JPG" class="d-block w-100" alt="Consultas com desconto">
         <!-- Opcional: Texto sobre a imagem -->
         <div class="carousel-caption d-none d-md-block">
          <!-- <a href="https://wa.me/5585984415490" class="btn btn-primary btn-lg">Agendar Consulta</a>-->
@@ -1398,22 +1398,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   <!-- Second Section - Estilo DASA -->
-<section class="card-section" style="background-color: #45ba98; padding: 20px 0; margin-top: -120px; margin-bottom: 0;">
+<section class="card-section" style="background-color: #fffdfd; padding: 20px 0; margin-top: -120px; margin-bottom: 0;">
   <div class="container">
       <div class="row align-items-center">
           <!-- Coluna de texto (esquerda) -->
           <div class="col-lg-6 text-white">
-              <h1 class="card-title" style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: white;">IBVCard</h1>
-              <p class="card-description" style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem; color: white;">
+              <h1 class="card-title" style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #502b77;">IBV<strong style="color: #109b80;">Card</strong></h1>
+              <p class="card-description" style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem; color: #674089;">
                   Descontos em medicamentos, exames, odontologia e telemedicina para cuidar da sua saúde sem pesar no bolso.
                   <strong>Planos a partir de R$ 30,00.</strong>
               </p>
               
               <div class="card-buttons d-flex gap-3">
-                  <a href="https://wa.me/5585984415490" target="_blank" class="btn btn-outline-light btn-lg px-4" style="border: 2px solid white;">
+                  <a href="https://wa.me/5585984415490" target="_blank" class="btn btn-outline-light btn-lg px-4" style="border: 2px solid rgb(119, 43, 163); color: #674089;">
                       Já é assinante?
                   </a>
-                  <a href="https://wa.me/5585984415490" class="btn btn-light btn-lg px-4" style="color: #45ba98; font-weight: 600;">
+                  <a href="https://wa.me/5585984415490" class="btn btn-light btn-lg px-4" style="color: #674089; font-weight: 600;">
                       Assine agora
                   </a>
               </div>
@@ -1421,7 +1421,7 @@ document.addEventListener('DOMContentLoaded', function() {
           
           <!-- Coluna da imagem do cartão (direita) -->
           <div class="col-lg-6 text-center mt-4 mt-lg-0">
-              <img src="assets/img/illustration/cartaodasa.png" alt="Cartão IBVCard" class="img-fluid" style="max-height: 250px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+              <img src="assets/img/illustration/cartaoibv.JPG" alt="Cartão IBVCard" class="img-fluid" style="max-height: 250px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
           </div>
       </div>
   </div>
@@ -1440,7 +1440,7 @@ document.addEventListener('DOMContentLoaded', function() {
     left: 0;
     width: 100%;
     height: 150px;
-    background: linear-gradient(135deg, #109b80 0%, #674089 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #f8f9fa 100%);
     z-index: 0;
   }
   
@@ -1453,6 +1453,8 @@ document.addEventListener('DOMContentLoaded', function() {
     z-index: 1;
     border-radius: 16px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
   
   .ibv-plan-card:hover {
@@ -1461,35 +1463,36 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   .ibv-plan-card.premium {
-    background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+    
     color: white;
     border: 1px solid rgba(255,255,255,0.1);
   }
   
   .ibv-plan-card.business {
-    background: linear-gradient(135deg, #109b80 0%, #1a5276 100%);
+    background: linear-gradient(135deg, #45ba98 0%, #45ba98 100%);
     color: white;
     border: 1px solid rgba(255,255,255,0.1);
+    padding: 1.5rem !important;
   }
   
   .plan-badge {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 0.8rem;
+    top: 15px;
+    right: 15px;
+    font-size: 0.7rem;
     font-weight: 700;
-    padding: 5px 12px;
+    padding: 4px 10px;
     border-radius: 50px;
   }
   
   .plan-icon-container {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    margin: 0 auto 20px;
+    margin: 0 auto 15px;
     background: rgba(255,255,255,0.9);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
@@ -1500,7 +1503,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   .plan-icon {
-    font-size: 2.8rem;
+    font-size: 2rem;
     background: linear-gradient(135deg, #109b80 0%, #674089 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -1515,258 +1518,304 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   .plan-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 800;
     margin-bottom: 5px;
   }
   
   .plan-subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
     opacity: 0.8;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
   }
   
   .plan-price {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 800;
     margin-bottom: 5px;
   }
   
   .plan-period {
-    font-size: 1rem;
+    font-size: 0.9rem;
     opacity: 0.8;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
   }
   
   .plan-divider {
-    height: 3px;
-    width: 60px;
+    height: 2px;
+    width: 50px;
     background: linear-gradient(90deg, #109b80 0%, #674089 100%);
-    margin: 20px auto;
+    margin: 15px auto;
     border-radius: 3px;
   }
   
   .premium .plan-divider,
   .business .plan-divider {
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.555);
+  }
+  
+  .plan-benefits {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
   }
   
   .plan-benefits li {
-    padding-left: 1.8rem;
+    padding-left: 1.5rem;
     position: relative;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
   
   .plan-benefits i {
     position: absolute;
     left: 0;
-    top: 5px;
-    font-size: 1.1rem;
+    top: 3px;
+    font-size: 0.9rem;
   }
   
-  .py-7 {
-    padding-top: 6rem !important;
-    padding-bottom: 6rem !important;
+  .plan-actions {
+    margin-top: auto;
+    padding-top: 10px;
+  }
+  
+  .py-6 {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
   }
   
   .section-header {
     position: relative;
     z-index: 2;
-    margin-bottom: 3rem;
   }
   
   .section-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 800;
     color: white;
   }
   
   .section-subtitle {
     color: rgba(255,255,255,0.8);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   
-  .plans-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+  .business-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   
-  @media (max-width: 768px) {
-    .plans-grid {
-      grid-template-columns: 1fr;
+  .business-text {
+    flex: 1;
+  }
+  
+  .business-btn {
+    flex-shrink: 0;
+    margin-left: 20px;
+  }
+  
+  @media (max-width: 767px) {
+    .business-card-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .business-btn {
+      margin-left: 0;
+      margin-top: 15px;
     }
   }
+  .ibv-plan-card.clickable {
+  transition: all 0.3s ease;
+}
+
+.ibv-plan-card.clickable:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  background-color: #f8f9fa !important;
+}
+
+.ibv-plan-card.clickable .plan-title {
+  transition: all 0.3s ease;
+}
+
+.ibv-plan-card.clickable:hover .plan-title {
+  color: #45ba98 !important;
+}
 </style>
 
 <!-- Seção de Planos IBV Card -->
-<section class="ibv-plans-section py-7" id="planos">
+<section class="ibv-plans-section py-6" id="planos">
   <div class="container">
     <!-- Cabeçalho -->
-    <div class="section-header text-center">
-      <h2 class="section-title">Escolha seu Plano IBV</h2>
-      <p class="section-subtitle">Saúde de qualidade que cabe no seu bolso</p>
+    <div class="section-header text-center mb-5">
+      <h2 class="section-title" style="color: black; font-size: 50px;">Escolha seu Plano IBV</h2>
+      <p class="section-subtitle" style="color: rgba(0, 0, 0, 0.575); font-size: 17px;">Saúde de qualidade que cabe no seu bolso</p>
     </div>
     
-    <!-- Grade de Planos 2x2 -->
-    <div class="plans-grid">
-      <!-- Linha 1 -->
+    <div class="row g-4">
       <!-- Plano Individual Básico -->
-      <div class="ibv-plan-card bg-white rounded-4 p-4 p-lg-4">
-        <div class="plan-badge bg-light text-dark">Popular</div>
-        
-        <div class="plan-header text-center">
-          <div class="plan-icon-container">
-            <i class="bi bi-person-fill plan-icon"></i>
+      <div class="col-md-6 col-lg-3">
+        <div class="ibv-plan-card bg-white rounded-4 p-3">
+         
+          
+          <!-- Cabeçalho -->
+          <div class="plan-header text-center">
+            <div class="plan-icon-container">
+              <i class="bi bi-person-fill plan-icon"></i>
+            </div>
+            <h3 class="plan-title">Individual</h3>
+            <p class="plan-subtitle">Básico</p>
           </div>
-          <h3 class="plan-title">Individual</h3>
-          <p class="plan-subtitle">Básico</p>
-        </div>
-        
-        <div class="plan-price text-center text-primary">R$19,90</div>
-        <div class="plan-period text-center text-muted">por mês</div>
-        
-        <div class="plan-divider"></div>
-        
-        <ul class="plan-benefits list-unstyled mb-4">
-          <li><i class="bi bi-check-circle-fill text-success"></i> 1 titular</li>
-          <li><i class="bi bi-check-circle-fill text-success"></i> Consultas a partir de R$49,90</li>
-          <li><i class="bi bi-check-circle-fill text-success"></i> Exames com até 60% OFF</li>
-          <li><i class="bi bi-check-circle-fill text-success"></i> Medicamentos com 30% OFF</li>
-          <li><i class="bi bi-x-circle-fill text-secondary"></i> Sem telemedicina inclusa</li>
-          <li><i class="bi bi-x-circle-fill text-secondary"></i> Sem pronto socorro 24h</li>
-        </ul>
-        
-        <div class="plan-actions text-center mt-auto">
-          <a href="https://wa.me/5585984415490" class="btn btn-primary btn-lg rounded-pill px-4 w-100">
-            Contratar
-          </a>
+          
+          <!-- Preço -->
+          <div class="plan-price text-center text-primary">R$19,90</div>
+          <div class="plan-period text-center text-muted">por mês</div>
+          
+          <div class="plan-divider"></div>
+          
+          <!-- Benefícios -->
+          <ul class="plan-benefits">
+            <li><i class="bi bi-check-circle-fill text-success" style="color: #674089 !important ;"></i> 1 titular</li>
+            <li><i class="bi bi-check-circle-fill text-success" style="color: #674089 !important ;"></i> Consultas a partir de R$49,90</li>
+            <li><i class="bi bi-check-circle-fill text-success" style="color: #674089 !important ;"></i> Exames com até 60% OFF</li>
+            <li><i class="bi bi-check-circle-fill text-success" style="color: #674089 !important ;"></i> Medicamentos com 30% OFF</li>
+            <li><i class="bi bi-x-circle-fill text-secondary" style="color: #674089 !important ;"></i> Sem telemedicina inclusa</li>
+          </ul>
+          
+          <!-- Botão -->
+          <div class="plan-actions text-center">
+            <a href="https://wa.me/5585984415490" class="btn btn-primary btn-sm rounded-pill px-3 w-100">
+              Contratar
+            </a>
+          </div>
         </div>
       </div>
       
       <!-- Plano Individual Plus -->
-      <div class="ibv-plan-card bg-white rounded-4 p-4 p-lg-4">
-        <div class="plan-badge bg-warning text-dark">Recomendado</div>
-        
-        <div class="plan-header text-center">
-          <div class="plan-icon-container">
-            <i class="bi bi-person-plus-fill plan-icon"></i>
+      <div class="col-md-6 col-lg-3">
+        <div class="ibv-plan-card bg-white rounded-4 p-3" style="background-color: #674089 !important;">
+          <div class="plan-badge bg-warning text-dark">Popular</div>
+          
+          <!-- Cabeçalho -->
+          <div class="plan-header text-center">
+            <div class="plan-icon-container">
+              <i class="bi bi-person-plus-fill plan-icon"></i>
+            </div>
+            <h3 class="plan-title" style="color: white !important;">Individual</h3>
+            <p class="plan-subtitle" style="color: white !important;">Plus</p>
           </div>
-          <h3 class="plan-title">Individual</h3>
-          <p class="plan-subtitle">Plus</p>
-        </div>
-        
-        <div class="plan-price text-center text-primary">R$27,90</div>
-        <div class="plan-period text-center text-muted">por mês</div>
-        
-        <div class="plan-divider"></div>
-        
-        <ul class="plan-benefits list-unstyled mb-4">
-          <li><i class="bi bi-check-circle-fill text-success"></i> 1 titular</li>
-          <li><i class="bi bi-check-circle-fill text-success"></i> Consultas a partir de R$39,90</li>
-          <li><i class="bi bi-check-circle-fill text-success"></i> Exames com até 70% OFF</li>
-          <li><i class="bi bi-check-circle-fill text-success"></i> Medicamentos com 35% OFF</li>
-          <li><i class="bi bi-check-circle-fill text-success"></i> Telemedicina ilimitada</li>
-          <li><i class="bi bi-check-circle-fill text-success"></i> Pronto socorro online 24h</li>
-        </ul>
-        
-        <div class="plan-actions text-center mt-auto">
-          <a href="https://wa.me/5585984415490" class="btn btn-primary btn-lg rounded-pill px-4 w-100">
-            Contratar
-          </a>
+          
+          <!-- Preço -->
+          <div class="plan-price text-center text-primary" style="color: white !important;">R$27,90</div>
+          <div class="plan-period text-center text-muted" style="color: white !important;">por mês</div>
+          
+          <div class="plan-divider"></div>
+          
+          <!-- Benefícios -->
+          <ul class="plan-benefits">
+            <li style="color: white !important;"><i class="bi bi-check-circle-fill text-success" style="color: white !important;" ></i> 1 titular</li>
+            <li style="color: white !important;"><i class="bi bi-check-circle-fill text-success" style="color: white !important;"></i> Consultas a partir de R$39,90</li>
+            <li style="color: white !important;"><i class="bi bi-check-circle-fill text-success" style="color: white !important;"></i> Exames com até 70% OFF</li>
+            <li style="color: white !important;"><i class="bi bi-check-circle-fill text-success" style="color: white !important;"></i> Medicamentos com 35% OFF</li>
+            <li style="color: white !important;"><i class="bi bi-check-circle-fill text-success" style="color: white !important;"></i> Telemedicina ilimitada</li>
+          </ul>
+          
+          <!-- Botão -->
+          <div class="plan-actions text-center">
+            <a href="https://wa.me/5585984415490" class="btn btn-primary btn-sm rounded-pill px-3 w-100" style="background-color: white; color: black !important;">
+              Contratar
+            </a>
+          </div>
         </div>
       </div>
       
-      <!-- Linha 2 -->
       <!-- Plano Familiar Básico -->
-      <div class="ibv-plan-card premium rounded-4 p-4 p-lg-4">
-        <div class="plan-header text-center">
-          <div class="plan-icon-container">
-            <i class="bi bi-people-fill plan-icon"></i>
+      <div class="col-md-6 col-lg-3">
+        <div class="ibv-plan-card premium rounded-4 p-3">
+          <!-- Cabeçalho -->
+          <div class="plan-header text-center">
+            <div class="plan-icon-container">
+              <i class="bi bi-people-fill plan-icon"></i>
+            </div>
+            <h3 class="plan-title text-white" style="color: black !important;">Familiar</h3>
+            <p class="plan-subtitle text-white-50" style="color: black !important;">Básico</p>
           </div>
-          <h3 class="plan-title text-white">Familiar</h3>
-          <p class="plan-subtitle text-white-50">Básico</p>
-        </div>
-        
-        <div class="plan-price text-center text-white">R$29,90</div>
-        <div class="plan-period text-center text-white-50">por mês</div>
-        
-        <div class="plan-divider"></div>
-        
-        <ul class="plan-benefits list-unstyled mb-4">
-          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> 1 titular + 3 dependentes</li>
-          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Consultas a partir de R$44,90</li>
-          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Exames com até 65% OFF</li>
-          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Medicamentos com 40% OFF</li>
-          <li class="text-white-50"><i class="bi bi-x-circle-fill text-white-50"></i> Sem telemedicina inclusa</li>
-          <li class="text-white-50"><i class="bi bi-x-circle-fill text-white-50"></i> Sem pronto socorro 24h</li>
-        </ul>
-        
-        <div class="plan-actions text-center mt-auto">
-          <a href="https://wa.me/5585984415490" class="btn btn-light btn-lg rounded-pill px-4 w-100">
-            Contratar
-          </a>
+          
+          <!-- Preço -->
+          <div class="plan-price text-center text-white" style="color: #6f42c1!important;">R$29,90</div>
+          <div class="plan-period text-center text-white-50" style="color: #949494!important;" >por mês</div>
+          
+          <div class="plan-divider"></div>
+          
+          <!-- Benefícios -->
+          <ul class="plan-benefits">
+            <li class="text-white" style="color: #717075 !important;"><i class="bi bi-check-circle-fill  " style="color: #674089 !important ;"></i> 1 titular + 3 dependentes</li>
+            <li class="text-white" style="color: #717075 !important;"><i class="bi bi-check-circle-fill "  style="color: #674089 !important ;"></i> Consultas a partir de R$44,90</li>
+            <li class="text-white" style="color: #717075 !important;"><i class="bi bi-check-circle-fill " style="color: #674089 !important ;"></i> Exames com até 65% OFF</li>
+            <li class="text-white" style="color: #717075 !important;"><i class="bi bi-check-circle-fill "  style="color: #674089 !important ;"></i> Medicamentos com 40% OFF</li>
+            <li class="text-white-50" style="color: #717075 !important;"><i class="bi bi-x-circle-fill "  style="color: #674089 !important ;"></i> Sem telemedicina inclusa</li>
+          </ul>
+          
+          <!-- Botão -->
+          <div class="plan-actions text-center">
+            <a href="https://wa.me/5585984415490" class="btn btn-light btn-sm rounded-pill px-3 w-100" style="background-color: #674089; color: white !important;">
+              Contratar
+            </a>
+          </div>
         </div>
       </div>
       
       <!-- Plano Familiar Plus -->
-      <div class="ibv-plan-card premium rounded-4 p-4 p-lg-4">
-        <div class="plan-badge bg-white text-dark">Melhor Custo-Benefício</div>
-        
-        <div class="plan-header text-center">
-          <div class="plan-icon-container">
-            <i class="bi bi-people-fill plan-icon"></i>
+      <div class="col-md-6 col-lg-3">
+        <div class="ibv-plan-card premium rounded-4 p-3" style="background-color: #45ba98">
+          <div class="plan-badge bg-white text-dark">Recomendado</div>
+          
+          <!-- Cabeçalho -->
+          <div class="plan-header text-center">
+            <div class="plan-icon-container">
+              <i class="bi bi-people-fill plan-icon"></i>
+            </div>
+            <h3 class="plan-title text-white">Familiar</h3>
+            <p class="plan-subtitle text-white-50">Plus</p>
           </div>
-          <h3 class="plan-title text-white">Familiar</h3>
-          <p class="plan-subtitle text-white-50">Plus</p>
+          
+          <!-- Preço -->
+          <div class="plan-price text-center text-white">R$39,90</div>
+          <div class="plan-period text-center text-white-50">por mês</div>
+          
+          <div class="plan-divider"></div>
+          
+          <!-- Benefícios -->
+          <ul class="plan-benefits">
+            <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> 1 titular + 3 dependentes</li>
+            <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Consultas a partir de R$34,90</li>
+            <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Exames com até 75% OFF</li>
+            <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Medicamentos com 45% OFF</li>
+            <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Telemedicina ilimitada</li>
+          </ul>
+          
+          <!-- Botão -->
+          <div class="plan-actions text-center">
+            <a href="https://wa.me/5585984415490" class="btn btn-light btn-sm rounded-pill px-3 w-100">
+              Contratar
+            </a>
+          </div>
         </div>
-        
-        <div class="plan-price text-center text-white">R$39,90</div>
-        <div class="plan-period text-center text-white-50">por mês</div>
-        
-        <div class="plan-divider"></div>
-        
-        <ul class="plan-benefits list-unstyled mb-4">
-          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> 1 titular + 3 dependentes</li>
-          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Consultas a partir de R$34,90</li>
-          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Exames com até 75% OFF</li>
-          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Medicamentos com 45% OFF</li>
-          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Telemedicina ilimitada</li>
-          <li class="text-white"><i class="bi bi-check-circle-fill text-white"></i> Pronto socorro online 24h</li>
-        </ul>
-        
-        <div class="plan-actions text-center mt-auto">
-          <a href="https://wa.me/5585984415490" class="btn btn-light btn-lg rounded-pill px-4 w-100">
-            Contratar
-          </a>
-        </div>
+      </div>
+      
+    <!-- Plano Empresarial (Card Clicável) -->
+<div class="col-12 mt-3">
+  <a href="https://wa.me/5585984415490" class="text-decoration-none">
+    <div class="ibv-plan-card bg-white rounded-4 p-3" style="cursor: pointer; border: 1px solid #e0e0e0;">
+      <div class="text-center">
+        <h3 class="plan-title mb-1" style="color: #674089;">Solução Empresarial</h3>
+        <p class="plan-subtitle mb-0" style="color: #674089;">Planos personalizados para sua empresa</p>
       </div>
     </div>
-    
-    <!-- Plano Empresarial -->
-    <div class="ibv-plan-card business rounded-4 p-5 mt-4">
-      <div class="row align-items-center">
-        <div class="col-md-8">
-          <div class="plan-header">
-            <h3 class="plan-title text-white mb-2">Empresarial</h3>
-            <p class="plan-subtitle text-white-50 mb-4">Soluções personalizadas para sua empresa</p>
-            
-            <ul class="plan-benefits list-unstyled">
-              <li class="text-white mb-3"><i class="bi bi-check-circle-fill text-white me-2"></i> Planos sob medida para sua equipe</li>
-              <li class="text-white mb-3"><i class="bi bi-check-circle-fill text-white me-2"></i> Descontos progressivos por volume</li>
-              <li class="text-white mb-3"><i class="bi bi-check-circle-fill text-white me-2"></i> Portal de gestão de benefícios</li>
-              <li class="text-white"><i class="bi bi-check-circle-fill text-white me-2"></i> Relatórios de utilização</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="col-md-4 text-center text-md-end">
-          <a href="https://wa.me/5585984415490" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3">
-            Fale com um consultor
-          </a>
-        </div>
-      </div>
+  </a>
+</div>
     </div>
   </div>
 </section>
@@ -2299,7 +2348,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 <!-- Imagem à esquerda -->
                 <div class="col-md-6 mb-4 mb-md-0">
-                    <img class="w-100 rounded-3 card-animation" src="assets/img/illustration/cartao-movimento2.PNG" alt="Consulta médica Ajudda" style="padding-bottom: 2px;">
+                    <img class="w-100 rounded-3 card-animation" src="assets/img/illustration/cartoesfv.PNG" alt="Consulta médica Ajudda" style="padding-bottom: 2px;">
                 </div>
           
               <!-- Texto à direita -->
