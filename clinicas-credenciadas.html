@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínicas Credenciadas - Ajudda Card</title>
+    <title>Clínicas Credenciadas - IBV Card</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
     <style>
         :root {
             /* Paleta de cores */
-            --roxo-primario: #4e20b0;
+            --roxo-primario: #502b77;
             --roxo-secundario: #7146ce;
             --roxo-claro: #ece8f5;
             --branco: #ffffff;
@@ -44,13 +44,13 @@
         }
         
         .navbar {
-            background-color: var(--roxo-primario) !important;
+            background-color: #502b77 !important;
             transition: all 0.3s ease;
             padding: 4px 0;
         }
         
         .navbar-brand img {
-            height: 35px;
+            height: 55px;
         }
         
         .nav-link {
@@ -311,7 +311,7 @@
         
         /* Footer */
         .footer {
-            background: linear-gradient(135deg, var(--roxo-primario) 0%, var(--roxo-secundario) 100%);
+            background-color: #502b77 !important;
             color: var(--branco);
             padding: 60px 0 30px;
         }
@@ -568,11 +568,11 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top pt-3 mb-0" style="background-color: #4e20b0 !important;">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top pt-3 mb-0" style="background-color: #502b77 !important;">
         <div class="container-fluid px-5">
             <!-- Logo alinhada à esquerda -->
             <a class="navbar-brand me-auto" href="index.html">
-                <img src="assets/img/illustration/ajudda-logo-branca (1).png" height="35" alt="logo" />
+                <img src="assets/img/illustration/LOGO4.png" height="35" alt="logo" />
             </a>
     
             <!-- Botão de menu para mobile -->
@@ -593,7 +593,7 @@
                 </ul>
                 
                 <!-- Botão na extrema direita -->
-                <button id="meuBotaoModal" class="btn btn-primary" style="background-color: #6a11cb !important; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+                <button id="meuBotaoModal" class="btn btn-primary" style="background-color: #674089 !important; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
                     Agendar Demonstração
                 </button>
             </div>
@@ -632,7 +632,7 @@
         
         .modal-custom-header {
             padding: 20px 25px;
-            background-color: #4e20b0;
+            background-color: #502b77;
             color: white;
             display: flex;
             justify-content: space-between;
@@ -717,7 +717,7 @@
         }
         
         .btn-primary {
-            background-color: #4e20b0;
+            background-color: #502b77;
             color: white;
         }
         
@@ -742,7 +742,7 @@
             <div class="modal-custom-content">
                 <div class="modal-custom-header">
                     <div class="logo-container">
-                        <img src="assets/img/illustration/ajudda-logo-branca (1).png" alt="Ajudda Card Logo" class="logo">
+                        <img src="assets/img/illustration/IBV-logo-branca (1).png" alt="IBV Card Logo" class="logo">
                     </div>
                     <span class="modal-custom-close">&times;</span>
                 </div>
@@ -820,7 +820,7 @@
                 }
                 
                 // Formata a mensagem para o WhatsApp
-                const mensagem = `Olá, gostaria de agendar uma demonstração do Ajudda Card:\n\n` +
+                const mensagem = `Olá, gostaria de agendar uma demonstração do IBV Card:\n\n` +
                                 `*Nome do Representante:* ${nome}\n` +
                                 `*Empresa:* ${empresa}\n` +
                                 `*E-mail:* ${email}\n\n` +
@@ -830,7 +830,7 @@
                 const mensagemCodificada = encodeURIComponent(mensagem);
                 
                 // Cria o link do WhatsApp
-                const urlWhatsApp = `https://wa.me/5585984415490?text=${mensagemCodificada}`;
+                const urlWhatsApp = `https://wa.me/5588992966447?text=${mensagemCodificada}`;
                 
                 // Abre o WhatsApp em uma nova aba
                 window.open(urlWhatsApp, '_blank');
@@ -1002,7 +1002,7 @@
                                 <p>Referência em otorrino, exames auditivos e cirurgias. Atendimento especializado em ouvido, nariz e garganta.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <a href="#" class="clinica-link" data-bs-toggle="modal" data-bs-target="#partnerModal1">Ver detalhes <i class="bi bi-arrow-right"></i></a>
-                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita Ajudda Card</span>
+                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita IBV Card</span>
                                 </div>
                             </div>
                         </div>
@@ -1034,7 +1034,7 @@
                                 <p>Excelência em ortopedia, fisioterapia e reabilitação. Estrutura moderna e atendimento especializado.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <a href="#" class="clinica-link" data-bs-toggle="modal" data-bs-target="#partnerModal2">Ver detalhes <i class="bi bi-arrow-right"></i></a>
-                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita Ajudda Card</span>
+                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita IBV Card</span>
                                 </div>
                             </div>
                         </div>
@@ -1066,7 +1066,7 @@
                                 <p>Centro completo com médicos de várias especialidades. Exames no mesmo lugar, com foco em agilidade e cuidado integral.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <a href="#" class="clinica-link" data-bs-toggle="modal" data-bs-target="#partnerModal3">Ver detalhes <i class="bi bi-arrow-right"></i></a>
-                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita Ajudda Card</span>
+                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita IBV Card</span>
                                 </div>
                             </div>
                         </div>
@@ -1098,7 +1098,7 @@
                                 <p>Clínica popular humanizada com foco em neurologia, psiquiatria e cuidados multidisciplinares.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <a href="#" class="clinica-link" data-bs-toggle="modal" data-bs-target="#partnerModal4">Ver detalhes <i class="bi bi-arrow-right"></i></a>
-                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita Ajudda Card</span>
+                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita IBV Card</span>
                                 </div>
                             </div>
                         </div>
@@ -1130,7 +1130,7 @@
                                 <p>Clínica popular com diversas especialidades médicas. Exames e atendimento acessível para toda a família.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <a href="#" class="clinica-link" data-bs-toggle="modal" data-bs-target="#partnerModal5">Ver detalhes <i class="bi bi-arrow-right"></i></a>
-                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita Ajudda Card</span>
+                                    <span class="text-success"><i class="bi bi-check-circle"></i> Aceita IBV Card</span>
                                 </div>
                             </div>
                         </div>
@@ -1161,19 +1161,19 @@
             <div class="col-md-6">
                 <div class="credenciamento-card text-center p-4 bg-white rounded shadow-sm">
                     <div class="credenciamento-icon mb-3">
-                        <i class="fas fa-user-md fa-3x" style="color: #4e20b0;"></i>
+                        <i class="fas fa-user-md fa-3x" style="color: #502b77;"></i>
                     </div>
-                    <h3 class="credenciamento-title fw-bold mb-3">Quero atender pelo Ajudda</h3>
+                    <h3 class="credenciamento-title fw-bold mb-3">Quero atender pelo IBV</h3>
                     <p class="text-justify">Para profissionais de saúde que realizam atendimentos individuais (presenciais ou online).</p>
                     <ul class="text-start mb-4 ps-4">
                         <li>Psicólogos, nutricionistas, fisioterapeutas</li>
                         <li>Médicos com consultório próprio ou alugado</li>
                         <li>Profissionais que atendem em domicílio</li>
                     </ul>
-                    <a href="https://wa.me/5585984415490?text=Olá,%20gostaria%20de%20me%20cadastrar%20como%20profissional%20no%20Ajudda%20Card" 
+                    <a href="https://wa.me/5588992966447?text=Olá,%20gostaria%20de%20me%20cadastrar%20como%20profissional%20no%20IBV%20Card" 
                        class="btn btn-primary btn-lg" 
                        target="_blank" 
-                       style="background-color: #4e20b0;">
+                       style="background-color: #502b77;">
                         Cadastrar como profissional
                     </a>
                 </div>
@@ -1182,7 +1182,7 @@
             <div class="col-md-6">
                 <div class="credenciamento-card text-center p-4 bg-white rounded shadow-sm">
                     <div class="credenciamento-icon mb-3">
-                        <i class="fas fa-hospital fa-3x" style="color: #4e20b0;"></i>
+                        <i class="fas fa-hospital fa-3x" style="color: #502b77;"></i>
                     </div>
                     <h3 class="credenciamento-title fw-bold mb-3">Quero credenciar minha clínica</h3>
                     <p class="text-justify">Para clínicas, consultórios e laboratórios que desejam fazer parte da nossa rede.</p>
@@ -1192,10 +1192,10 @@
                         <li>Clínicas de diagnóstico por imagem</li>
                         <li>Centros de terapia e reabilitação</li>
                     </ul>
-                    <a href="https://wa.me/5585984415490?text=Olá,%20gostaria%20de%20credenciar%20minha%20clínica%20no%20Ajudda%20Card" 
+                    <a href="https://wa.me/5588992966447?text=Olá,%20gostaria%20de%20credenciar%20minha%20clínica%20no%20IBV%20Card" 
                        class="btn btn-primary btn-lg" 
                        target="_blank" 
-                       style="background-color: #4e20b0;">
+                       style="background-color: #502b77;">
                         Cadastrar minha clínica
                     </a>
                 </div>
@@ -1206,11 +1206,11 @@
             <div class="card border-0 bg-transparent">
                 <div class="card-body">
                     <h3 class="mb-3">Dúvidas sobre o credenciamento?</h3>
-                    <p class="mb-4">Nossa equipe está pronta para te ajudar a entender todos os benefícios de fazer parte da rede Ajudda Card.</p>
-                    <a href="https://wa.me/5585984415490" 
+                    <p class="mb-4">Nossa equipe está pronta para te ajudar a entender todos os benefícios de fazer parte da rede IBV Card.</p>
+                    <a href="https://wa.me/5588992966447" 
                        class="btn btn-outline-primary btn-lg" 
                        target="_blank"
-                       style="border-color: #4e20b0; color: #4e20b0;">
+                       style="border-color: #502b77; color: #502b77;">
                         <i class="fab fa-whatsapp"></i> Falar com consultor
                     </a>
                 </div>
@@ -1221,11 +1221,11 @@
 
 
    <!-- Footer -->
-<footer class="footer" style="background: linear-gradient(135deg, #4e20b0 0%, #7146ce 100%); color: white; padding: 4rem 0 2rem;">
+<footer class="footer" style="background: linear-gradient(135deg, #502b77 0%, #502b77 100%); color: white; padding: 4rem 0 2rem;">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                <a href="index.html" class="footer-logo d-block mb-3" style="color: white; font-size: 1.5rem; font-weight: 700; text-decoration: none;">AJUDDA</a>
+                <a href="index.html" class="footer-logo d-block mb-3" style="color: white; font-size: 1.5rem; font-weight: 700; text-decoration: none;">IBVCard</a>
                 <p class="footer-about" style="opacity: 0.9; margin-bottom: 1.5rem;">Soluções inovadoras para tornar a saúde acessível a todos.</p>
                 <div class="social-links" style="display: flex; gap: 1rem; margin-top: 1rem;">
                     <a href="#" style="color: white; font-size: 1.2rem; opacity: 0.8; transition: opacity 0.3s;"><i class="bi bi-facebook"></i></a>
@@ -1259,16 +1259,16 @@
             <div class="col-lg-4 col-md-6">
                 <h3 style="font-size: 1.2rem; margin-top: 0; margin-bottom: 1.5rem;">Contato</h3>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><i class="bi bi-envelope me-2"></i> <a href="mailto:ajuddacard@gmail.com" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">ajuddacard@gmail.com</a></li>
-                    <li class="mb-2"><i class="bi bi-telephone me-2"></i> <a href="tel:+5585984415490" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">(85) 9 8441-5490</a></li>
+                    <li class="mb-2"><i class="bi bi-envelope me-2"></i> <a href="mailto:IBVcard@gmail.com" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">IBVcard@gmail.com</a></li>
+                    <li class="mb-2"><i class="bi bi-telephone me-2"></i> <a href="tel:+5588992966447" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">(85) 9 8441-5490</a></li>
                     <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> Fortaleza, CE</li>
-                    <li class="mb-2"><i class="bi bi-whatsapp me-2"></i> <a href="https://wa.me/5585984415490" target="_blank" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">WhatsApp</a></li>
+                    <li class="mb-2"><i class="bi bi-whatsapp me-2"></i> <a href="https://wa.me/5588992966447" target="_blank" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">WhatsApp</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="copyright" style="text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.8;">
-            <p>&copy;2025 Ajudda Card. Todos os direitos reservados.</p>
+            <p>&copy;2025 IBV Card. Todos os direitos reservados.</p>
             <p class="fs--1 my-2 text-center">
                 Desenvolvido por <a class="fw-bold" href="https://www.linkedin.com/in/trajanoluan" target="_blank" style="color: white;">LuanDev</a>
             </p>
@@ -1884,7 +1884,7 @@
             const sendButton = document.getElementById('sendButton');
             const chatMessages = document.getElementById('chatMessages');
             const typingIndicator = document.getElementById('typingIndicator');
-            const whatsappNumber = '5585984415490';
+            const whatsappNumber = '5588992966447';
             
             // Abrir/fechar chat
             whatsappButton.addEventListener('click', function() {
@@ -2002,7 +2002,7 @@
                 }
                 
                 // Formata a mensagem para o WhatsApp
-                const mensagem = `Olá, gostaria de agendar uma demonstração do Ajudda Card:\n\n` +
+                const mensagem = `Olá, gostaria de agendar uma demonstração do IBV Card:\n\n` +
                                 `*Nome do Representante:* ${nome}\n` +
                                 `*Empresa:* ${empresa}\n` +
                                 `*E-mail:* ${email}\n\n` +
@@ -2012,7 +2012,7 @@
                 const mensagemCodificada = encodeURIComponent(mensagem);
                 
                 // Cria o link do WhatsApp
-                const urlWhatsApp = `https://wa.me/5585984415490?text=${mensagemCodificada}`;
+                const urlWhatsApp = `https://wa.me/5588992966447?text=${mensagemCodificada}`;
                 
                 // Abre o WhatsApp em uma nova aba
                 window.open(urlWhatsApp, '_blank');
