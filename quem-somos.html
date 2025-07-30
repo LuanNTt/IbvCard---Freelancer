@@ -519,7 +519,7 @@
       }
       
       .navbar-toggler {
-        border-color: rgb(255, 250, 250);
+        border-color: rgb(255, 255, 255);
       }
       
       /* Hero Section */
@@ -587,6 +587,29 @@
         flex-wrap: wrap;
         justify-content: center;
       }
+              /* 1. Centralizar botão "Agendar Demonstração" no mobile */
+        @media (max-width: 768px) {
+            .navbar-collapse .btn-primary {
+                margin-left: 0 !important;
+                margin-top: 15px;
+                width: 100%;
+                height: 60px;
+                text-align: center;
+                display: block;
+            }
+            
+            .navbar-collapse {
+                text-align: center;
+            }
+            
+            .navbar-nav {
+                width: 100%;
+            }
+            .container-fluid{
+              padding-left: 1rem !important;
+              padding-right: 0rem !important;
+            }
+        }
       
       .sobre-icon-corrected {
         width: 80px;
@@ -1010,7 +1033,7 @@
   
                 <!-- Botão de menu para mobile -->
     <!-- Botão de menu para mobile com ícone branco -->
-<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+<button class="navbar-toggler border-0"  type="button" data-bs-toggle="collapse"
 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 aria-label="Toggle navigation">
 <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
@@ -1325,8 +1348,8 @@ btnEnviar.onclick = function() {
   <!-- Banner Hero Section -->
   <section class="py-5 py-md-7 position-relative bg-blue" style="background: url('assets/img/illustration/banner-quemsomos.jpg') no-repeat center center/cover; height: 50vh;">
     <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.685);"></div>
-    <div class="container text-white position-relative z-1 text-center py-5 py-md-7">
-      <h1 class="display-4 fw-bold" style="color: #ffffff;" style="margin-top: 30px important!;">Conheça um pouco mais sobre o IBVCard!</h1>
+    <div class="container text-white position-relative z-1 text-center py-5 py-md-7" style="margin-top: 60px !important;">
+      <h1 class="display-4 fw-bold" style="color: #ffffff; margin-top: 70px important!;">Conheça um pouco mais sobre o IBVCard!</h1>
     </div>
   </section>
 
@@ -1521,7 +1544,7 @@ btnEnviar.onclick = function() {
             <p class="text-light mt-5">ibvcard@gmail.com</p>
             <div class="d-flex justify-content-md-start">
               <a href="34"><img class="me-xl-3 me-1" src="assets/img/gallery/linkedin-line1.svg" alt="in" width="20px" height="20px" /></a>
-              <a href="#!"><img class="me-xl-3 me-1" src="assets/img/gallery/facebook-line1.svg" alt="fb" width="20px" height="20px" /></a>
+              <a href="https://www.facebook.com/share/16vzexwFzk/?mibextid=wwXIfr"><img class="me-xl-3 me-1" src="assets/img/gallery/facebook-line1.svg" alt="fb" width="20px" height="20px" /></a>
               <a href="#!"><img class="me-xl-3 me-1" src="assets/img/gallery/twitter-line1.svg" alt="twitter" width="20px" height="20px" /></a>
               <a href="https://www.instagram.com/ibvcard/"><img class="me-xl-3 me-1" src="assets/img/gallery/instagram-line1.svg" alt="instragram" width="20px" height="20px" /></a>
             </div>
@@ -1551,7 +1574,7 @@ btnEnviar.onclick = function() {
           <h4 class="lh-lg fw-bold text-light font-sans-serif text-center text-md-start">Suporte</h4>
           <ul class="list-unstyled text-light mb-md-4 mb-lg-0 text-center text-md-start">
             <li class="lh-lg"><a class="footer-link text-light" href="https://wa.me/8855992966447">Whatsapp Suporte</a></li>
-            <li class="lh-lg"><a class="footer-link text-light" href=>Contatos</a></li>
+            <li class="lh-lg"><a class="footer-link text-light" href="suporte.html">Contatos</a></li>
             <li class="lh-lg"><a class="footer-link text-light" href="politica-uso-privacidade.html">Política de Privacidade e Uso</a></li>
           </ul>
         </div>
