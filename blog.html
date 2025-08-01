@@ -35,6 +35,85 @@
             --cinza-texto: #6c757d;
             --preto: #212529;
         }
+        .categories-list {
+    max-height: 300px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.show-more-link, .show-less-link {
+    color: var(--roxo-primario);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.show-more-link i, .show-less-link i {
+    font-size: 0.8em;
+}
+
+.category-link {
+    transition: all 0.2s ease;
+}
+
+.category-link:hover {
+    transform: translateX(3px);
+}
+        .article-card {
+    background: var(--branco);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    height: 500px; /* Altura fixa */
+    display: flex;
+    flex-direction: column;
+}
+
+.article-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.article-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-excerpt {
+    color: var(--cinza-texto);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+/* Adicione isso ao seu CSS */
+.sidebar-widget {
+    overflow: visible; /* Permite que o conteúdo ultrapasse os limites */
+}
+
+.categories-list {
+    max-height: none; /* Remove a limitação de altura */
+    overflow: visible;
+}
+
+.categories-list li {
+    margin-bottom: 0.5rem;
+}
+
+.category-link {
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.category-link:hover {
+    background-color: var(--roxo-claro);
+}
         
         body {
             font-family: 'Segoe UI', Roboto, sans-serif;
@@ -107,6 +186,64 @@
     background-color: #502b77 !important;
     transition: background-color 1.0s ease;
   }
+  /* Estilos para a lista de categorias */
+.categories-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categories-list li {
+    margin-bottom: 0.5rem;
+}
+
+.category-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: var(--cinza-texto);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.category-link:hover {
+    color: var(--roxo-primario);
+    background-color: var(--roxo-claro);
+}
+
+.category-link.active {
+    color: var(--roxo-primario);
+    font-weight: 500;
+    background-color: var(--roxo-claro);
+}
+
+.category-count {
+    background-color: var(--roxo-primario);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    margin-left: 0.5rem;
+}
+
+.show-more-link, .show-less-link {
+    color: var(--roxo-primario);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.show-more-link i, .show-less-link i {
+    margin-left: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.show-more-link:hover, .show-less-link:hover {
+    background-color: var(--roxo-claro);
+}
 
         
         
@@ -174,25 +311,24 @@
         
         /* Articles */
         .articles {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 2rem;
-        }
+            }
+            .article-card {
+    background: var(--branco);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    margin-bottom: 30px; /* Remove margem inferior */
+}
         
-        .article-card {
-            background: var(--branco);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-        
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
         .article-image {
             width: 100%;
             height: 250px;
@@ -200,19 +336,28 @@
         }
         
         .article-content {
-            padding: 1.5rem;
-        }
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 250px); /* Ajusta com base na altura da imagem */
+}
         
         .article-category {
-            display: inline-block;
-            background: var(--roxo-claro);
-            color: var(--roxo-primario);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
+    display: inline-block;
+    background: var(--roxo-claro);
+    color: var(--roxo-primario);
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    width: auto; /* Garante que só ocupe o espaço necessário */
+    max-width: 20%; /* Evita que ultrapasse o container */
+    white-space: nowrap; /* Evita quebra de linha */
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
         
         .article-title {
             font-size: 1.5rem;
@@ -221,9 +366,8 @@
         }
         
         .article-excerpt {
-            color: var(--cinza-texto);
-            margin-bottom: 1.5rem;
-        }
+    flex-grow: 1; /* Faz o excerpt ocupar o espaço disponível */
+}
         
         .article-meta {
             display: flex;
@@ -1473,73 +1617,58 @@ color: white;
         const articles = [
             {
                 id: 1,
-                title: "Como ter acesso a consultas médicas a preços acessíveis",
-                excerpt: "Descubra como o Ajudda Card pode facilitar seu acesso a médicos de diversas especialidades sem comprometer seu orçamento mensal.",
-                category: "saude",
-                image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528",
+                title: "Receita Eletrônica: as vantagens para pacientes e médicos",
+                excerpt: "Descubra como a receita eletrônica está revolucionando a prescrição médica no Brasil e os benefícios para sua saúde.",
+                category: "tecnologia",
+                image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb",
                 author: "Dr. Carlos Silva",
-                readTime: "10 min de leitura",
+                readTime: "8 min de leitura",
                 date: "15 Maio 2023",
                 popular: true,
                 content: `
-                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528" alt="Consulta médica" class="article-banner">
+                    <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb" alt="Receita eletrônica" class="article-banner">
                     <div class="article-page">
                         <div class="article-header">
-                            <span class="article-category">Saúde</span>
-                            <h1 class="article-page-title">Como ter acesso a consultas médicas a preços acessíveis</h1>
+                            <span class="article-category">Tecnologia</span>
+                            <h1 class="article-page-title">Receita Eletrônica: as vantagens para pacientes e médicos</h1>
                             <div class="article-page-meta">
                                 <span>Por Dr. Carlos Silva</span>
                                 <span>15 Maio 2023</span>
-                                <span>10 min de leitura</span>
+                                <span>8 min de leitura</span>
                             </div>
                         </div>
                         
                         <div class="article-page-content">
-                            <p>No cenário atual, onde os custos com saúde não param de subir, encontrar maneiras de acessar serviços médicos de qualidade sem gastar fortunas tornou-se uma necessidade para muitas famílias brasileiras. Neste artigo, vamos explorar como o Ajudda Card está revolucionando o acesso à saúde no país.</p>
+                            <p>A receita eletrônica chegou para modernizar a relação entre médicos, pacientes e farmácias. Através do IBV Card, você tem acesso a consultas médicas que emitem receitas digitais com validade legal. Conheça as principais vantagens:</p>
                             
-                            <h2>O problema do acesso à saúde no Brasil</h2>
-                            <p>Segundo dados do IBGE, mais de 70% da população brasileira depende exclusivamente do SUS para atendimento médico, enquanto apenas 25% possuem planos de saúde privados. Os principais motivos para essa disparidade são:</p>
+                            <h2>Segurança e autenticidade</h2>
+                            <p>Diferente das receitas manuscritas, a versão digital possui:</p>
                             <ul>
-                                <li>Altos custos dos planos de saúde</li>
-                                <li>Carência longa para utilização</li>
-                                <li>Reajustes abusivos anuais</li>
-                                <li>Cobertura limitada por região</li>
+                                <li>Assinatura digital do médico</li>
+                                <li>Certificado digital válido</li>
+                                <li>Impossibilidade de falsificação</li>
+                                <li>Registro no sistema nacional</li>
                             </ul>
                             
-                            <h2>Como o Ajudda Card funciona</h2>
-                            <p>Diferente dos planos de saúde tradicionais, o Ajudda Card oferece:</p>
+                            <h2>Praticidade para o paciente</h2>
+                            <p>Com a receita eletrônica você pode:</p>
                             <ol>
-                                <li><strong>Ativação imediata:</strong> Sem períodos de carência</li>
-                                <li><strong>Preços acessíveis:</strong> Consultas a partir de R$ 50,00</li>
-                                <li><strong>Rede ampla:</strong> Mais de 100 clínicas parceiras</li>
-                                <li><strong>Sem mensalidade:</strong> Pague apenas quando usar</li>
+                                <li><strong>Receber por e-mail ou aplicativo:</strong> Sem risco de perder o papel</li>
+                                <li><strong>Compartilhar facilmente:</strong> Envie para qualquer farmácia em segundos</li>
+                                <li><strong>Armazenar seu histórico:</strong> Todas suas receitas organizadas no app IBV Card</li>
+                                <li><strong>Renovar receitas à distância:</strong> Através da telemedicina</li>
                             </ol>
                             
-                            <h2>Especialidades disponíveis</h2>
-                            <p>Através do Ajudda Card, você pode marcar consultas em diversas especialidades:</p>
+                            <h2>Como acessar pelo IBV Card</h2>
+                            <p>Através do IBV Card você pode:</p>
                             <ul>
-                                <li>Clínico geral</li>
-                                <li>Pediatria</li>
-                                <li>Ginecologia</li>
-                                <li>Cardiologia</li>
-                                <li>Dermatologia</li>
-                                <li>Entre outras</li>
+                                <li>Agendar consultas com médicos que emitem receita digital</li>
+                                <li>Armazenar todas suas receitas em um só lugar</li>
+                                <li>Compartilhar com farmácias parceiras</li>
+                                <li>Receber lembretes para renovação</li>
                             </ul>
                             
-                            <h2>Depoimentos de usuários</h2>
-                            <p><em>"Consegui marcar uma consulta com dermatologista por R$ 60,00, quando normalmente pagaria R$ 200,00. Foi um alívio para meu orçamento."</em> - Maria S., 32 anos</p>
-                            <p><em>"Uso o Ajudda há 6 meses e já economizei mais de R$ 800,00 em consultas para minha família."</em> - João P., 45 anos</p>
-                            
-                            <h2>Como começar a usar</h2>
-                            <p>Para começar a economizar em suas consultas médicas:</p>
-                            <ol>
-                                <li>Baixe o app Ajudda Card</li>
-                                <li>Faça seu cadastro em minutos</li>
-                                <li>Escolha a especialidade e local</li>
-                                <li>Agende sua consulta com desconto</li>
-                            </ol>
-                            
-                            <p>A saúde de qualidade não precisa ser um luxo. Com as soluções certas, você pode cuidar de si e de sua família sem comprometer suas finanças.</p>
+                            <p>A receita eletrônica é mais um avanço da tecnologia em favor da saúde acessível. Com o IBV Card, você tem essa facilidade ao alcance de um clique.</p>
                             
                             <a href="#" class="back-to-blog" id="back-to-blog-1">← Voltar para o blog</a>
                         </div>
@@ -1548,73 +1677,50 @@ color: white;
             },
             {
                 id: 2,
-                title: "Guia completo para economizar em medicamentos essenciais",
-                excerpt: "Conheça estratégias comprovadas para reduzir seus gastos com farmácia sem abrir mão da qualidade dos tratamentos.",
-                category: "dicas",
-                image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef",
+                title: "Telemedicina: como funciona a consulta com psicólogo e psiquiatra online",
+                excerpt: "Conheça os benefícios da terapia e acompanhamento psiquiátrico por telemedicina e como acessar pelo IBV Card.",
+                category: "saude-mental",
+                image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e",
                 author: "Dra. Ana Paula",
-                readTime: "8 min de leitura",
+                readTime: "10 min de leitura",
                 date: "2 Maio 2023",
                 popular: true,
                 content: `
-                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef" alt="Medicamentos" class="article-banner">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e" alt="Telemedicina" class="article-banner">
                     <div class="article-page">
                         <div class="article-header">
-                            <span class="article-category">Dicas</span>
-                            <h1 class="article-page-title">Guia completo para economizar em medicamentos essenciais</h1>
+                            <span class="article-category">Saúde Mental</span>
+                            <h1 class="article-page-title">Telemedicina: como funciona a consulta com psicólogo e psiquiatra online</h1>
                             <div class="article-page-meta">
                                 <span>Por Dra. Ana Paula</span>
                                 <span>2 Maio 2023</span>
-                                <span>8 min de leitura</span>
+                                <span>10 min de leitura</span>
                             </div>
                         </div>
                         
                         <div class="article-page-content">
-                            <p>Os gastos com medicamentos representam uma parcela significativa do orçamento familiar quando há necessidade de tratamentos contínuos. Neste guia, vamos explorar estratégias inteligentes para reduzir esses custos sem comprometer sua saúde.</p>
+                            <p>A telemedicina revolucionou o acesso à saúde mental, permitindo que pacientes recebam atendimento psicológico e psiquiátrico de qualidade no conforto de suas casas. Com o IBV Card, você tem acesso a profissionais especializados por preços acessíveis.</p>
                             
-                            <h2>1. Conheça os programas de desconto</h2>
-                            <p>Muitas farmácias e programas como o Ajudda Card oferecem descontos exclusivos:</p>
+                            <h2>Vantagens da terapia online</h2>
+                            <p>Consultar psicólogos e psiquiatras remotamente oferece:</p>
                             <ul>
-                                <li>Até 40% em medicamentos de uso contínuo</li>
-                                <li>Descontos progressivos conforme uso</li>
-                                <li>Promoções sazonais para estoques</li>
+                                <li><strong>Conforto e privacidade:</strong> Atendimento no ambiente que você se sente melhor</li>
+                                <li><strong>Economia de tempo:</strong> Sem deslocamento até o consultório</li>
+                                <li><strong>Flexibilidade de horários:</strong> Agenda mais ampla de disponibilidade</li>
+                                <li><strong>Continuidade do tratamento:</strong> Mesmo em viagens ou mudanças</li>
+                                <li><strong>Custo-benefício:</strong> Preços mais acessíveis que consultas presenciais</li>
                             </ul>
                             
-                            <h2>2. Opte por genéricos</h2>
-                            <p>Os medicamentos genéricos possuem a mesma eficácia dos de marca, com preços até 70% menores. Algumas vantagens:</p>
-                            <ul>
-                                <li>Mesmo princípio ativo</li>
-                                <li>Mesma dosagem</li>
-                                <li>Mesma via de administração</li>
-                                <li>Mesma indicação terapêutica</li>
-                                <li>Passam pelos mesmos testes de qualidade</li>
-                            </ul>
+                            <h2>Como começar</h2>
+                            <p>Para acessar psicólogos e psiquiatras por telemedicina:</p>
+                            <ol>
+                                <li>Baixe o app IBV Card</li>
+                                <li>Selecione a especialidade desejada</li>
+                                <li>Escolha entre os profissionais disponíveis</li>
+                                <li>Agende seu horário preferido</li>
+                            </ol>
                             
-                            <h2>3. Compre em farmácias populares</h2>
-                            <p>O programa Farmácia Popular do governo oferece medicamentos gratuitos ou com até 90% de desconto para diversas condições crônicas como:</p>
-                            <ul>
-                                <li>Diabetes</li>
-                                <li>Hipertensão</li>
-                                <li>Asma</li>
-                                <li>Osteoporose</li>
-                            </ul>
-                            
-                            <h2>4. Compre a granel</h2>
-                            <p>Para medicamentos de uso contínuo, comprar caixas maiores ou para 3 meses pode gerar economias de até 30%.</p>
-                            
-                            <h2>5. Não compre por impulso</h2>
-                            <p>Evite comprar medicamentos sem orientação médica. Muitas vezes pagamos caro por remédios que não são necessários ou que temos similares mais baratos.</p>
-                            
-                            <h2>6. Utilize o Ajudda Card</h2>
-                            <p>Com o Ajudda Card você tem acesso a:</p>
-                            <ul>
-                                <li>Rede de farmácias parceiras</li>
-                                <li>Descontos exclusivos</li>
-                                <li>Programa de acumulo de pontos</li>
-                                <li>Alertas de promoções</li>
-                            </ul>
-                            
-                            <p>Economizar em medicamentos é possível com informação e planejamento. Comece hoje mesmo a aplicar essas dicas e veja a diferença no seu orçamento.</p>
+                            <p>Cuide da sua saúde mental com a praticidade da telemedicina e os benefícios do IBV Card.</p>
                             
                             <a href="#" class="back-to-blog" id="back-to-blog-2">← Voltar para o blog</a>
                         </div>
@@ -1623,83 +1729,46 @@ color: white;
             },
             {
                 id: 3,
-                title: "Exames preventivos: quais fazer e quando realizar",
-                excerpt: "Um guia por faixa etária para você não negligenciar sua saúde e detectar problemas antes que se tornem graves.",
-                category: "saude",
-                image: "https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe",
-                author: "Dr. Roberto Almeida",
-                readTime: "12 min de leitura",
-                date: "25 Abril 2023",
+                title: "Odontopediatria: cuidados com a saúde bucal das crianças",
+                excerpt: "Saiba quando levar seu filho ao dentista pela primeira vez e como criar hábitos saudáveis desde cedo.",
+                category: "odontologia",
+                image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118",
+                author: "Dra. Fernanda Costa",
+                readTime: "7 min de leitura",
+                date: "10 Abril 2023",
                 popular: true,
                 content: `
-                    <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe" alt="Exames médicos" class="article-banner">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118" alt="Odontopediatria" class="article-banner">
                     <div class="article-page">
                         <div class="article-header">
-                            <span class="article-category">Saúde</span>
-                            <h1 class="article-page-title">Exames preventivos: quais fazer e quando realizar</h1>
+                            <span class="article-category">Odontologia</span>
+                            <h1 class="article-page-title">Odontopediatria: cuidados com a saúde bucal das crianças</h1>
                             <div class="article-page-meta">
-                                <span>Por Dr. Roberto Almeida</span>
-                                <span>25 Abril 2023</span>
-                                <span>12 min de leitura</span>
+                                <span>Por Dra. Fernanda Costa</span>
+                                <span>10 Abril 2023</span>
+                                <span>7 min de leitura</span>
                             </div>
                         </div>
                         
                         <div class="article-page-content">
-                            <p>A medicina preventiva é a forma mais eficaz de manter a saúde em dia e evitar doenças graves. Neste guia completo, vamos detalhar os exames essenciais para cada fase da vida e como o Ajudda Card pode facilitar seu acesso a eles.</p>
+                            <p>A saúde bucal das crianças requer cuidados especiais desde os primeiros meses de vida. Com o IBV Card, você tem acesso a odontopediatras qualificados por preços acessíveis. Confira as orientações essenciais:</p>
                             
-                            <h2>Exames por faixa etária</h2>
-                            
-                            <h3>20-30 anos</h3>
+                            <h2>Cuidados por faixa etária</h2>
+                            <h3>0-2 anos</h3>
                             <ul>
-                                <li><strong>Hemograma completo:</strong> Anual</li>
-                                <li><strong>Glicemia:</strong> A cada 2 anos</li>
-                                <li><strong>Colesterol:</strong> A cada 3 anos</li>
-                                <li><strong>Exames de DSTs:</strong> Conforme risco</li>
-                                <li><strong>Papanicolau (mulheres):</strong> Anual após início da vida sexual</li>
+                                <li>Limpar gengivas com gaze úmida</li>
+                                <li>Escovar dentes com escova infantil macia</li>
+                                <li>Evitar mamadeira noturna com açúcar</li>
                             </ul>
                             
-                            <h3>30-40 anos</h3>
+                            <h3>2-6 anos</h3>
                             <ul>
-                                <li><strong>Todos os anteriores</strong></li>
-                                <li><strong>TSH (tireoide):</strong> A cada 3 anos</li>
-                                <li><strong>Ultrassom de mama (mulheres):</strong> A partir dos 35 anos</li>
-                                <li><strong>PSA (homens):</strong> A partir dos 40 anos</li>
+                                <li>Escovação supervisionada por adulto</li>
+                                <li>Uso de pasta com flúor (quantidade adequada)</li>
+                                <li>Controle da alimentação açucarada</li>
                             </ul>
                             
-                            <h3>40-50 anos</h3>
-                            <ul>
-                                <li><strong>Colonoscopia:</strong> A cada 5 anos</li>
-                                <li><strong>Mamografia (mulheres):</strong> Anual</li>
-                                <li><strong>Densitometria óssea:</strong> A partir dos 45 anos para mulheres</li>
-                                <li><strong>Teste ergométrico:</strong> A cada 2 anos</li>
-                            </ul>
-                            
-                            <h3>Acima de 50 anos</h3>
-                            <ul>
-                                <li><strong>Todos os anteriores com maior frequência</strong></li>
-                                <li><strong>Endoscopia:</strong> A cada 3 anos</li>
-                                <li><strong>Exames de próstata (homens):</strong> Anual</li>
-                                <li><strong>Avaliação cognitiva:</strong> A partir dos 60 anos</li>
-                            </ul>
-                            
-                            <h2>Como economizar em exames preventivos</h2>
-                            <p>Com o Ajudda Card você tem acesso a:</p>
-                            <ul>
-                                <li>Até 50% de desconto em exames laboratoriais</li>
-                                <li>Preços especiais em exames de imagem</li>
-                                <li>Pacotes promocionais para check-ups completos</li>
-                                <li>Agendamento rápido sem burocracia</li>
-                            </ul>
-                            
-                            <h2>Por que a prevenção é importante</h2>
-                            <p>Estudos mostrem que:</p>
-                            <ul>
-                                <li>90% dos casos de câncer têm maior chance de cura quando detectados precocemente</li>
-                                <li>Doenças cardiovasculares podem ser prevenidas com exames simples</li>
-                                <li>Diabetes tipo 2 pode ser evitado com acompanhamento adequado</li>
-                            </ul>
-                            
-                            <p>Não negligencie sua saúde. Agende seus exames preventivos hoje mesmo e garanta uma vida mais longa e saudável.</p>
+                            <p>Investir na saúde bucal das crianças é garantir sorrisos saudáveis para toda a vida. Conte com o IBV Card para esse cuidado essencial.</p>
                             
                             <a href="#" class="back-to-blog" id="back-to-blog-3">← Voltar para o blog</a>
                         </div>
@@ -1708,161 +1777,419 @@ color: white;
             },
             {
                 id: 4,
-                title: "10 benefícios do Ajudda Card para sua família",
-                excerpt: "Descubra como um único cartão pode oferecer benefícios de saúde para toda sua família com economia e praticidade.",
-                category: "dicas",
-                image: "https://images.unsplash.com/photo-1550831107-1553da8c8464",
-                author: "Equipe Ajudda",
-                readTime: "6 min de leitura",
-                date: "10 Abril 2023",
+                title: "Nutrição funcional: alimentação como aliada da saúde",
+                excerpt: "Descubra como a nutrição funcional pode prevenir doenças e melhorar sua qualidade de vida.",
+                category: "nutricao",
+                image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061",
+                author: "Nutricionista Juliana Martins",
+                readTime: "9 min de leitura",
+                date: "5 Abril 2023",
+                popular: true,
                 content: `
-                    <img src="https://images.unsplash.com/photo-1550831107-1553da8c8464" alt="Família saudável" class="article-banner">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061" alt="Nutrição funcional" class="article-banner">
                     <div class="article-page">
                         <div class="article-header">
-                            <span class="article-category">Dicas</span>
-                            <h1 class="article-page-title">10 benefícios do Ajudda Card para sua família</h1>
+                            <span class="article-category">Nutrição</span>
+                            <h1 class="article-page-title">Nutrição funcional: alimentação como aliada da saúde</h1>
                             <div class="article-page-meta">
-                                <span>Por EquipeAjudda</span>
-                                <span>10 Abril 2023</span>
-                                <span>6 min de leitura</span>
-                                </div>
-                                </div>
-                                                    <div class="article-page-content">
-                        <p>O Ajudda Card foi criado para democratizar o acesso à saúde de qualidade para todas as famílias brasileiras. Conheça os principais benefícios que nosso cartão pode oferecer para você e seus familiares.</p>
+                                <span>Por Nutricionista Juliana Martins</span>
+                                <span>5 Abril 2023</span>
+                                <span>9 min de leitura</span>
+                            </div>
+                        </div>
                         
-                        <h2>1. Atendimento para toda a família</h2>
-                        <p>Um único cartão cobre todos os membros da família, sem custos adicionais. Basta cadastrar os dependentes no app e todos terão acesso aos benefícios.</p>
-                        
-                        <h2>2. Consultas a preços acessíveis</h2>
-                        <p>Consultas com especialistas a partir de R$ 50,00, sem mensalidade ou taxas escondidas. Você paga apenas quando usar.</p>
-                        
-                        <h2>3. Rede credenciada ampla</h2>
-                        <p>Mais de 1.000 clínicas e consultórios parceiros em todo o Brasil, com opções próximas à sua casa ou trabalho.</p>
-                        
-                        <h2>4. Descontos em medicamentos</h2>
-                        <p>Até 40% de desconto em farmácias parceiras, tanto para medicamentos de uso contínuo quanto para aqueles de uso eventual.</p>
-                        
-                        <h2>5. Exames com até 50% off</h2>
-                        <p>Preços especiais em exames laboratoriais e de imagem em laboratórios conveniados em todo o país.</p>
-                        
-                        <h2>6. Sem carência</h2>
-                        <p>Diferente dos planos de saúde tradicionais, você pode usar seu Ajudda Card imediatamente após a ativação.</p>
-                        
-                        <h2>7. Atendimento 24h</h2>
-                        <p>Telemedicina disponível 24 horas por dia, 7 dias por semana, para tirar dúvidas e receber orientações médicas.</p>
-                        
-                        <h2>8. Programa de prevenção</h2>
-                        <p>Acesso a conteúdo exclusivo e lembretes para exames preventivos de acordo com a idade e perfil de cada familiar.</p>
-                        
-                        <h2>9. App integrado</h2>
-                        <p>Agendamento de consultas, resultados de exames e histórico médico tudo em um só lugar, com praticidade e segurança.</p>
-                        
-                        <h2>10. Sem burocracia</h2>
-                        <p>Sem questionários médicos complicados ou processos demorados. Cadastro simples e rápido.</p>
-                        
-                        <h2>Depoimento de clientes</h2>
-                        <p><em>"Com o Ajudda Card consegui levar meus dois filhos ao pediatra por menos da metade do preço que pagava antes."</em> - Carla R., 28 anos</p>
-                        <p><em>"Minha mãe idosa faz todos os exames dela com desconto pelo cartão. Foi a melhor solução que encontramos."</em> - Marcos T., 42 anos</p>
-                        
-                        <h2>Como adquirir seu Ajudda Card</h2>
-                        <ol>
-                            <li>Baixe o app Ajudda Card na Play Store ou App Store</li>
-                            <li>Faça seu cadastro em menos de 5 minutos</li>
-                            <li>Adicione seus familiares como dependentes</li>
-                            <li>Comece a usar imediatamente</li>
-                        </ol>
-                        
-                        <p>Não deixe que o custo seja um impedimento para cuidar da saúde de quem você ama. Com o Ajudda Card, saúde de qualidade cabe no seu orçamento.</p>
-                        
-                        <a href="#" class="back-to-blog" id="back-to-blog-4">← Voltar para o blog</a>
-                    </div>
-                </div>
-            `
-        },
-        {
-            id: 5,
-            title: "Alimentação saudável com baixo custo: é possível?",
-            excerpt: "Aprenda a montar uma dieta nutritiva sem gastar muito e descubra como pequenas mudanças podem melhorar sua saúde.",
-            category: "bem-estar",
-            image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061",
-            author: "Nutricionista Juliana Martins",
-            readTime: "9 min de leitura",
-            date: "5 Abril 2023",
-            popular: true,
-            content: `
-                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061" alt="Alimentação saudável" class="article-banner">
-                <div class="article-page">
-                    <div class="article-header">
-                        <span class="article-category">Bem-estar</span>
-                        <h1 class="article-page-title">Alimentação saudável com baixo custo: é possível?</h1>
-                        <div class="article-page-meta">
-                            <span>Por Nutricionista Juliana Martins</span>
-                            <span>5 Abril 2023</span>
-                            <span>9 min de leitura</span>
+                        <div class="article-page-content">
+                            <p>A nutrição funcional vai além da contagem de calorias, focando na qualidade dos alimentos e seus efeitos no organismo. Com o IBV Card, você tem acesso a nutricionistas especializados para um plano alimentar personalizado.</p>
+                            
+                            <h2>Princípios da nutrição funcional</h2>
+                            <ul>
+                                <li>Individualização bioquímica</li>
+                                <li>Foco na qualidade nutricional</li>
+                                <li>Equilíbrio entre nutrientes</li>
+                                <li>Alimentos como remédios</li>
+                            </ul>
+                            
+                            <h2>Benefícios</h2>
+                            <p>Melhora em diversos aspectos da saúde:</p>
+                            <ul>
+                                <li>Digestão e saúde intestinal</li>
+                                <li>Níveis de energia</li>
+                                <li>Controle de peso</li>
+                                <li>Prevenção de doenças crônicas</li>
+                            </ul>
+                            
+                            <p>Com o IBV Card, você tem acesso a nutricionistas especializados em funcional por preços acessíveis.</p>
+                            
+                            <a href="#" class="back-to-blog" id="back-to-blog-4">← Voltar para o blog</a>
                         </div>
                     </div>
-                    
-                    <div class="article-page-content">
-                        <p>Muitas pessoas acreditam que se alimentar bem é sinônimo de gastar muito, mas isso não é verdade. Com planejamento e conhecimento, é possível ter uma dieta balanceada mesmo com orçamento limitado.</p>
+                `
+            },
+            {
+                id: 5,
+                title: "Exercícios em casa: guia completo para manter a forma",
+                excerpt: "Veja como montar uma rotina de exercícios eficiente sem sair de casa e com equipamentos simples.",
+                category: "bem-estar",
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b",
+                author: "Prof. Rodrigo Campos",
+                readTime: "11 min de leitura",
+                date: "28 Março 2023",
+                popular: true,
+                content: `
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b" alt="Exercícios em casa" class="article-banner">
+                    <div class="article-page">
+                        <div class="article-header">
+                            <span class="article-category">Bem-estar</span>
+                            <h1 class="article-page-title">Exercícios em casa: guia completo para manter a forma</h1>
+                            <div class="article-page-meta">
+                                <span>Por Prof. Rodrigo Campos</span>
+                                <span>28 Março 2023</span>
+                                <span>11 min de leitura</span>
+                            </div>
+                        </div>
                         
-                        <h2>1. Planejamento é fundamental</h2>
-                        <p>Antes de ir ao mercado:</p>
-                        <ul>
-                            <li>Faça um cardápio semanal</li>
-                            <li>Verifique o que já tem em casa</li>
-                            <li>Monte uma lista apenas do necessário</li>
-                            <li>Evite ir ao mercado com fome</li>
-                        </ul>
-                        
-                        <h2>2. Invista em alimentos básicos e versáteis</h2>
-                        <p>Alguns alimentos oferecem excelente custo-benefício nutricional:</p>
-                        <ul>
-                            <li>Arroz integral</li>
-                            <li>Feijão e outras leguminosas</li>
-                            <li>Ovos</li>
-                            <li>Banana</li>
-                            <li>Batata doce</li>
-                            <li>Couve</li>
-                            <li>Abóbora</li>
-                        </ul>
-                        
-                        <h2>3. Compre da época e local</h2>
-                        <p>Frutas e verduras da safra são mais baratas e nutritivas. Consulte o calendário de safras da sua região.</p>
-                        
-                        <h2>4. Aproveite integralmente os alimentos</h2>
-                        <p>Muitas partes que costumamos descartar são comestíveis e nutritivas:</p>
-                        <ul>
-                            <li>Talos de couve, brócolis e beterraba</li>
-                            <li>Cascas de banana, abóbora e batata</li>
-                            <li>Sementes de abóbora e melancia</li>
-                        </ul>
-                        
-                        <h2>5. Prepare suas refeições em casa</h2>
-                        <p>Cozinhar em casa é mais barato e saudável. Dedique algumas horas no fim de semana para preparar e congelar porções.</p>
-                        
-                        <h2>6. Compare preços e compre a granel</h2>
-                        <p>Produtos não perecíveis como grãos, farinhas e castanhas saem mais baratos quando comprados em quantidades maiores.</p>
-                        
-                        <h2>7. Hidrate-se corretamente</h2>
-                        <p>Substitua refrigerantes e sucos industrializados por água, chás naturais e água saborizada com frutas.</p>
-                        
-                        <h2>8. Utilize o Ajudda Card para consultas nutricionais</h2>
-                        <p>Com o Ajudda Card você tem acesso a:</p>
-                        <ul>
-                            <li>Nutricionistas por preços acessíveis</li>
-                            <li>Planos alimentares personalizados</li>
-                            <li>Acompanhamento nutricional</li>
-                            <li>Descontos em lojas de produtos naturais</li>
-                        </ul>
-                        
-                        <p>Alimentação saudável não precisa ser cara. Com essas dicas você pode melhorar sua dieta e sua saúde sem pesar no bolso.</p>
-                        
-                        <a href="#" class="back-to-blog" id="back-to-blog-5">← Voltar para o blog</a>
+                        <div class="article-page-content">
+                            <p>Manter-se ativo em casa é possível e eficaz quando feito corretamente. Com o IBV Card, você pode complementar seus exercícios com acompanhamento de profissionais de educação física por telemedicina.</p>
+                            
+                            <h2>Rotina básica para iniciantes</h2>
+                            <p>Treino de 30 minutos, 3x por semana:</p>
+                            <ul>
+                                <li>Agachamento: 3 séries de 12 repetições</li>
+                                <li>Flexão de braço (na parede ou no chão): 3x10</li>
+                                <li>Prancha abdominal: 3x30 segundos</li>
+                                <li>Elevação de panturrilha: 3x15</li>
+                            </ul>
+                            
+                            <h2>Equipamentos acessíveis</h2>
+                            <p>O que você pode usar:</p>
+                            <ul>
+                                <li>Garrafas pet como pesos</li>
+                                <li>Cadeira para exercícios de tríceps</li>
+                                <li>Toalha como tapete de yoga</li>
+                                <li>Elásticos de resistência</li>
+                            </ul>
+                            
+                            <p>Com o IBV Card, você tem acesso a profissionais que podem criar rotinas personalizadas para suas necessidades.</p>
+                            
+                            <a href="#" class="back-to-blog" id="back-to-blog-5">← Voltar para o blog</a>
+                        </div>
                     </div>
-                </div>
-            `
+                `
+            },
+            {
+                id: 6,
+                title: "Meditação para iniciantes: como começar hoje mesmo",
+                excerpt: "Aprenda técnicas simples de meditação para reduzir o estresse e melhorar sua qualidade de vida.",
+                category: "saude-mental",
+                image: "https://images.unsplash.com/photo-1533367613692-1d5c0e5f8b1c",
+                author: "Terapeuta Maria Lúcia",
+                readTime: "6 min de leitura",
+                date: "20 Março 2023",
+                popular: true,
+                content: `
+                    <img src="https://images.unsplash.com/photo-1533367613692-1d5c0e5f8b1c" alt="Meditação" class="article-banner">
+                    <div class="article-page">
+                        <div class="article-header">
+                            <span class="article-category">Saúde Mental</span>
+                            <h1 class="article-page-title">Meditação para iniciantes: como começar hoje mesmo</h1>
+                            <div class="article-page-meta">
+                                <span>Por Terapeuta Maria Lúcia</span>
+                                <span>20 Março 2023</span>
+                                <span>6 min de leitura</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-page-content">
+                            <p>A meditação é uma prática acessível a todos, que traz benefícios comprovados para a saúde mental e física. Com o IBV Card, você pode ter acesso a guias de meditação e profissionais especializados.</p>
+                            
+                            <h2>Técnica básica para começar</h2>
+                            <p>Passo a passo para sua primeira meditação:</p>
+                            <ol>
+                                <li>Sente-se confortavelmente com a coluna ereta</li>
+                                <li>Feche os olhos e respire profundamente</li>
+                                <li>Concentre-se na sensação da respiração</li>
+                                <li>Quando a mente divagar, traga-a de volta suavemente</li>
+                                <li>Comece com 5 minutos e aumente gradualmente</li>
+                            </ol>
+                            
+                            <p>Através do IBV Card, você pode acessar sessões guiadas de meditação com profissionais especializados.</p>
+                            
+                            <a href="#" class="back-to-blog" id="back-to-blog-6">← Voltar para o blog</a>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 7,
+                title: "Check-up preventivo: quais exames fazer por faixa etária",
+                excerpt: "Guia completo dos exames essenciais para cada fase da vida e como o IBV Card facilita o acesso.",
+                category: "prevencao",
+                image: "https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe",
+                author: "Dr. Roberto Almeida",
+                readTime: "12 min de leitura",
+                date: "15 Março 2023",
+                popular: true,
+                content: `
+                    <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe" alt="Check-up preventivo" class="article-banner">
+                    <div class="article-page">
+                        <div class="article-header">
+                            <span class="article-category">Prevenção</span>
+                            <h1 class="article-page-title">Check-up preventivo: quais exames fazer por faixa etária</h1>
+                            <div class="article-page-meta">
+                                <span>Por Dr. Roberto Almeida</span>
+                                <span>15 Março 2023</span>
+                                <span>12 min de leitura</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-page-content">
+                            <p>Prevenir é sempre melhor que remediar. Com o IBV Card, você tem acesso a exames preventivos com descontos especiais. Confira o guia por faixa etária:</p>
+                            
+                            <h2>Exames essenciais</h2>
+                            <h3>20-30 anos</h3>
+                            <ul>
+                                <li>Hemograma completo</li>
+                                <li>Glicemia em jejum</li>
+                                <li>Perfil lipídico</li>
+                            </ul>
+                            
+                            <h3>30-40 anos</h3>
+                            <ul>
+                                <li>Todos os anteriores</li>
+                                <li>Exames de tireoide</li>
+                                <li>Ultrassom de abdômen</li>
+                            </ul>
+                            
+                            <p>Com o IBV Card, você agenda seus exames preventivos com facilidade e economia.</p>
+                            
+                            <a href="#" class="back-to-blog" id="back-to-blog-7">← Voltar para o blog</a>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 8,
+                title: "Ortodontia adulta: nunca é tarde para corrigir a arcada",
+                excerpt: "Conheça as opções de tratamento ortodôntico para adultos e como melhorar sua saúde bucal.",
+                category: "odontologia",
+                image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5",
+                author: "Dra. Carla Mendes",
+                readTime: "8 min de leitura",
+                date: "10 Março 2023",
+                popular: true,
+                content: `
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" alt="Ortodontia adulta" class="article-banner">
+                    <div class="article-page">
+                        <div class="article-header">
+                            <span class="article-category">Odontologia</span>
+                            <h1 class="article-page-title">Ortodontia adulta: nunca é tarde para corrigir a arcada</h1>
+                            <div class="article-page-meta">
+                                <span>Por Dra. Carla Mendes</span>
+                                <span>10 Março 2023</span>
+                                <span>8 min de leitura</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-page-content">
+                            <p>A correção da arcada dentária não tem idade. Com o IBV Card, você tem acesso a ortodontistas qualificados e opções de tratamento acessíveis.</p>
+                            
+                            <h2>Opções de tratamento</h2>
+                            <ul>
+                                <li>Aparelhos metálicos tradicionais</li>
+                                <li>Aparelhos estéticos</li>
+                                <li>Alinhadores invisíveis</li>
+                                <li>Tratamentos rápidos</li>
+                            </ul>
+                            
+                            <p>Agende uma avaliação com um ortodontista credenciado pelo IBV Card.</p>
+                            
+                            <a href="#" class="back-to-blog" id="back-to-blog-8">← Voltar para o blog</a>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 9,
+                title: "Suplementação alimentar: quando é realmente necessária?",
+                excerpt: "Entenda quando os suplementos podem ajudar sua saúde e quando são dispensáveis.",
+                category: "nutricao",
+                image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+                author: "Nutricionista Rafael Souza",
+                readTime: "9 min de leitura",
+                date: "5 Março 2023",
+                popular: true,
+                content: `
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Suplementação alimentar" class="article-banner">
+                    <div class="article-page">
+                        <div class="article-header">
+                            <span class="article-category">Nutrição</span>
+                            <h1 class="article-page-title">Suplementação alimentar: quando é realmente necessária?</h1>
+                            <div class="article-page-meta">
+                                <span>Por Nutricionista Rafael Souza</span>
+                                <span>5 Março 2023</span>
+                                <span>9 min de leitura</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-page-content">
+                            <p>Os suplementos alimentares podem ser aliados da saúde quando usados corretamente. Com o IBV Card, você tem acesso a nutricionistas que podem indicar a suplementação adequada para suas necessidades.</p>
+                            
+                            <h2>Quando suplementar?</h2>
+                            <ul>
+                                <li>Deficiências nutricionais comprovadas</li>
+                                <li>Dietas restritivas</li>
+                                <li>Aumento de demanda nutricional</li>
+                                <li>Dificuldade de absorção de nutrientes</li>
+                            </ul>
+                            
+                            <p>Consulte um nutricionista credenciado pelo IBV Card antes de iniciar qualquer suplementação.</p>
+                            
+                            <a href="#" class="back-to-blog" id="back-to-blog-9">← Voltar para o blog</a>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 10,
+                title: "Yoga para iniciantes: benefícios e primeiras posturas",
+                excerpt: "Descubra como começar na yoga e transformar sua saúde física e mental.",
+                category: "bem-estar",
+                image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597",
+                author: "Instrutor Pedro Santos",
+                readTime: "7 min de leitura",
+                date: "28 Fevereiro 2023",
+                popular: true,
+                content: `
+                    <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597" alt="Yoga para iniciantes" class="article-banner">
+                    <div class="article-page">
+                        <div class="article-header">
+                            <span class="article-category">Bem-estar</span>
+                            <h1 class="article-page-title">Yoga para iniciantes: benefícios e primeiras posturas</h1>
+                            <div class="article-page-meta">
+                                <span>Por Instrutor Pedro Santos</span>
+                                <span>28 Fevereiro 2023</span>
+                                <span>7 min de leitura</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-page-content">
+                            <p>A yoga é uma prática milenar que une corpo e mente. Com o IBV Card, você tem acesso a instrutores qualificados para guiar seus primeiros passos.</p>
+                            
+                            <h2>Posturas iniciais</h2>
+                            <ul>
+                                <li>Postura da montanha (Tadasana)</li>
+                                <li>Postura da criança (Balasana)</li>
+                                <li>Postura do gato-vaca (Marjaryasana/Bitilasana)</li>
+                                <li>Postura da árvore (Vrksasana)</li>
+                            </ul>
+                            
+                            <p>Agende uma aula experimental com um instrutor credenciado pelo IBV Card.</p>
+                            
+                            <a href="#" class="back-to-blog" id="back-to-blog-10">← Voltar para o blog</a>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 11,
+                title: "Dermatologia: cuidados com a pele em cada estação",
+                excerpt: "Aprenda a adaptar sua rotina de cuidados com a pele conforme as mudanças climáticas.",
+                category: "estetica",
+                image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e",
+                author: "Dra. Patrícia Lima",
+                readTime: "8 min de leitura",
+                date: "20 Fevereiro 2023",
+                popular: true,
+                content: `
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e" alt="Cuidados com a pele" class="article-banner">
+                    <div class="article-page">
+                        <div class="article-header">
+                            <span class="article-category">Estética</span>
+                            <h1 class="article-page-title">Dermatologia: cuidados com a pele em cada estação</h1>
+                            <div class="article-page-meta">
+                                <span>Por Dra. Patrícia Lima</span>
+                                <span>20 Fevereiro 2023</span>
+                                <span>8 min de leitura</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-page-content">
+                            <p>Sua pele precisa de cuidados diferentes em cada época do ano. Com o IBV Card, você tem acesso a dermatologistas que podem criar rotinas personalizadas para seu tipo de pele.</p>
+                            
+                            <h2>Rotina básica</h2>
+                            <ul>
+                                <li>Limpeza adequada</li>
+                                <li>Hidratação específica</li>
+                                <li>Proteção solar</li>
+                                <li>Tratamentos sazonais</li>
+                            </ul>
+                            
+                            <p>Agende uma consulta com um dermatologista credenciado pelo IBV Card.</p>
+                            
+                            <a href="#" class="back-to-blog" id="back-to-blog-11">← Voltar para o blog</a>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 12,
+                title: "Acupuntura: benefícios para saúde física e mental",
+                excerpt: "Conheça como a medicina tradicional chinesa pode complementar seu tratamento de saúde.",
+                category: "terapias",
+                image: "https://images.unsplash.com/photo-1581595219315-a187dd40c322",
+                author: "Terapeuta Luiz Chen",
+                readTime: "7 min de leitura",
+                date: "15 Fevereiro 2023",
+                popular: true,
+                content: `
+                    <img src="https://images.unsplash.com/photo-1581595219315-a187dd40c322" alt="Acupuntura" class="article-banner">
+                    <div class="article-page">
+                        <div class="article-header">
+                            <span class="article-category">Terapias</span>
+                            <h1 class="article-page-title">Acupuntura: benefícios para saúde física e mental</h1>
+                            <div class="article-page-meta">
+                                <span>Por Terapeuta Luiz Chen</span>
+                                <span>15 Fevereiro 2023</span>
+                                <span>7 min de leitura</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-page-content">
+                            <p>A acupuntura é uma terapia milenar que pode tratar diversos problemas de saúde. Com o IBV Card, você tem acesso a acupunturistas qualificados por preços acessíveis.</p>
+                            
+                            <h2>Indicações</h2>
+                            <ul>
+                                <li>Dores crônicas</li>
+                                <li>Estresse e ansiedade</li>
+                                <li>Distúrbios do sono</li>
+                                <li>Problemas digestivos</li>
+                            </ul>
+                            
+                            <p>Agende uma sessão com um acupunturista credenciado pelo IBV Card.</p>
+                            
+                            <a href="#" class="back-to-blog" id="back-to-blog-12">← Voltar para o blog</a>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        // Atualize a função getCategoryName para incluir as novas categorias
+        function getCategoryName(category) {
+            const names = {
+                'tecnologia': 'Tecnologia',
+                'saude-mental': 'Saúde Mental',
+                'odontologia': 'Odontologia',
+                'nutricao': 'Nutrição',
+                'bem-estar': 'Bem-estar',
+                'prevencao': 'Prevenção',
+                'estetica': 'Estética',
+                'terapias': 'Terapias',
+                'sobre': 'Sobre Nós',
+                'contato': 'Contato'
+            };
+            return names[category] || category;
         }
-    ];
 
      // Configurações de paginação
      const articlesPerPage = 3;
@@ -1872,51 +2199,54 @@ color: white;
 
     // Função principal para renderizar artigos com paginação
     function renderArticles(filteredArticles = articles) {
-        const articlesContainer = document.getElementById('articles-container');
-        articlesContainer.innerHTML = '';
-        
-        // Calcula os artigos para a página atual
-        const startIndex = (currentPage - 1) * articlesPerPage;
-        const endIndex = startIndex + articlesPerPage;
-        const paginatedArticles = filteredArticles.slice(startIndex, endIndex);
-        
-        if (paginatedArticles.length === 0) {
-            articlesContainer.innerHTML = `
-                <div class="message">
-                    <p>Nenhum artigo encontrado. Tente ajustar sua busca ou filtro.</p>
-                </div>
-            `;
-            return;
-        }
-        
-        paginatedArticles.forEach(article => {
-            const articleElement = document.createElement('article');
-            articleElement.className = 'article-card';
-            articleElement.dataset.id = article.id;
-            articleElement.dataset.category = article.category;
-            
-            articleElement.innerHTML = `
-                <img src="${article.image}" alt="${article.title}" class="article-image">
-                <div class="article-content">
-                    <span class="article-category">${getCategoryName(article.category)}</span>
-                    <h2 class="article-title">${article.title}</h2>
-                    <p class="article-excerpt">${article.excerpt}</p>
-                    <div class="article-meta">
-                        <span>${article.author}</span>
-                        <span>${article.date}</span>
-                        <span>${article.readTime}</span>
-                    </div>
-                </div>
-            `;
-            
-            articleElement.addEventListener('click', () => showArticle(article.id));
-            articlesContainer.appendChild(articleElement);
-        });
-        
-        // Renderiza a paginação
-        renderPagination(filteredArticles.length);
+    const articlesContainer = document.getElementById('articles-container');
+    articlesContainer.innerHTML = '';
+    
+    const paginatedArticles = filteredArticles.slice(
+        (currentPage - 1) * articlesPerPage,
+        currentPage * articlesPerPage
+    );
+    
+    if (paginatedArticles.length === 0) {
+        articlesContainer.innerHTML = `
+            <div class="message">
+                <p>Nenhum artigo encontrado. Tente ajustar sua busca ou filtro.</p>
+            </div>
+        `;
+        return;
     }
-
+    
+    // Cria um container flexível para os artigos
+    const articlesGrid = document.createElement('div');
+    articlesGrid.className = 'articles-grid';
+    
+    paginatedArticles.forEach(article => {
+        const articleElement = document.createElement('article');
+        articleElement.className = 'article-card';
+        articleElement.dataset.id = article.id;
+        articleElement.dataset.category = article.category;
+        
+        articleElement.innerHTML = `
+            <img src="${article.image}" alt="${article.title}" class="article-image">
+            <div class="article-content">
+                <span class="article-category">${getCategoryName(article.category)}</span>
+                <h2 class="article-title">${article.title}</h2>
+                <p class="article-excerpt">${article.excerpt}</p>
+                <div class="article-meta">
+                    <span>${article.author}</span>
+                    <span>${article.date}</span>
+                    <span>${article.readTime}</span>
+                </div>
+            </div>
+        `;
+        
+        articleElement.addEventListener('click', () => showArticle(article.id));
+        articlesGrid.appendChild(articleElement);
+    });
+    
+    articlesContainer.appendChild(articlesGrid);
+    renderPagination(filteredArticles.length);
+}
     // Função para renderizar os controles de paginação
     function renderPagination(totalArticles) {
         const totalPages = Math.ceil(totalArticles / articlesPerPage);
@@ -2035,77 +2365,139 @@ color: white;
 
     // Funções auxiliares para renderizar sidebar (popular posts e categorias)
     function renderPopularPosts() {
-        const popularPostsContainer = document.getElementById('popular-posts');
-        popularPostsContainer.innerHTML = '';
+    const popularPostsContainer = document.getElementById('popular-posts');
+    popularPostsContainer.innerHTML = '';
+    
+    // Pegar apenas os 4 primeiros artigos populares
+    const popularArticles = articles.filter(article => article.popular).slice(0, 4);
+    
+    popularArticles.forEach(article => {
+        const postElement = document.createElement('a');
+        postElement.className = 'popular-post';
+        postElement.href = '#';
+        postElement.dataset.id = article.id;
         
-        const popularArticles = articles.filter(article => article.popular);
+        postElement.innerHTML = `
+            <img src="${article.image}" alt="${article.title}">
+            <div>
+                <h4 class="popular-post-title">${article.title}</h4>
+                <span class="popular-post-date">${article.date}</span>
+            </div>
+        `;
         
-        popularArticles.forEach(article => {
-            const postElement = document.createElement('a');
-            postElement.className = 'popular-post';
-            postElement.href = '#';
-            postElement.dataset.id = article.id;
-            
-            postElement.innerHTML = `
-                <img src="${article.image}" alt="${article.title}">
-                <div>
-                    <h4 class="popular-post-title">${article.title}</h4>
-                    <span class="popular-post-date">${article.date}</span>
-                </div>
-            `;
-            
-            postElement.addEventListener('click', (e) => {
-                e.preventDefault();
-                showArticle(article.id);
-            });
-            
-            popularPostsContainer.appendChild(postElement);
+        postElement.addEventListener('click', (e) => {
+            e.preventDefault();
+            showArticle(article.id);
         });
-    }
+        
+        popularPostsContainer.appendChild(postElement);
+    });
+}
 
-    function renderCategories() {
-        const categoriesContainer = document.getElementById('categories-list');
-        categoriesContainer.innerHTML = '';
-        
-        const categories = {};
-        articles.forEach(article => {
-            categories[article.category] = (categories[article.category] || 0) + 1;
-        });
-        
-        // Adiciona a opção "Todas"
-        const allItem = document.createElement('li');
-        allItem.innerHTML = `
-            <a href="#" class="category-link active" data-category="all">
-                Todas
-                <span class="category-count">${articles.length}</span>
+function renderCategories() {
+    const categoriesContainer = document.getElementById('categories-list');
+    categoriesContainer.innerHTML = '';
+    
+    const categories = {};
+    articles.forEach(article => {
+        categories[article.category] = (categories[article.category] || 0) + 1;
+    });
+    
+    // Adiciona a opção "Todas"
+    const allItem = document.createElement('li');
+    allItem.innerHTML = `
+        <a href="#" class="category-link active" data-category="all">
+            Todas
+            <span class="category-count">${articles.length}</span>
+        </a>
+    `;
+    allItem.addEventListener('click', (e) => {
+        e.preventDefault();
+        filterByCategory('all');
+        document.querySelectorAll('.category-link').forEach(link => link.classList.remove('active'));
+        e.target.classList.add('active');
+    });
+    categoriesContainer.appendChild(allItem);
+    
+    // Converter categorias em array e ordenar
+    const categoriesArray = Object.entries(categories).sort((a, b) => b[1] - a[1]);
+    
+    // Mostrar apenas as 5 primeiras categorias inicialmente
+    const initialCategories = categoriesArray.slice(0, 5);
+    const remainingCategories = categoriesArray.slice(5);
+    
+    // Adiciona as categorias iniciais
+    initialCategories.forEach(([category, count]) => {
+        addCategoryItem(categoriesContainer, category, count);
+    });
+    
+    // Adiciona o botão "Mostrar mais" se houver categorias restantes
+    if (remainingCategories.length > 0) {
+        const showMoreItem = document.createElement('li');
+        showMoreItem.className = 'show-more-container';
+        showMoreItem.innerHTML = `
+            <a href="#" class="category-link show-more-link">
+                Mostrar mais <i class="bi bi-chevron-down"></i>
             </a>
         `;
-        allItem.addEventListener('click', (e) => {
-            e.preventDefault();
-            filterByCategory('all');
-            document.querySelectorAll('.category-link').forEach(link => link.classList.remove('active'));
-            e.target.classList.add('active');
-        });
-        categoriesContainer.appendChild(allItem);
         
-        // Adiciona as demais categorias
-        for (const category in categories) {
-            const item = document.createElement('li');
-            item.innerHTML = `
-                <a href="#" class="category-link" data-category="${category}">
-                    ${getCategoryName(category)}
-                    <span class="category-count">${categories[category]}</span>
-                </a>
-            `;
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                filterByCategory(category);
-                document.querySelectorAll('.category-link').forEach(link => link.classList.remove('active'));
-                e.target.classList.add('active');
-            });
-            categoriesContainer.appendChild(item);
-        }
+        let expanded = false;
+        
+        showMoreItem.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (!expanded) {
+                // Adiciona as categorias restantes
+                remainingCategories.forEach(([category, count]) => {
+                    addCategoryItem(categoriesContainer, category, count);
+                });
+                
+                // Atualiza o link para "Mostrar menos"
+                this.innerHTML = `
+                    <a href="#" class="category-link show-less-link">
+                        Mostrar menos <i class="bi bi-chevron-up"></i>
+                    </a>
+                `;
+                
+                expanded = true;
+            } else {
+                // Remove apenas as categorias adicionais (mantém as 5 primeiras + "Todas")
+                const items = categoriesContainer.querySelectorAll('li');
+                for (let i = 6; i < items.length; i++) {
+                    categoriesContainer.removeChild(items[i]);
+                }
+                
+                // Restaura o "Mostrar mais"
+                this.innerHTML = `
+                    <a href="#" class="category-link show-more-link">
+                        Mostrar mais <i class="bi bi-chevron-down"></i>
+                    </a>
+                `;
+                
+                expanded = false;
+            }
+        });
+        
+        categoriesContainer.appendChild(showMoreItem);
     }
+}
+// Função auxiliar para adicionar itens de categoria
+function addCategoryItem(container, category, count) {
+    const item = document.createElement('li');
+    item.innerHTML = `
+        <a href="#" class="category-link" data-category="${category}">
+            ${getCategoryName(category)}
+            <span class="category-count">${count}</span>
+        </a>
+    `;
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+        filterByCategory(category);
+        document.querySelectorAll('.category-link').forEach(link => link.classList.remove('active'));
+        e.target.classList.add('active');
+    });
+    container.appendChild(item);
+}
 
     function getCategoryName(category) {
         const names = {
